@@ -41,11 +41,12 @@
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   border-radius: 0;
+  background-color: var(--oai-surface-primary);
 }
 
 .oai-tabs__list--underline .oai-tabs__tab--active {
-  color: var(--oai-primary-500);
-  border-bottom-color: var(--oai-primary-500);
+  color: var(--oai-primary-700);
+  border-bottom-color: var(--oai-primary-700);
 }
 
 .oai-tabs__list--underline .oai-tabs__tab:hover:not(.oai-tabs__tab--active) {

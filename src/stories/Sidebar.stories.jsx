@@ -1,25 +1,41 @@
 import { fn } from 'storybook/test';
 import { Sidebar } from './Sidebar';
+import { Icons } from './icons';
+import { Avatar } from './Avatar';
 
 const sampleItems = [
   {
-    title: 'Main',
     items: [
-      { id: 'dashboard', label: 'Dashboard', icon: '📊', onClick: fn() },
-      { id: 'campaigns', label: 'Campaigns', icon: '📧', onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: '🏪', onClick: fn() },
-      { id: 'analytics', label: 'Analytics', icon: '📈', onClick: fn() },
-    ],
-  },
-  {
-    title: 'Manage',
-    items: [
-      { id: 'templates', label: 'Templates', icon: '📝', onClick: fn() },
-      { id: 'contacts', label: 'Contacts', icon: '👥', onClick: fn() },
-      { id: 'settings', label: 'Settings', icon: '⚙️', onClick: fn() },
+      { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
+      { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
+      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+      { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
     ],
   },
 ];
+
+const footerNav = (
+  <ul className="oai-sidebar__list">
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon">{Icons.contacts}</span>
+        <span className="oai-sidebar__label">Support</span>
+      </button>
+    </li>
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon">{Icons.settings}</span>
+        <span className="oai-sidebar__label">Settings</span>
+      </button>
+    </li>
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
+        <span className="oai-sidebar__label">Jane Doe</span>
+      </button>
+    </li>
+  </ul>
+);
 
 export default {
   title: 'Layout/Sidebar',
@@ -39,6 +55,16 @@ export const Default = {
   args: {
     items: sampleItems,
     activeItem: 'dashboard',
+    header: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
+        <Avatar initials="OA" size="small" />
+        <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--oai-text-primary)' }}>Outreach AI</span>
+        <span style={{ marginLeft: 'auto', display: 'flex', gap: '8px', color: 'var(--oai-text-disabled)' }}>
+          {Icons.settings}
+        </span>
+      </div>
+    ),
+    footer: footerNav,
   },
 };
 
@@ -50,14 +76,27 @@ export const Collapsed = {
   },
 };
 
-export const WithHeader = {
+export const WithSections = {
   args: {
-    items: sampleItems,
-    activeItem: 'brands',
-    header: (
-      <div style={{ color: '#fff', fontWeight: 700, fontSize: '16px' }}>
-        Outreach AI
-      </div>
-    ),
+    items: [
+      {
+        title: 'Workspace',
+        items: [
+          { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
+          { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
+          { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+        ],
+      },
+      {
+        title: 'Manage',
+        items: [
+          { id: 'templates', label: 'Templates', icon: Icons.templates, onClick: fn() },
+          { id: 'contacts', label: 'Contacts', icon: Icons.contacts, onClick: fn() },
+          { id: 'settings', label: 'Settings', icon: Icons.settings, onClick: fn() },
+        ],
+      },
+    ],
+    activeItem: 'dashboard',
+    footer: footerNav,
   },
 };
