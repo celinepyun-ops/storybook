@@ -1,30 +1,88 @@
-.storybook-button {
-  display: inline-block;
+.oai-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border: 0;
-  border-radius: 3em;
-  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: var(--oai-radius-md);
+  font-weight: var(--oai-font-semibold);
+  font-family: var(--oai-font-sans);
   line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: background-color var(--oai-transition-fast), border-color var(--oai-transition-fast), box-shadow var(--oai-transition-fast);
 }
-.storybook-button--primary {
-  background-color: #555ab9;
-  color: white;
+
+.oai-button:focus-visible {
+  outline: none;
+  box-shadow: var(--oai-shadow-focus);
 }
-.storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+
+.oai-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Variants ─────────────────────────────────────── */
+.oai-button--primary {
+  background-color: var(--oai-btn-primary-bg);
+  color: var(--oai-btn-primary-text);
+}
+
+.oai-button--primary:hover:not(:disabled) {
+  background-color: var(--oai-btn-primary-hover);
+}
+
+.oai-button--secondary {
+  background-color: var(--oai-btn-secondary-bg);
+  color: var(--oai-btn-secondary-text);
+}
+
+.oai-button--secondary:hover:not(:disabled) {
+  background-color: var(--oai-btn-secondary-hover);
+}
+
+.oai-button--outline {
   background-color: transparent;
-  color: #333;
+  border-color: var(--oai-btn-outline-border);
+  color: var(--oai-btn-outline-text);
 }
-.storybook-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
+
+.oai-button--outline:hover:not(:disabled) {
+  background-color: var(--oai-btn-outline-hover-bg);
 }
-.storybook-button--medium {
-  padding: 11px 20px;
-  font-size: 14px;
+
+.oai-button--ghost {
+  background-color: transparent;
+  color: var(--oai-btn-ghost-text);
 }
-.storybook-button--large {
-  padding: 12px 24px;
-  font-size: 16px;
+
+.oai-button--ghost:hover:not(:disabled) {
+  background-color: var(--oai-btn-ghost-hover-bg);
+}
+
+.oai-button--danger {
+  background-color: var(--oai-btn-danger-bg);
+  color: var(--oai-btn-danger-text);
+}
+
+.oai-button--danger:hover:not(:disabled) {
+  background-color: var(--oai-btn-danger-hover);
+}
+
+/* ── Sizes ────────────────────────────────────────── */
+.oai-button--small {
+  padding: var(--oai-space-2) var(--oai-space-3);
+  font-size: var(--oai-text-xs);
+  gap: var(--oai-space-1);
+}
+
+.oai-button--medium {
+  padding: var(--oai-space-2) var(--oai-space-4);
+  font-size: var(--oai-text-base);
+  gap: var(--oai-space-2);
+}
+
+.oai-button--large {
+  padding: var(--oai-space-3) var(--oai-space-6);
+  font-size: var(--oai-text-md);
+  gap: var(--oai-space-2);
 }

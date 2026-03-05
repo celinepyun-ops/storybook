@@ -1,0 +1,38 @@
+@keyframes oai-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.oai-skeleton {
+  background: var(--oai-neutral-200);
+  animation: oai-pulse 1.5s ease-in-out infinite;
+}
+
+.oai-skeleton--text {
+  height: 14px;
+  border-radius: var(--oai-radius-sm);
+  width: 100%;
+}
+
+.oai-skeleton--circle {
+  border-radius: var(--oai-radius-full);
+}
+
+.oai-skeleton--rectangle {
+  border-radius: var(--oai-radius-md);
+}
+
+.oai-skeleton--card {
+  border-radius: var(--oai-radius-lg);
+  min-height: 120px;
+}
+
+.oai-skeleton__lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oai-space-2);
+}
+
+.oai-skeleton__lines .oai-skeleton:last-child {
+  width: 75%;
+}

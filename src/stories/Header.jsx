@@ -1,7 +1,5 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import { Button } from './Button';
 import './header.css';
 
@@ -17,15 +15,15 @@ export const Header = ({ user = null, onLogin, onLogout, onCreateAccount }) => (
             />
             <path
               d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
+              fill="#6B7A2F"
             />
             <path
               d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
+              fill="#ADBD6E"
             />
           </g>
         </svg>
-        <h1>Acme</h1>
+        <h1>Outreach AI</h1>
       </div>
       <div>
         {user ? (
@@ -33,12 +31,12 @@ export const Header = ({ user = null, onLogin, onLogout, onCreateAccount }) => (
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
+            <Button size="small" variant="outline" onClick={onLogout} label="Log out" />
           </>
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+            <Button size="small" variant="outline" onClick={onLogin} label="Log in" />
+            <Button size="small" variant="primary" onClick={onCreateAccount} label="Sign up" />
           </>
         )}
       </div>

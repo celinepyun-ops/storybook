@@ -2,7 +2,7 @@ import { fn } from 'storybook/test';
 import { Alert } from './Alert';
 
 export default {
-  title: 'Components/Alert',
+  title: 'Feedback/Alert',
   component: Alert,
   tags: ['autodocs'],
 };

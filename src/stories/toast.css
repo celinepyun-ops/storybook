@@ -1,0 +1,74 @@
+@keyframes oai-toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.oai-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--oai-space-3);
+  padding: var(--oai-space-3) var(--oai-space-4);
+  border-radius: var(--oai-radius-lg);
+  font-family: var(--oai-font-sans);
+  font-size: var(--oai-text-base);
+  box-shadow: var(--oai-shadow-lg);
+  animation: oai-toast-in var(--oai-transition-base);
+  min-width: 280px;
+  max-width: 420px;
+}
+
+.oai-toast--success {
+  background: var(--oai-success-50);
+  border: 1px solid var(--oai-success-500);
+  color: var(--oai-success-700);
+}
+
+.oai-toast--warning {
+  background: var(--oai-warning-50);
+  border: 1px solid var(--oai-warning-500);
+  color: var(--oai-warning-700);
+}
+
+.oai-toast--error {
+  background: var(--oai-error-50);
+  border: 1px solid var(--oai-error-500);
+  color: var(--oai-error-700);
+}
+
+.oai-toast--info {
+  background: var(--oai-info-50);
+  border: 1px solid var(--oai-info-500);
+  color: var(--oai-info-700);
+}
+
+.oai-toast__message {
+  flex: 1;
+}
+
+.oai-toast__action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--oai-text-sm);
+  font-weight: var(--oai-font-semibold);
+  color: inherit;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.oai-toast__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.oai-toast__close:hover {
+  opacity: 1;
+}

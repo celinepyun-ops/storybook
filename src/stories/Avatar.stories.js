@@ -1,17 +1,25 @@
 import { Avatar } from './Avatar';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Data Display/Avatar',
   component: Avatar,
   tags: ['autodocs'],
+  parameters: { layout: 'centered' },
 };
 
 export const WithInitials = {
-  args: { initials: 'AB', size: 'medium' },
+  args: {
+    initials: 'OA',
+    size: 'medium',
+  },
 };
 
 export const WithImage = {
-  args: { src: 'https://i.pravatar.cc/150?img=3', initials: 'JD', size: 'medium' },
+  args: {
+    src: 'https://i.pravatar.cc/150?img=3',
+    initials: 'JD',
+    size: 'medium',
+  },
 };
 
 export const Small = {
@@ -19,5 +27,9 @@ export const Small = {
 };
 
 export const Large = {
-  args: { src: 'https://i.pravatar.cc/150?img=5', initials: 'LG', size: 'large' },
+  args: {
+    src: 'https://i.pravatar.cc/150?img=5',
+    initials: 'LG',
+    size: 'large',
+  },
 };

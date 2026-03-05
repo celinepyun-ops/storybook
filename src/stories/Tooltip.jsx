@@ -2,18 +2,19 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './tooltip.css';
 
+/** Hover-triggered contextual information popup */
 export const Tooltip = ({ text, position = 'top', children }) => {
   const [visible, setVisible] = useState(false);
 
   return (
     <div
-      className="tooltip-wrapper"
+      className="oai-tooltip"
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
-      <div className="tooltip__trigger">{children}</div>
+      <div className="oai-tooltip__trigger">{children}</div>
       {visible && (
-        <div className={`tooltip__content tooltip__content--${position}`}>
+        <div className={`oai-tooltip__content oai-tooltip__content--${position}`} role="tooltip">
           {text}
         </div>
       )}
@@ -22,7 +23,10 @@ export const Tooltip = ({ text, position = 'top', children }) => {
 };
 
 Tooltip.propTypes = {
+  /** Tooltip text content */
   text: PropTypes.string.isRequired,
+  /** Position relative to trigger */
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+  /** Trigger element */
   children: PropTypes.node.isRequired,
 };
