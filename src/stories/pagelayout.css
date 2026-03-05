@@ -1,0 +1,19 @@
+.oai-page-layout {
+  display: flex;
+  height: 100vh;
+  font-family: var(--oai-font-sans);
+  background: var(--oai-surface-secondary);
+}
+
+.oai-page-layout__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.oai-page-layout__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--oai-space-6);
+}

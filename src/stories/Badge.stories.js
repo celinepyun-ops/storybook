@@ -1,9 +1,10 @@
 import { Badge } from './Badge';
 
 export default {
-  title: 'Components/Badge',
+  title: 'Data Display/Badge',
   component: Badge,
   tags: ['autodocs'],
+  parameters: { layout: 'centered' },
 };
 
 export const Success = {

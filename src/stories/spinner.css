@@ -1,0 +1,39 @@
+@keyframes oai-spin {
+  to { transform: rotate(360deg); }
+}
+
+.oai-spinner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oai-space-2);
+  font-family: var(--oai-font-sans);
+  color: var(--oai-text-secondary);
+}
+
+.oai-spinner__circle {
+  border: 2px solid var(--oai-border-primary);
+  border-top-color: var(--oai-primary-500);
+  border-radius: var(--oai-radius-full);
+  animation: oai-spin 0.6s linear infinite;
+}
+
+.oai-spinner__circle--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.oai-spinner__circle--md {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.oai-spinner__circle--lg {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+.oai-spinner__label {
+  font-size: var(--oai-text-sm);
+}

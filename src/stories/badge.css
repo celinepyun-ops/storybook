@@ -1,45 +1,43 @@
-.badge {
+.oai-badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  border-radius: var(--oai-radius-full);
+  font-family: var(--oai-font-sans);
+  font-weight: var(--oai-font-semibold);
   line-height: 1;
 }
 
-.badge--success {
-  background: #e6f9ee;
-  color: #1a7f37;
+.oai-badge--success {
+  background: var(--oai-success-50);
+  color: var(--oai-success-700);
 }
 
-.badge--warning {
-  background: #fff8e1;
-  color: #b35c00;
+.oai-badge--warning {
+  background: var(--oai-warning-50);
+  color: var(--oai-warning-700);
 }
 
-.badge--error {
-  background: #fdecea;
-  color: #c62828;
+.oai-badge--error {
+  background: var(--oai-error-50);
+  color: var(--oai-error-700);
 }
 
-.badge--info {
-  background: #e3f2fd;
-  color: #1565c0;
+.oai-badge--info {
+  background: var(--oai-info-50);
+  color: var(--oai-info-700);
 }
 
-.badge--small {
-  padding: 2px 8px;
+.oai-badge--small {
+  padding: 2px var(--oai-space-2);
   font-size: 10px;
 }
 
-.badge--medium {
-  padding: 4px 12px;
-  font-size: 12px;
+.oai-badge--medium {
+  padding: var(--oai-space-1) var(--oai-space-3);
+  font-size: var(--oai-text-xs);
 }
 
-.badge--large {
-  padding: 6px 16px;
-  font-size: 14px;
+.oai-badge--large {
+  padding: 6px var(--oai-space-4);
+  font-size: var(--oai-text-base);
 }

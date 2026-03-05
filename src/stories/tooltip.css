@@ -1,44 +1,45 @@
-.tooltip-wrapper {
+.oai-tooltip {
   position: relative;
   display: inline-flex;
 }
 
-.tooltip__trigger {
+.oai-tooltip__trigger {
   cursor: pointer;
 }
 
-.tooltip__content {
+.oai-tooltip__content {
   position: absolute;
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: #333;
-  color: #fff;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  padding: var(--oai-space-2) var(--oai-space-3);
+  border-radius: var(--oai-radius-md);
+  background: var(--oai-neutral-800);
+  color: var(--oai-text-inverse);
+  font-family: var(--oai-font-sans);
+  font-size: var(--oai-text-xs);
   white-space: nowrap;
   pointer-events: none;
-  z-index: 10;
+  z-index: var(--oai-z-tooltip);
+  box-shadow: var(--oai-shadow-md);
 }
 
-.tooltip__content--top {
+.oai-tooltip__content--top {
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
 }
 
-.tooltip__content--bottom {
+.oai-tooltip__content--bottom {
   top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
 }
 
-.tooltip__content--left {
+.oai-tooltip__content--left {
   right: calc(100% + 8px);
   top: 50%;
   transform: translateY(-50%);
 }
 
-.tooltip__content--right {
+.oai-tooltip__content--right {
   left: calc(100% + 8px);
   top: 50%;
   transform: translateY(-50%);

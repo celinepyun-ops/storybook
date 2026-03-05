@@ -2,7 +2,7 @@ import { fn } from 'storybook/test';
 import { Input } from './Input';
 
 export default {
-  title: 'Components/Input',
+  title: 'Forms/Input',
   component: Input,
   tags: ['autodocs'],
 };
@@ -20,6 +20,7 @@ export const WithHelper = {
     label: 'Password',
     placeholder: 'Enter your password',
     helperText: 'Must be at least 8 characters.',
+    type: 'password',
     onChange: fn(),
   },
 };
