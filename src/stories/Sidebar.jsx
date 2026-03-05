@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './sidebar.css';
 
-/** Dark sidebar navigation with collapsible sections */
+/** Clean sidebar navigation with collapsible sections */
 export const Sidebar = ({ items = [], collapsed = false, header, footer, activeItem }) => {
   return (
     <aside className={`oai-sidebar ${collapsed ? 'oai-sidebar--collapsed' : ''}`}>

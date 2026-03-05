@@ -4,22 +4,15 @@ import { Sidebar } from './Sidebar';
 import { Navbar } from './Navbar';
 import { Search } from './Search';
 import { Avatar } from './Avatar';
+import { Icons } from './icons';
 
 const sidebarItems = [
   {
-    title: 'Main',
     items: [
-      { id: 'dashboard', label: 'Dashboard', icon: '📊', onClick: fn() },
-      { id: 'campaigns', label: 'Campaigns', icon: '📧', onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: '🏪', onClick: fn() },
-      { id: 'analytics', label: 'Analytics', icon: '📈', onClick: fn() },
-    ],
-  },
-  {
-    title: 'Manage',
-    items: [
-      { id: 'templates', label: 'Templates', icon: '📝', onClick: fn() },
-      { id: 'settings', label: 'Settings', icon: '⚙️', onClick: fn() },
+      { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
+      { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
+      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+      { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
     ],
   },
 ];
@@ -33,7 +26,18 @@ export default {
 
 export const Default = {
   args: {
-    sidebar: <Sidebar items={sidebarItems} activeItem="dashboard" />,
+    sidebar: (
+      <Sidebar
+        items={sidebarItems}
+        activeItem="dashboard"
+        header={
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Avatar initials="OA" size="small" />
+            <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--oai-text-primary)' }}>Outreach AI</span>
+          </div>
+        }
+      />
+    ),
     navbar: (
       <Navbar
         actions={<Avatar initials="JD" size="small" />}

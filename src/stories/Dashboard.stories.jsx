@@ -10,26 +10,51 @@ import { Table } from './Table';
 import { Badge } from './Badge';
 import { Tabs } from './Tabs';
 import { Breadcrumbs } from './Breadcrumbs';
+import { Icons } from './icons';
 
 const sidebarItems = [
   {
-    title: 'Main',
     items: [
-      { id: 'dashboard', label: 'Dashboard', icon: '📊', onClick: fn() },
-      { id: 'campaigns', label: 'Campaigns', icon: '📧', onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: '🏪', onClick: fn() },
-      { id: 'analytics', label: 'Analytics', icon: '📈', onClick: fn() },
-    ],
-  },
-  {
-    title: 'Manage',
-    items: [
-      { id: 'templates', label: 'Templates', icon: '📝', onClick: fn() },
-      { id: 'contacts', label: 'Contacts', icon: '👥', onClick: fn() },
-      { id: 'settings', label: 'Settings', icon: '⚙️', onClick: fn() },
+      { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
+      { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
+      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+      { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
     ],
   },
 ];
+
+const sidebarFooter = (
+  <ul className="oai-sidebar__list">
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon">{Icons.contacts}</span>
+        <span className="oai-sidebar__label">Support</span>
+      </button>
+    </li>
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon">{Icons.settings}</span>
+        <span className="oai-sidebar__label">Settings</span>
+      </button>
+    </li>
+    <li>
+      <button className="oai-sidebar__item" onClick={fn()}>
+        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
+        <span className="oai-sidebar__label">Jane Doe</span>
+      </button>
+    </li>
+  </ul>
+);
+
+const sidebarHeader = (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
+    <Avatar initials="OA" size="small" />
+    <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--oai-text-primary)' }}>Outreach AI</span>
+    <span style={{ marginLeft: 'auto', display: 'flex', gap: '8px', color: 'var(--oai-text-disabled)' }}>
+      {Icons.settings}
+    </span>
+  </div>
+);
 
 const tableColumns = [
   { key: 'brand', label: 'Brand' },
@@ -57,17 +82,24 @@ export default {
 export const Default = {
   render: () => (
     <PageLayout
-      sidebar={<Sidebar items={sidebarItems} activeItem="dashboard" />}
+      sidebar={
+        <Sidebar
+          items={sidebarItems}
+          activeItem="dashboard"
+          header={sidebarHeader}
+          footer={sidebarFooter}
+        />
+      }
       navbar={
         <Navbar
           actions={
             <Dropdown
               trigger={<Avatar initials="JD" size="small" />}
               items={[
-                { label: 'Profile', icon: '👤', onClick: fn() },
-                { label: 'Settings', icon: '⚙️', onClick: fn() },
+                { label: 'Profile', icon: Icons.profile, onClick: fn() },
+                { label: 'Settings', icon: Icons.settings, onClick: fn() },
                 { divider: true },
-                { label: 'Sign out', icon: '🚪', onClick: fn() },
+                { label: 'Sign out', icon: Icons.signout, onClick: fn() },
               ]}
               align="right"
             />
@@ -90,10 +122,10 @@ export const Default = {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '24px' }}>
-          <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon="📧" />
-          <StatsCard title="Response Rate" value="28.4%" change="+3.2% from last month" trend="up" icon="💬" />
-          <StatsCard title="Active Campaigns" value="8" change="No change" trend="neutral" icon="🎯" />
-          <StatsCard title="Brands Contacted" value="456" change="-2.1% from last month" trend="down" icon="🏪" />
+          <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon={Icons.campaigns} />
+          <StatsCard title="Response Rate" value="28.4%" change="+3.2% from last month" trend="up" icon={Icons.analytics} />
+          <StatsCard title="Active Campaigns" value="8" change="No change" trend="neutral" icon={Icons.dashboard} />
+          <StatsCard title="Brands Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
         </div>
 
         <div style={{ marginBottom: '16px' }}>

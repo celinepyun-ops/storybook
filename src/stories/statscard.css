@@ -41,13 +41,13 @@
 }
 
 .oai-stats-card__change--up {
-  color: var(--oai-success-500);
+  color: var(--oai-success-700);
 }
 
 .oai-stats-card__change--down {
-  color: var(--oai-error-500);
+  color: var(--oai-error-700);
 }
 
 .oai-stats-card__change--neutral {
-  color: var(--oai-text-disabled);
+  color: var(--oai-text-secondary);
 }

@@ -1,6 +1,7 @@
 import { fn } from 'storybook/test';
 import { Dropdown } from './Dropdown';
 import { Button } from './Button';
+import { Icons } from './icons';
 
 export default {
   title: 'Overlays/Dropdown',
@@ -34,10 +35,10 @@ export const AlignRight = {
     trigger: <Button variant="outline" label="More" />,
     align: 'right',
     items: [
-      { label: 'Profile', icon: '👤', onClick: fn() },
-      { label: 'Settings', icon: '⚙️', onClick: fn() },
+      { label: 'Profile', icon: Icons.profile, onClick: fn() },
+      { label: 'Settings', icon: Icons.settings, onClick: fn() },
       { divider: true },
-      { label: 'Sign out', icon: '🚪', onClick: fn() },
+      { label: 'Sign out', icon: Icons.signout, onClick: fn() },
     ],
   },
 };
