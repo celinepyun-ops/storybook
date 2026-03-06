@@ -24,7 +24,7 @@ const sidebarItems = [
   },
 ];
 
-const sidebarFooter = (
+const SidebarFooter = ({ darkMode, onToggleDark }) => (
   <ul className="oai-sidebar__list">
     <li>
       <button className="oai-sidebar__item" onClick={fn()}>
@@ -36,6 +36,20 @@ const sidebarFooter = (
       <button className="oai-sidebar__item" onClick={fn()}>
         <span className="oai-sidebar__icon">{Icons.settings}</span>
         <span className="oai-sidebar__label">Settings</span>
+      </button>
+    </li>
+    <li>
+      <button
+        className="oai-sidebar__item oai-sidebar__item--toggle"
+        role="switch"
+        aria-checked={darkMode}
+        onClick={() => onToggleDark(!darkMode)}
+      >
+        <span className="oai-sidebar__icon">{Icons.moon}</span>
+        <span className="oai-sidebar__label">Dark Mode</span>
+        <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+          <span className="oai-sidebar__toggle-knob" />
+        </span>
       </button>
     </li>
     <li>
@@ -89,7 +103,7 @@ const DashboardPage = () => {
           items={sidebarItems}
           activeItem="dashboard"
           header={sidebarHeader}
-          footer={sidebarFooter}
+          footer={<SidebarFooter darkMode={darkMode} onToggleDark={(val) => { setDarkMode(val); document.documentElement.dataset.theme = val ? 'dark' : ''; }} />}
         />
       }
       navbar={
