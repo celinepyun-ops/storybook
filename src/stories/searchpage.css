@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Search Page — Page-level styles for the brand search interface
+   ========================================================================== */
+
+.oai-search-page__header {
+  margin-bottom: var(--space-6);
+}
+
+.oai-search-page__title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-2xl);
+}
+
+.oai-search-page__subtitle {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ── Search Card ─────────────────────────────────────────────────────── */
+.oai-search-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  font-family: var(--font-family-sans);
+}
+
+/* ── Keyword Search Row ──────────────────────────────────────────────── */
+.oai-search-card__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.oai-search-card__input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.oai-search-card__input-wrapper:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.oai-search-card__input-icon {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.oai-search-card__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  min-width: 0;
+}
+
+.oai-search-card__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ── AI Feature Callout ──────────────────────────────────────────────── */
+.oai-search-card__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-50);
+  margin-bottom: var(--space-5);
+}
+
+.oai-search-card__feature-content {
+  flex: 1;
+}
+
+.oai-search-card__feature-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.oai-search-card__feature-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.oai-search-card__feature-toggle {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.oai-search-card__feature-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary-600);
+  cursor: pointer;
+}
+
+/* ── Form Fields ─────────────────────────────────────────────────────── */
+.oai-search-card__field {
+  margin-bottom: var(--space-5);
+}
+
+.oai-search-card__field:last-child {
+  margin-bottom: 0;
+}
+
+.oai-search-card__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.oai-search-card__select {
+  width: 100%;
+  padding: 10px var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6B63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: var(--space-8);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.oai-search-card__select:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ── Filter Row (side by side) ───────────────────────────────────────── */
+.oai-search-card__filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+/* ── Credits Footer ──────────────────────────────────────────────────── */
+.oai-sidebar-credits {
+  padding: var(--space-4) var(--space-3);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.oai-sidebar-credits__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+
+.oai-sidebar-credits__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.oai-sidebar-credits__count {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.oai-sidebar-credits__hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Navbar Credits Badge ────────────────────────────────────────────── */
+.oai-credits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+}
+
+.oai-credits-badge__icon {
+  color: var(--color-secondary-500);
+}
+
+.oai-credits-badge__count {
+  font-weight: var(--font-weight-bold);
+}
