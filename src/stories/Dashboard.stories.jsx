@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { fn } from 'storybook/test';
 import { PageLayout } from './PageLayout';
 import { Sidebar } from './Sidebar';
@@ -79,8 +80,9 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = {
-  render: () => (
+const DashboardPage = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  return (
     <PageLayout
       sidebar={
         <Sidebar
@@ -98,6 +100,8 @@ export const Default = {
               items={[
                 { label: 'Profile', icon: Icons.profile, onClick: fn() },
                 { label: 'Settings', icon: Icons.settings, onClick: fn() },
+                { divider: true },
+                { label: 'Dark Mode', icon: Icons.moon, toggle: true, checked: darkMode, onToggle: (val) => { setDarkMode(val); document.documentElement.dataset.theme = val ? 'dark' : ''; } },
                 { divider: true },
                 { label: 'Sign out', icon: Icons.signout, onClick: fn() },
               ]}
@@ -144,5 +148,9 @@ export const Default = {
         <Table columns={tableColumns} data={tableData} sortable striped />
       </div>
     </PageLayout>
-  ),
+  );
+};
+
+export const Default = {
+  render: () => <DashboardPage />,
 };
