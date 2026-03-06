@@ -49,8 +49,8 @@ const sidebarFooter = (
 const sidebarHeader = (
   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%' }}>
     <Avatar initials="OA" size="small" />
-    <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--oai-text-primary)' }}>Outreach AI</span>
-    <span style={{ marginLeft: 'auto', display: 'flex', gap: '8px', color: 'var(--oai-text-disabled)' }}>
+    <span style={{ fontWeight: 600, fontSize: '14px', color: 'var(--color-text-primary)' }}>Outreach AI</span>
+    <span style={{ marginLeft: 'auto', display: 'flex', gap: '8px', color: 'var(--color-text-muted)' }}>
       {Icons.settings}
     </span>
   </div>
@@ -113,10 +113,10 @@ export const Default = {
         <Breadcrumbs items={[{ label: 'Home', href: '#' }, { label: 'Dashboard' }]} />
 
         <div style={{ marginTop: '16px', marginBottom: '24px' }}>
-          <h1 style={{ margin: '0 0 4px', fontFamily: 'var(--oai-font-sans)', fontSize: '24px', fontWeight: 700, color: 'var(--oai-text-primary)' }}>
+          <h1 style={{ margin: '0 0 4px', fontFamily: 'var(--font-family-sans)', fontSize: '24px', fontWeight: 700, color: 'var(--color-text-primary)' }}>
             Dashboard
           </h1>
-          <p style={{ margin: 0, fontFamily: 'var(--oai-font-sans)', fontSize: '14px', color: 'var(--oai-text-secondary)' }}>
+          <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>
             Welcome back, Jane. Here's your outreach overview.
           </p>
         </div>
