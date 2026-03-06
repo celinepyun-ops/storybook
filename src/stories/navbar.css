@@ -1,41 +1,22 @@
 .oai-navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: var(--navbar-height);
   padding: 0 var(--space-6);
   background: var(--color-bg-card);
   border-bottom: 1px solid var(--color-border-default);
   font-family: var(--font-family-sans);
-}
-
-.oai-navbar__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-family-serif);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-normal);
-  color: var(--color-text-primary);
-  text-decoration: none;
-  letter-spacing: var(--tracking-tight);
-}
-
-.oai-navbar__brand-icon {
-  width: 36px;
-  height: 36px;
-  display: flex;
+  gap: var(--space-4);
 }
 
 .oai-navbar__center {
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  padding: 0 var(--space-6);
 }
 
 .oai-navbar__actions {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-shrink: 0;
 }
