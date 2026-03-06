@@ -176,8 +176,8 @@
 
   /* ── Text ─────────────────────────────────────────────────────────── */
   --color-text-primary:   var(--color-neutral-50);
-  --color-text-secondary: var(--color-neutral-400);
-  --color-text-muted:     var(--color-neutral-500);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-muted:     var(--color-neutral-400);
   --color-text-inverse:   var(--color-neutral-900);
   --color-text-link:      var(--color-primary-400);
 
