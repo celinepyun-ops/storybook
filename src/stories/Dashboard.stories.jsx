@@ -4,8 +4,7 @@ import { PageLayout } from './PageLayout';
 import { Sidebar } from './Sidebar';
 import { Navbar } from './Navbar';
 import { Search } from './Search';
-import { Avatar } from './Avatar';
-import { Dropdown } from './Dropdown';
+import { HelpButton } from './HelpButton';
 import { StatsCard } from './StatsCard';
 import { Table } from './Table';
 import { Badge } from './Badge';
@@ -107,22 +106,7 @@ const DashboardPage = () => {
         />
       }
       navbar={
-        <Navbar
-          actions={
-            <Dropdown
-              trigger={<Avatar initials="JD" size="small" />}
-              items={[
-                { label: 'Profile', icon: Icons.profile, onClick: fn() },
-                { label: 'Settings', icon: Icons.settings, onClick: fn() },
-                { divider: true },
-                { label: 'Dark Mode', icon: Icons.moon, toggle: true, checked: darkMode, onToggle: (val) => { setDarkMode(val); document.documentElement.dataset.theme = val ? 'dark' : ''; } },
-                { divider: true },
-                { label: 'Sign out', icon: Icons.signout, onClick: fn() },
-              ]}
-              align="right"
-            />
-          }
-        >
+        <Navbar>
           <Search placeholder="Search brands..." onChange={fn()} />
         </Navbar>
       }
@@ -161,6 +145,7 @@ const DashboardPage = () => {
 
         <Table columns={tableColumns} data={tableData} sortable striped />
       </div>
+      <HelpButton onSubmit={fn()} />
     </PageLayout>
   );
 };

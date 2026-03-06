@@ -1,0 +1,144 @@
+.oai-help {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-dropdown);
+}
+
+/* ── Floating Trigger ─────────────────────────────────────────────── */
+.oai-help-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-neutral-200);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.oai-help-btn:hover {
+  background: var(--color-neutral-300);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .oai-help-btn {
+  background: var(--color-neutral-700);
+  color: var(--color-neutral-300);
+}
+
+[data-theme="dark"] .oai-help-btn:hover {
+  background: var(--color-neutral-600);
+}
+
+/* ── Card Form ────────────────────────────────────────────────────── */
+.oai-help-card {
+  position: absolute;
+  bottom: calc(100% + var(--space-3));
+  right: 0;
+  width: 320px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-5);
+  font-family: var(--font-family-sans);
+}
+
+.oai-help-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+
+.oai-help-card__title {
+  margin: 0;
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+}
+
+.oai-help-card__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.oai-help-card__close:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.oai-help-card__desc {
+  margin: 0 0 var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Form Fields ──────────────────────────────────────────────────── */
+.oai-help-card__field {
+  margin-bottom: var(--space-3);
+}
+
+.oai-help-card__label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.oai-help-card__input,
+.oai-help-card__textarea {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.oai-help-card__input:focus,
+.oai-help-card__textarea:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.oai-help-card__input::placeholder,
+.oai-help-card__textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.oai-help-card__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.oai-help-card__actions {
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: flex-end;
+}
