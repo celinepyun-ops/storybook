@@ -52,6 +52,19 @@
   background-color: var(--color-bg-hover);
 }
 
+[data-theme="dark"] .oai-table tbody tr:hover td {
+  background-color: var(--color-neutral-700);
+  color: var(--color-neutral-50);
+}
+
+[data-theme="dark"] .oai-table td {
+  color: var(--color-neutral-50);
+}
+
+[data-theme="dark"] .oai-table--striped tbody tr:nth-child(even) td {
+  background-color: var(--color-neutral-850, var(--color-neutral-900));
+}
+
 .oai-table__checkbox {
   width: 16px;
   height: 16px;
