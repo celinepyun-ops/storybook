@@ -26,16 +26,34 @@ const sidebarItems = [
   },
 ];
 
-const sidebarFooter = (
-  <div className="oai-sidebar-credits">
-    <div className="oai-sidebar-credits__row">
-      <span className="oai-sidebar-credits__label">
-        {Icons.credits}
-        Credits
-      </span>
-      <span className="oai-sidebar-credits__count">10</span>
+const SidebarFooter = ({ darkMode, onToggleDark }) => (
+  <div>
+    <ul className="oai-sidebar__list" style={{ padding: '0 var(--space-2)' }}>
+      <li>
+        <button
+          className="oai-sidebar__item oai-sidebar__item--toggle"
+          role="switch"
+          aria-checked={darkMode}
+          onClick={() => onToggleDark(!darkMode)}
+        >
+          <span className="oai-sidebar__icon">{Icons.moon}</span>
+          <span className="oai-sidebar__label">Dark Mode</span>
+          <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+            <span className="oai-sidebar__toggle-knob" />
+          </span>
+        </button>
+      </li>
+    </ul>
+    <div className="oai-sidebar-credits">
+      <div className="oai-sidebar-credits__row">
+        <span className="oai-sidebar-credits__label">
+          {Icons.credits}
+          Credits
+        </span>
+        <span className="oai-sidebar-credits__count">10</span>
+      </div>
+      <span className="oai-sidebar-credits__hint">1 Enrich = 1 Credit</span>
     </div>
-    <span className="oai-sidebar-credits__hint">1 Enrich = 1 Credit</span>
   </div>
 );
 
@@ -71,7 +89,7 @@ const SearchPage = () => {
           items={sidebarItems}
           activeItem="search-brands"
           header={sidebarHeader}
-          footer={sidebarFooter}
+          footer={<SidebarFooter darkMode={darkMode} onToggleDark={(val) => { setDarkMode(val); document.documentElement.dataset.theme = val ? 'dark' : ''; }} />}
         />
       }
       navbar={
