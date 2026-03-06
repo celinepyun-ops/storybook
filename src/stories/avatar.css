@@ -2,31 +2,31 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--oai-radius-full);
+  border-radius: var(--radius-full);
   overflow: hidden;
-  font-family: var(--oai-font-sans);
-  font-weight: var(--oai-font-bold);
-  color: var(--oai-text-inverse);
-  background: var(--oai-primary-500);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  background: var(--color-primary-600);
   flex-shrink: 0;
 }
 
 .oai-avatar--small {
   width: 32px;
   height: 32px;
-  font-size: var(--oai-text-xs);
+  font-size: var(--font-size-xs);
 }
 
 .oai-avatar--medium {
   width: 40px;
   height: 40px;
-  font-size: var(--oai-text-base);
+  font-size: var(--font-size-base);
 }
 
 .oai-avatar--large {
   width: 64px;
   height: 64px;
-  font-size: var(--oai-text-2xl);
+  font-size: var(--font-size-2xl);
 }
 
 .oai-avatar__image {

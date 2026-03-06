@@ -1,167 +1,171 @@
 /* ==========================================================================
    Outreach AI Design System — Design Tokens
-   Warm & minimal, inspired by Granola + Clodo
+   Amazon Brand Outreach CRM · Primary: #006400
    ========================================================================== */
 
 :root {
-  /* ── Brand Primary (olive-green) ────────────────────────────────────── */
-  --oai-primary-50: #F4F6EC;
-  --oai-primary-100: #E5EAD0;
-  --oai-primary-200: #CCDA9F;
-  --oai-primary-300: #ADBD6E;
-  --oai-primary-400: #8B9B48;
-  --oai-primary-500: #6B7A2F;
-  --oai-primary-600: #556225;
-  --oai-primary-700: #40491C;
-  --oai-primary-800: #2D3312;
-  --oai-primary-900: #1A1E0A;
+  /* ── Primary — Brand Green ─────────────────────────────────────────── */
+  --color-primary-50:  #F0F7F0;
+  --color-primary-100: #D6EAD6;
+  --color-primary-200: #A8D5A8;
+  --color-primary-300: #72BA72;
+  --color-primary-400: #3D9E3D;
+  --color-primary-500: #1A8A1A;
+  --color-primary-600: #006400;
+  --color-primary-700: #005200;
+  --color-primary-800: #003D00;
+  --color-primary-900: #002900;
+  --color-primary-950: #001500;
 
-  /* ── Brand Secondary (amber/orange) ─────────────────────────────────── */
-  --oai-secondary-50: #FEF3EC;
-  --oai-secondary-100: #FDE0CA;
-  --oai-secondary-200: #F9BC8E;
-  --oai-secondary-300: #F29857;
-  --oai-secondary-400: #EC8745;
-  --oai-secondary-500: #E67635;
-  --oai-secondary-600: #C5602A;
-  --oai-secondary-700: #9A4A20;
-  --oai-secondary-800: #6F3517;
-  --oai-secondary-900: #5C2E15;
+  /* ── Secondary — Amber / Orange ────────────────────────────────────── */
+  --color-secondary-50:  #FFF7ED;
+  --color-secondary-100: #FFEDD5;
+  --color-secondary-200: #FED7AA;
+  --color-secondary-300: #FDBA74;
+  --color-secondary-400: #FB923C;
+  --color-secondary-500: #F97316;
+  --color-secondary-600: #E8760A;
+  --color-secondary-700: #C2410C;
+  --color-secondary-800: #9A3412;
+  --color-secondary-900: #7C2D12;
+  --color-secondary-950: #431407;
 
-  /* ── Neutral (warm grays) ───────────────────────────────────────────── */
-  --oai-neutral-50: #FAFAF7;
-  --oai-neutral-100: #F5F5F0;
-  --oai-neutral-200: #E8E8E3;
-  --oai-neutral-300: #D4D4CD;
-  --oai-neutral-400: #A3A39B;
-  --oai-neutral-500: #6B6B63;
-  --oai-neutral-600: #52524B;
-  --oai-neutral-700: #3D3D37;
-  --oai-neutral-800: #2A2A25;
-  --oai-neutral-900: #1A1A17;
+  /* ── Neutral — Warm Grays ──────────────────────────────────────────── */
+  --color-neutral-50:  #FAFAF7;
+  --color-neutral-100: #F5F5F0;
+  --color-neutral-200: #E8E8E3;
+  --color-neutral-300: #D4D4CD;
+  --color-neutral-400: #A3A39B;
+  --color-neutral-500: #6B6B63;
+  --color-neutral-600: #52524B;
+  --color-neutral-700: #3D3D37;
+  --color-neutral-800: #2A2A25;
+  --color-neutral-900: #1A1A17;
+  --color-neutral-950: #0D0D0B;
 
-  /* ── Surfaces ───────────────────────────────────────────────────────── */
-  --oai-surface-primary: #FFFFFF;
-  --oai-surface-secondary: #FAFAF7;
-  --oai-surface-sidebar: #FFFFFF;
-  --oai-surface-overlay: rgba(0, 0, 0, 0.5);
+  /* ── Semantic ──────────────────────────────────────────────────────── */
+  --color-success-bg:     #F0FDF4;
+  --color-success-border: #86EFAC;
+  --color-success-text:   #166534;
+  --color-success:        #16A34A;
 
-  /* ── Semantic ───────────────────────────────────────────────────────── */
-  --oai-success-50: #ECFDF5;
-  --oai-success-100: #D1FAE5;
-  --oai-success-500: #16A34A;
-  --oai-success-700: #15803D;
+  --color-warning-bg:     #FFFBEB;
+  --color-warning-border: #FDE68A;
+  --color-warning-text:   #92400E;
+  --color-warning:        #D97706;
 
-  --oai-warning-50: #FFFBEB;
-  --oai-warning-100: #FEF3C7;
-  --oai-warning-500: #D97706;
-  --oai-warning-700: #B45309;
+  --color-error-bg:     #FEF2F2;
+  --color-error-border: #FCA5A5;
+  --color-error-text:   #991B1B;
+  --color-error:        #DC2626;
 
-  --oai-error-50: #FEF2F2;
-  --oai-error-100: #FEE2E2;
-  --oai-error-500: #DC2626;
-  --oai-error-700: #B91C1C;
+  --color-info-bg:     #EFF6FF;
+  --color-info-border: #93C5FD;
+  --color-info-text:   #1E40AF;
+  --color-info:        #2563EB;
 
-  --oai-info-50: #EFF6FF;
-  --oai-info-100: #DBEAFE;
-  --oai-info-500: #2563EB;
-  --oai-info-700: #1D4ED8;
+  /* ── Surface & Layout Aliases ──────────────────────────────────────── */
+  --color-bg-page:    var(--color-neutral-50);
+  --color-bg-card:    #FFFFFF;
+  --color-bg-sidebar: var(--color-primary-900);
+  --color-bg-hover:   var(--color-primary-50);
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
 
-  /* ── Text ───────────────────────────────────────────────────────────── */
-  --oai-text-primary: #1A1A17;
-  --oai-text-secondary: #6B6B63;
-  --oai-text-disabled: #A3A39B;
-  --oai-text-inverse: #FFFFFF;
-  --oai-text-link: #6B7A2F;
+  /* ── Text ──────────────────────────────────────────────────────────── */
+  --color-text-primary:   var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-500);
+  --color-text-muted:     var(--color-neutral-400);
+  --color-text-inverse:   #FFFFFF;
+  --color-text-link:      var(--color-primary-600);
 
-  /* ── Borders ────────────────────────────────────────────────────────── */
-  --oai-border-primary: #E8E8E3;
-  --oai-border-secondary: #D4D4CD;
-  --oai-border-focus: #6B7A2F;
-  --oai-border-error: #DC2626;
+  /* ── Borders ───────────────────────────────────────────────────────── */
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong:  var(--color-neutral-300);
+  --color-border-focus:   var(--color-primary-500);
 
-  /* ── Button tokens ──────────────────────────────────────────────────── */
-  --oai-btn-primary-bg: #1A1A17;
-  --oai-btn-primary-text: #FFFFFF;
-  --oai-btn-primary-hover: #2A2A25;
-  --oai-btn-secondary-bg: #6B7A2F;
-  --oai-btn-secondary-text: #FFFFFF;
-  --oai-btn-secondary-hover: #556225;
-  --oai-btn-outline-border: #D4D4CD;
-  --oai-btn-outline-text: #1A1A17;
-  --oai-btn-outline-hover-bg: #FAFAF7;
-  --oai-btn-ghost-text: #1A1A17;
-  --oai-btn-ghost-hover-bg: #F5F5F0;
-  --oai-btn-danger-bg: #DC2626;
-  --oai-btn-danger-text: #FFFFFF;
-  --oai-btn-danger-hover: #B91C1C;
+  /* ── Typography ────────────────────────────────────────────────────── */
+  --font-family-sans:  'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-serif: 'Test Tiempos Text', Georgia, 'Times New Roman', serif;
+  --font-family-mono:  'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
-  /* ── Typography ─────────────────────────────────────────────────────── */
-  --oai-font-sans: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --oai-font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  --font-size-xs:   12px;
+  --font-size-sm:   13px;
+  --font-size-base: 14px;
+  --font-size-md:   16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  30px;
+  --font-size-4xl:  36px;
 
-  --oai-text-xs: 12px;
-  --oai-text-sm: 13px;
-  --oai-text-base: 14px;
-  --oai-text-md: 16px;
-  --oai-text-lg: 18px;
-  --oai-text-xl: 20px;
-  --oai-text-2xl: 24px;
-  --oai-text-3xl: 30px;
-  --oai-text-4xl: 36px;
+  --leading-tight:   1.25;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.75;
 
-  --oai-leading-tight: 1.25;
-  --oai-leading-normal: 1.5;
-  --oai-leading-relaxed: 1.75;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
 
-  --oai-font-normal: 400;
-  --oai-font-medium: 500;
-  --oai-font-semibold: 600;
-  --oai-font-bold: 700;
+  /* ── Letter-spacing (visual hierarchy) ─────────────────────────────── */
+  --tracking-tightest: -0.02em;
+  --tracking-tight:    -0.01em;
+  --tracking-normal:    0em;
+  --tracking-wide:      0.05em;
+  --tracking-wider:     0.08em;
+  --tracking-widest:    0.10em;
 
-  /* ── Spacing (4px base) ─────────────────────────────────────────────── */
-  --oai-space-1: 4px;
-  --oai-space-2: 8px;
-  --oai-space-3: 12px;
-  --oai-space-4: 16px;
-  --oai-space-5: 20px;
-  --oai-space-6: 24px;
-  --oai-space-8: 32px;
-  --oai-space-10: 40px;
-  --oai-space-12: 48px;
-  --oai-space-16: 64px;
+  /* ── Spacing (4px base) ────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
 
-  /* ── Border Radius ──────────────────────────────────────────────────── */
-  --oai-radius-sm: 4px;
-  --oai-radius-md: 6px;
-  --oai-radius-lg: 8px;
-  --oai-radius-xl: 12px;
-  --oai-radius-full: 9999px;
+  /* ── Border Radius ─────────────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
 
-  /* ── Shadows ────────────────────────────────────────────────────────── */
-  --oai-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --oai-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --oai-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --oai-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
-  --oai-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04);
-  --oai-shadow-focus: 0 0 0 3px rgba(107, 122, 47, 0.3);
-  --oai-shadow-error: 0 0 0 3px rgba(220, 38, 38, 0.2);
+  /* ── Shadows ───────────────────────────────────────────────────────── */
+  --shadow-sm:    0 1px 2px rgba(26, 26, 23, 0.05);
+  --shadow-md:    0 1px 3px rgba(26, 26, 23, 0.08), 0 4px 12px rgba(26, 26, 23, 0.04);
+  --shadow-lg:    0 4px 6px rgba(26, 26, 23, 0.05), 0 10px 24px rgba(26, 26, 23, 0.08);
+  --shadow-xl:    0 8px 16px rgba(26, 26, 23, 0.06), 0 20px 40px rgba(26, 26, 23, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(0, 100, 0, 0.3);
+  --shadow-error: 0 0 0 3px rgba(220, 38, 38, 0.2);
 
-  /* ── Transitions ────────────────────────────────────────────────────── */
-  --oai-transition-fast: 150ms ease;
-  --oai-transition-base: 200ms ease;
-  --oai-transition-slow: 300ms ease;
+  /* ── Transitions ───────────────────────────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
 
-  /* ── Z-Index ────────────────────────────────────────────────────────── */
-  --oai-z-dropdown: 100;
-  --oai-z-sticky: 200;
-  --oai-z-modal-backdrop: 300;
-  --oai-z-modal: 400;
-  --oai-z-tooltip: 500;
-  --oai-z-toast: 600;
+  /* ── Z-Index ───────────────────────────────────────────────────────── */
+  --z-dropdown:       100;
+  --z-sticky:         200;
+  --z-modal-backdrop: 300;
+  --z-modal:          400;
+  --z-tooltip:        500;
+  --z-toast:          600;
 
-  /* ── Layout ─────────────────────────────────────────────────────────── */
-  --oai-sidebar-width: 256px;
-  --oai-sidebar-collapsed: 64px;
-  --oai-navbar-height: 56px;
+  /* ── Layout ────────────────────────────────────────────────────────── */
+  --sidebar-width:     256px;
+  --sidebar-collapsed: 64px;
+  --navbar-height:     56px;
+}
+
+/* ── Heading base ────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
 }

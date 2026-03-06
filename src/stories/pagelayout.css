@@ -1,8 +1,8 @@
 .oai-page-layout {
   display: flex;
   height: 100vh;
-  font-family: var(--oai-font-sans);
-  background: var(--oai-surface-secondary);
+  font-family: var(--font-family-sans);
+  background: var(--color-bg-page);
 }
 
 .oai-page-layout__main {
@@ -15,5 +15,6 @@
 .oai-page-layout__content {
   flex: 1;
   overflow-y: auto;
-  padding: var(--oai-space-6);
+  padding: var(--space-6);
+  background-color: var(--color-bg-page);
 }

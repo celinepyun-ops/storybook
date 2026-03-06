@@ -1,21 +1,21 @@
 .oai-tabs {
-  font-family: var(--oai-font-sans);
+  font-family: var(--font-family-sans);
 }
 
 .oai-tabs__list {
   display: flex;
-  gap: var(--oai-space-1);
+  gap: var(--space-1);
 }
 
 .oai-tabs__list--underline {
-  border-bottom: 1px solid var(--oai-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
   gap: 0;
 }
 
 .oai-tabs__list--pill {
-  background: var(--oai-neutral-100);
-  border-radius: var(--oai-radius-lg);
-  padding: var(--oai-space-1);
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
 }
 
 .oai-tabs__tab {
@@ -23,17 +23,17 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--oai-text-base);
-  font-weight: var(--oai-font-medium);
-  color: var(--oai-text-secondary);
-  padding: var(--oai-space-2) var(--oai-space-4);
-  transition: color var(--oai-transition-fast), background-color var(--oai-transition-fast), border-color var(--oai-transition-fast);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-4);
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .oai-tabs__tab:focus-visible {
   outline: none;
-  box-shadow: var(--oai-shadow-focus);
-  border-radius: var(--oai-radius-sm);
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
 }
 
 /* Underline variant */
@@ -41,29 +41,29 @@
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   border-radius: 0;
-  background-color: var(--oai-surface-primary);
+  background-color: var(--color-bg-card);
 }
 
 .oai-tabs__list--underline .oai-tabs__tab--active {
-  color: var(--oai-primary-700);
-  border-bottom-color: var(--oai-primary-700);
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-700);
 }
 
 .oai-tabs__list--underline .oai-tabs__tab:hover:not(.oai-tabs__tab--active) {
-  color: var(--oai-text-primary);
+  color: var(--color-text-primary);
 }
 
 /* Pill variant */
 .oai-tabs__list--pill .oai-tabs__tab {
-  border-radius: var(--oai-radius-md);
+  border-radius: var(--radius-md);
 }
 
 .oai-tabs__list--pill .oai-tabs__tab--active {
-  background: var(--oai-surface-primary);
-  color: var(--oai-text-primary);
-  box-shadow: var(--oai-shadow-xs);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .oai-tabs__panel {
-  padding: var(--oai-space-4) 0;
+  padding: var(--space-4) 0;
 }
