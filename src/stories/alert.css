@@ -1,42 +1,42 @@
 .oai-alert {
   display: flex;
   align-items: flex-start;
-  gap: var(--oai-space-3);
-  padding: var(--oai-space-4);
-  border-radius: var(--oai-radius-lg);
-  font-family: var(--oai-font-sans);
-  font-size: var(--oai-text-base);
-  line-height: var(--oai-leading-normal);
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
 }
 
 .oai-alert--success {
-  background: var(--oai-success-50);
-  border: 1px solid var(--oai-success-500);
-  color: var(--oai-success-700);
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-bg0);
+  color: var(--color-success-text);
 }
 
 .oai-alert--warning {
-  background: var(--oai-warning-50);
-  border: 1px solid var(--oai-warning-500);
-  color: var(--oai-warning-700);
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-bg0);
+  color: var(--color-warning-text);
 }
 
 .oai-alert--error {
-  background: var(--oai-error-50);
-  border: 1px solid var(--oai-error-500);
-  color: var(--oai-error-700);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-bg0);
+  color: var(--color-error-text);
 }
 
 .oai-alert--info {
-  background: var(--oai-info-50);
-  border: 1px solid var(--oai-info-500);
-  color: var(--oai-info-700);
+  background: var(--color-info-bg);
+  border: 1px solid var(--color-info-bg0);
+  color: var(--color-info-text);
 }
 
 .oai-alert__title {
-  margin: 0 0 var(--oai-space-1);
-  font-size: var(--oai-text-base);
-  font-weight: var(--oai-font-bold);
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
 }
 
 .oai-alert__message {
@@ -48,15 +48,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   color: inherit;
   padding: 0;
-  line-height: 1;
+  line-height: var(--leading-tight);
   flex-shrink: 0;
 }
 
 .oai-alert__close:focus-visible {
   outline: none;
-  box-shadow: var(--oai-shadow-focus);
-  border-radius: var(--oai-radius-sm);
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
 }

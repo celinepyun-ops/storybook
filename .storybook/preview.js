@@ -1,3 +1,4 @@
+import '../src/stories/fonts.css';
 import '../src/stories/tokens.css';
 
 /** @type { import('@storybook/react-vite').Preview } */

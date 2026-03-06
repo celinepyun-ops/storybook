@@ -1,9 +1,9 @@
 .oai-stats-card {
-  padding: var(--oai-space-5);
-  border: 1px solid var(--oai-border-primary);
-  border-radius: var(--oai-radius-lg);
-  background: var(--oai-surface-primary);
-  font-family: var(--oai-font-sans);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  font-family: var(--font-family-sans);
   min-width: 180px;
 }
 
@@ -11,43 +11,46 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--oai-space-2);
+  margin-bottom: var(--space-2);
 }
 
 .oai-stats-card__title {
-  font-size: var(--oai-text-sm);
-  font-weight: var(--oai-font-medium);
-  color: var(--oai-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
 .oai-stats-card__icon {
-  font-size: var(--oai-text-xl);
+  font-size: var(--font-size-xl);
 }
 
 .oai-stats-card__value {
-  font-size: var(--oai-text-2xl);
-  font-weight: var(--oai-font-bold);
-  color: var(--oai-text-primary);
-  margin: 0 0 var(--oai-space-2);
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+  letter-spacing: var(--tracking-tightest);
+  line-height: var(--leading-snug);
 }
 
 .oai-stats-card__change {
   display: inline-flex;
   align-items: center;
-  gap: var(--oai-space-1);
-  font-size: var(--oai-text-xs);
-  font-weight: var(--oai-font-medium);
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
 }
 
 .oai-stats-card__change--up {
-  color: var(--oai-success-700);
+  color: var(--color-success-text);
 }
 
 .oai-stats-card__change--down {
-  color: var(--oai-error-700);
+  color: var(--color-error-text);
 }
 
 .oai-stats-card__change--neutral {
-  color: var(--oai-text-secondary);
+  color: var(--color-text-secondary);
 }

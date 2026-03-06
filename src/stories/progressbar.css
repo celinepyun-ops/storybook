@@ -1,15 +1,15 @@
 .oai-progress {
   display: flex;
   flex-direction: column;
-  gap: var(--oai-space-1);
-  font-family: var(--oai-font-sans);
+  gap: var(--space-1);
+  font-family: var(--font-family-sans);
   width: 100%;
 }
 
 .oai-progress__track {
   width: 100%;
-  background: var(--oai-neutral-200);
-  border-radius: var(--oai-radius-full);
+  background: var(--color-neutral-200);
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
@@ -27,28 +27,28 @@
 
 .oai-progress__fill {
   height: 100%;
-  border-radius: var(--oai-radius-full);
-  transition: width var(--oai-transition-slow);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
 }
 
 .oai-progress__fill--primary {
-  background: var(--oai-primary-500);
+  background: var(--color-primary-600);
 }
 
 .oai-progress__fill--success {
-  background: var(--oai-success-500);
+  background: var(--color-success-bg0);
 }
 
 .oai-progress__fill--warning {
-  background: var(--oai-warning-500);
+  background: var(--color-warning-bg0);
 }
 
 .oai-progress__fill--error {
-  background: var(--oai-error-500);
+  background: var(--color-error-bg0);
 }
 
 .oai-progress__value {
-  font-size: var(--oai-text-xs);
-  color: var(--oai-text-secondary);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
   text-align: right;
 }

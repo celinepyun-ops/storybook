@@ -6,39 +6,39 @@
 .oai-toast {
   display: flex;
   align-items: center;
-  gap: var(--oai-space-3);
-  padding: var(--oai-space-3) var(--oai-space-4);
-  border-radius: var(--oai-radius-lg);
-  font-family: var(--oai-font-sans);
-  font-size: var(--oai-text-base);
-  box-shadow: var(--oai-shadow-lg);
-  animation: oai-toast-in var(--oai-transition-base);
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  box-shadow: var(--shadow-lg);
+  animation: oai-toast-in var(--transition-base);
   min-width: 280px;
   max-width: 420px;
 }
 
 .oai-toast--success {
-  background: var(--oai-success-50);
-  border: 1px solid var(--oai-success-500);
-  color: var(--oai-success-700);
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-bg0);
+  color: var(--color-success-text);
 }
 
 .oai-toast--warning {
-  background: var(--oai-warning-50);
-  border: 1px solid var(--oai-warning-500);
-  color: var(--oai-warning-700);
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-bg0);
+  color: var(--color-warning-text);
 }
 
 .oai-toast--error {
-  background: var(--oai-error-50);
-  border: 1px solid var(--oai-error-500);
-  color: var(--oai-error-700);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-bg0);
+  color: var(--color-error-text);
 }
 
 .oai-toast--info {
-  background: var(--oai-info-50);
-  border: 1px solid var(--oai-info-500);
-  color: var(--oai-info-700);
+  background: var(--color-info-bg);
+  border: 1px solid var(--color-info-bg0);
+  color: var(--color-info-text);
 }
 
 .oai-toast__message {
@@ -50,8 +50,8 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--oai-text-sm);
-  font-weight: var(--oai-font-semibold);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   color: inherit;
   text-decoration: underline;
   padding: 0;
@@ -61,10 +61,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: var(--font-size-md);
   color: inherit;
   padding: 0;
-  line-height: 1;
+  line-height: var(--leading-tight);
   flex-shrink: 0;
   opacity: 0.7;
 }

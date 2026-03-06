@@ -1,57 +1,57 @@
 .oai-input-wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--oai-space-1);
-  font-family: var(--oai-font-sans);
+  gap: var(--space-1);
+  font-family: var(--font-family-sans);
   max-width: 320px;
 }
 
 .oai-input__label {
-  font-size: var(--oai-text-sm);
-  font-weight: var(--oai-font-semibold);
-  color: var(--oai-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
 }
 
 .oai-input {
-  padding: 10px var(--oai-space-3);
-  border: 1px solid var(--oai-border-primary);
-  border-radius: var(--oai-radius-md);
-  font-size: var(--oai-text-base);
+  padding: 10px var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
   font-family: inherit;
-  color: var(--oai-text-primary);
-  background: var(--oai-surface-primary);
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
   outline: none;
-  transition: border-color var(--oai-transition-fast), box-shadow var(--oai-transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .oai-input::placeholder {
-  color: var(--oai-text-disabled);
+  color: var(--color-text-muted);
 }
 
 .oai-input:focus {
-  border-color: var(--oai-border-focus);
-  box-shadow: var(--oai-shadow-focus);
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
 }
 
 .oai-input--error {
-  border-color: var(--oai-border-error);
+  border-color: var(--color-error);
 }
 
 .oai-input--error:focus {
-  box-shadow: var(--oai-shadow-error);
+  box-shadow: var(--shadow-error);
 }
 
 .oai-input--disabled {
-  background: var(--oai-neutral-100);
-  color: var(--oai-text-disabled);
+  background: var(--color-neutral-100);
+  color: var(--color-text-muted);
   cursor: not-allowed;
 }
 
 .oai-input__helper {
-  font-size: var(--oai-text-xs);
-  color: var(--oai-text-secondary);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
 }
 
 .oai-input__helper--error {
-  color: var(--oai-error-500);
+  color: var(--color-error-bg0);
 }

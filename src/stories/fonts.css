@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Outreach AI — Font Faces
+   ========================================================================== */
+
+/* ── Test Tiempos Text ────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Test Tiempos Text';
+  src: url('./fonts/TestTiemposText-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Test Tiempos Text';
+  src: url('./fonts/TestTiemposText-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Test Tiempos Text';
+  src: url('./fonts/TestTiemposText-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Test Tiempos Text';
+  src: url('./fonts/TestTiemposText-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

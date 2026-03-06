@@ -4,33 +4,33 @@
 }
 
 .oai-skeleton {
-  background: var(--oai-neutral-200);
+  background: var(--color-neutral-200);
   animation: oai-pulse 1.5s ease-in-out infinite;
 }
 
 .oai-skeleton--text {
   height: 14px;
-  border-radius: var(--oai-radius-sm);
+  border-radius: var(--radius-sm);
   width: 100%;
 }
 
 .oai-skeleton--circle {
-  border-radius: var(--oai-radius-full);
+  border-radius: var(--radius-full);
 }
 
 .oai-skeleton--rectangle {
-  border-radius: var(--oai-radius-md);
+  border-radius: var(--radius-md);
 }
 
 .oai-skeleton--card {
-  border-radius: var(--oai-radius-lg);
+  border-radius: var(--radius-lg);
   min-height: 120px;
 }
 
 .oai-skeleton__lines {
   display: flex;
   flex-direction: column;
-  gap: var(--oai-space-2);
+  gap: var(--space-2);
 }
 
 .oai-skeleton__lines .oai-skeleton:last-child {
