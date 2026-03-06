@@ -162,6 +162,55 @@
   --navbar-height:     56px;
 }
 
+/* ==========================================================================
+   Dark Theme — Override semantic aliases only
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* ── Surfaces ─────────────────────────────────────────────────────── */
+  --color-bg-page:    var(--color-neutral-900);
+  --color-bg-card:    var(--color-neutral-800);
+  --color-bg-sidebar: var(--color-neutral-950);
+  --color-bg-hover:   var(--color-neutral-700);
+  --color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* ── Text ─────────────────────────────────────────────────────────── */
+  --color-text-primary:   var(--color-neutral-50);
+  --color-text-secondary: var(--color-neutral-400);
+  --color-text-muted:     var(--color-neutral-500);
+  --color-text-inverse:   var(--color-neutral-900);
+  --color-text-link:      var(--color-primary-400);
+
+  /* ── Borders ──────────────────────────────────────────────────────── */
+  --color-border-default: var(--color-neutral-700);
+  --color-border-strong:  var(--color-neutral-600);
+
+  /* ── Semantic Backgrounds ─────────────────────────────────────────── */
+  --color-success-bg:     #052e16;
+  --color-success-border: #166534;
+  --color-success-text:   #86efac;
+
+  --color-warning-bg:     #451a03;
+  --color-warning-border: #92400e;
+  --color-warning-text:   #fde68a;
+
+  --color-error-bg:     #450a0a;
+  --color-error-border: #991b1b;
+  --color-error-text:   #fca5a5;
+
+  --color-info-bg:     #1e1b4b;
+  --color-info-border: #1e40af;
+  --color-info-text:   #93c5fd;
+
+  /* ── Shadows ──────────────────────────────────────────────────────── */
+  --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md:    0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg:    0 4px 6px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.3);
+  --shadow-xl:    0 8px 16px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.4);
+  --shadow-focus: 0 0 0 3px rgba(61, 158, 61, 0.4);
+  --shadow-error: 0 0 0 3px rgba(220, 38, 38, 0.3);
+}
+
 /* ── Heading base ────────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-serif);

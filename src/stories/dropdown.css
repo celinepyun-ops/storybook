@@ -33,9 +33,9 @@
 .oai-dropdown__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   width: 100%;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
   border: none;
   background: none;
   cursor: pointer;
@@ -48,12 +48,58 @@
 
 .oai-dropdown__item:hover,
 .oai-dropdown__item:focus {
-  background: var(--color-neutral-100);
+  background: var(--color-bg-hover);
   outline: none;
 }
 
 .oai-dropdown__item--danger {
   color: var(--color-error-bg0);
+}
+
+/* ── Toggle Item ────────────────────────────────────────────────────── */
+.oai-dropdown__item--toggle {
+  justify-content: space-between;
+}
+
+.oai-dropdown__item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.oai-dropdown__item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.oai-dropdown__toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-neutral-300);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.oai-dropdown__toggle--checked {
+  background: var(--color-primary-600);
+}
+
+.oai-dropdown__toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.oai-dropdown__toggle--checked .oai-dropdown__toggle-knob {
+  transform: translateX(16px);
 }
 
 .oai-dropdown__divider {

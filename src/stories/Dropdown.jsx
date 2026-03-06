@@ -18,7 +18,7 @@ export const Dropdown = ({ trigger, items = [], align = 'left' }) => {
 
   const handleKeyDown = (e) => {
     if (!open) return;
-    const btns = menuRef.current?.querySelectorAll('[role="menuitem"]');
+    const btns = menuRef.current?.querySelectorAll('[role="menuitem"], [role="menuitemcheckbox"]');
     if (!btns?.length) return;
 
     const active = document.activeElement;
@@ -37,7 +37,7 @@ export const Dropdown = ({ trigger, items = [], align = 'left' }) => {
 
   useEffect(() => {
     if (open) {
-      menuRef.current?.querySelector('[role="menuitem"]')?.focus();
+      menuRef.current?.querySelector('[role="menuitem"], [role="menuitemcheckbox"]')?.focus();
     }
   }, [open]);
 
@@ -48,10 +48,36 @@ export const Dropdown = ({ trigger, items = [], align = 'left' }) => {
       </div>
       {open && (
         <ul className={`oai-dropdown__menu oai-dropdown__menu--${align}`} role="menu" ref={menuRef}>
-          {items.map((item, i) =>
-            item.divider ? (
-              <li key={i} className="oai-dropdown__divider" role="separator" />
-            ) : (
+          {items.map((item, i) => {
+            if (item.divider) {
+              return <li key={i} className="oai-dropdown__divider" role="separator" />;
+            }
+
+            if (item.toggle) {
+              return (
+                <li key={i}>
+                  <button
+                    className="oai-dropdown__item oai-dropdown__item--toggle"
+                    role="menuitemcheckbox"
+                    aria-checked={item.checked}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      item.onToggle?.(!item.checked);
+                    }}
+                  >
+                    <span className="oai-dropdown__item-left">
+                      {item.icon && <span>{item.icon}</span>}
+                      {item.label}
+                    </span>
+                    <span className={`oai-dropdown__toggle ${item.checked ? 'oai-dropdown__toggle--checked' : ''}`}>
+                      <span className="oai-dropdown__toggle-knob" />
+                    </span>
+                  </button>
+                </li>
+              );
+            }
+
+            return (
               <li key={i}>
                 <button
                   className={`oai-dropdown__item ${item.danger ? 'oai-dropdown__item--danger' : ''}`}
@@ -65,8 +91,8 @@ export const Dropdown = ({ trigger, items = [], align = 'left' }) => {
                   {item.label}
                 </button>
               </li>
-            )
-          )}
+            );
+          })}
         </ul>
       )}
     </div>
@@ -84,6 +110,9 @@ Dropdown.propTypes = {
       onClick: PropTypes.func,
       danger: PropTypes.bool,
       divider: PropTypes.bool,
+      toggle: PropTypes.bool,
+      checked: PropTypes.bool,
+      onToggle: PropTypes.func,
     })
   ).isRequired,
   /** Menu alignment */

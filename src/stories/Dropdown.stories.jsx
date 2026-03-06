@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { fn } from 'storybook/test';
 import { Dropdown } from './Dropdown';
 import { Button } from './Button';
@@ -41,4 +42,34 @@ export const AlignRight = {
       { label: 'Sign out', icon: Icons.signout, onClick: fn() },
     ],
   },
+};
+
+const WithToggleRender = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  return (
+    <Dropdown
+      trigger={<Button variant="outline" label="Settings" />}
+      items={[
+        { label: 'Profile', icon: Icons.profile, onClick: fn() },
+        { label: 'Settings', icon: Icons.settings, onClick: fn() },
+        { divider: true },
+        {
+          label: 'Dark Mode',
+          icon: Icons.moon,
+          toggle: true,
+          checked: darkMode,
+          onToggle: (val) => {
+            setDarkMode(val);
+            document.documentElement.dataset.theme = val ? 'dark' : '';
+          },
+        },
+        { divider: true },
+        { label: 'Sign out', icon: Icons.signout, onClick: fn() },
+      ]}
+    />
+  );
+};
+
+export const WithToggle = {
+  render: () => <WithToggleRender />,
 };
