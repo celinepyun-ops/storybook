@@ -4,9 +4,8 @@ import { PageLayout } from './PageLayout';
 import { Sidebar } from './Sidebar';
 import { Navbar } from './Navbar';
 import { Search } from './Search';
-import { Avatar } from './Avatar';
-import { Dropdown } from './Dropdown';
 import { Badge } from './Badge';
+import { HelpButton } from './HelpButton';
 import { Button } from './Button';
 import { Select } from './Select';
 import { Icons } from './icons';
@@ -103,23 +102,6 @@ const SearchPage = () => {
               <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-text-secondary)', padding: 0 }} aria-label="Notifications">
                 {Icons.bell}
               </button>
-              <Dropdown
-                trigger={
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', cursor: 'pointer' }}>
-                    <Avatar initials="C" size="small" />
-                    <span style={{ fontFamily: 'var(--font-family-sans)', fontSize: 'var(--font-size-sm)', color: 'var(--color-text-primary)' }}>Celine</span>
-                  </div>
-                }
-                items={[
-                  { label: 'Profile', icon: Icons.profile, onClick: fn() },
-                  { label: 'Settings', icon: Icons.settings, onClick: fn() },
-                  { divider: true },
-                  { label: 'Dark Mode', icon: Icons.moon, toggle: true, checked: darkMode, onToggle: (val) => { setDarkMode(val); document.documentElement.dataset.theme = val ? 'dark' : ''; } },
-                  { divider: true },
-                  { label: 'Sign out', icon: Icons.signout, onClick: fn() },
-                ]}
-                align="right"
-              />
             </div>
           }
         >
@@ -225,6 +207,7 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
+      <HelpButton onSubmit={fn()} />
     </PageLayout>
   );
 };
