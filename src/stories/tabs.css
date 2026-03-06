@@ -64,6 +64,20 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Dark mode tab overrides */
+[data-theme="dark"] .oai-tabs__list--underline .oai-tabs__tab--active {
+  color: var(--color-primary-400);
+  border-bottom-color: var(--color-primary-400);
+}
+
+[data-theme="dark"] .oai-tabs__tab {
+  color: var(--color-neutral-300);
+}
+
+[data-theme="dark"] .oai-tabs__list--underline .oai-tabs__tab:hover:not(.oai-tabs__tab--active) {
+  color: var(--color-neutral-50);
+}
+
 .oai-tabs__panel {
   padding: var(--space-4) 0;
 }
