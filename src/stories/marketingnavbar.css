@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Marketing Navbar
+   ========================================================================== */
+
+.oai-mktg-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.oai-mktg-nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.oai-mktg-nav__logo-mark {
+  color: var(--color-primary-600);
+  display: flex;
+}
+
+.oai-mktg-nav__logo-text {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+}
+
+.oai-mktg-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.oai-mktg-nav__link {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1) 0;
+  transition: color var(--transition-fast);
+}
+
+.oai-mktg-nav__link:hover,
+.oai-mktg-nav__link--active {
+  color: var(--color-text-primary);
+}
+
+.oai-mktg-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.oai-mktg-nav__signin {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  transition: color var(--transition-fast);
+}
+
+.oai-mktg-nav__signin:hover {
+  color: var(--color-text-primary);
+}
+
+.oai-mktg-nav__cta {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: #FFFFFF;
+  background: var(--color-primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.oai-mktg-nav__cta:hover {
+  background: var(--color-primary-700);
+}
+
+/* ── Sticky header wrapper ─────────────────────────────────────────── */
+.oai-mktg-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border-default);
+  z-index: var(--z-sticky);
+}

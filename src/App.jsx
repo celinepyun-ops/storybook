@@ -23,6 +23,9 @@ import { NotFound } from './stories/NotFound';
 import { Login } from './stories/Login';
 import { SignUp } from './stories/SignUp';
 import { Settings } from './stories/Settings';
+import { LandingPage } from './stories/LandingPage';
+import { PricingPage } from './stories/PricingPage';
+import { ProductPage } from './stories/ProductPage';
 import { Icons } from './stories/icons';
 
 /* ── Page-specific CSS ───────────────────────────────────────────── */
@@ -247,7 +250,7 @@ const SearchBrandsContent = () => (
    App — root with page routing
    ══════════════════════════════════════════════════════════════════ */
 function App() {
-  const [page, setPage] = useState('login');
+  const [page, setPage] = useState('landing');
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -256,6 +259,42 @@ function App() {
     setDarkMode(val);
     document.documentElement.dataset.theme = val ? 'dark' : '';
   };
+
+  /* ── Marketing navigation helpers ──────────────────────────────── */
+  const marketingNav = (targetPage) => setPage(targetPage);
+  const goToSignIn = () => setPage('login');
+  const goToSignUp = () => setPage('signup');
+
+  /* ── Marketing pages — full-screen, no app chrome ──────────────── */
+  if (page === 'landing') {
+    return (
+      <LandingPage
+        onNavigate={marketingNav}
+        onSignIn={goToSignIn}
+        onGetStarted={goToSignUp}
+      />
+    );
+  }
+
+  if (page === 'product') {
+    return (
+      <ProductPage
+        onNavigate={marketingNav}
+        onSignIn={goToSignIn}
+        onGetStarted={goToSignUp}
+      />
+    );
+  }
+
+  if (page === 'pricing') {
+    return (
+      <PricingPage
+        onNavigate={marketingNav}
+        onSignIn={goToSignIn}
+        onGetStarted={goToSignUp}
+      />
+    );
+  }
 
   /* ── Auth pages — full-screen, no layout chrome ────────────── */
   if (page === 'login') {
