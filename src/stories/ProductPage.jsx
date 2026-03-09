@@ -119,7 +119,7 @@ export const ProductPage = ({ onNavigate, onSignIn, onGetStarted }) => (
       <div className="oai-product__cta-inner">
         <h2 className="oai-product__cta-title">Start reaching brands today</h2>
         <p className="oai-product__cta-desc">
-          Sign up for free and discover why 1,200+ agencies trust Outreach AI for their brand partnerships.
+          Sign up for free and discover why 1,200+ agencies trust Gallop AI for their brand partnerships.
         </p>
         <button className="oai-product__cta-btn" onClick={onGetStarted}>
           Get Started — It's Free
@@ -131,9 +131,9 @@ export const ProductPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <footer className="oai-product__footer">
       <div className="oai-product__footer-brand">
         <span className="oai-product__footer-logo">{Icons.logo(20)}</span>
-        <span className="oai-product__footer-name">Outreach AI</span>
+        <span className="oai-product__footer-name">Gallop AI</span>
       </div>
-      <span className="oai-product__footer-copy">&copy; 2026 Outreach AI. All rights reserved.</span>
+      <span className="oai-product__footer-copy">&copy; 2026 Gallop AI. All rights reserved.</span>
     </footer>
   </div>
 );

@@ -23,7 +23,7 @@ export const Header = ({ user = null, onLogin, onLogout, onCreateAccount }) => (
             />
           </g>
         </svg>
-        <h1>Outreach AI</h1>
+        <h1>Gallop AI</h1>
       </div>
       <div>
         {user ? (

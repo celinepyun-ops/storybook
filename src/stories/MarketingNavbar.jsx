@@ -7,7 +7,7 @@ export const MarketingNavbar = ({ activePage, onNavigate, onSignIn, onGetStarted
     <nav className="oai-mktg-nav">
       <button className="oai-mktg-nav__logo" onClick={() => onNavigate?.('landing')}>
         <span className="oai-mktg-nav__logo-mark">{Icons.logo(28)}</span>
-        <span className="oai-mktg-nav__logo-text">Outreach AI</span>
+        <span className="oai-mktg-nav__logo-text">Gallop AI</span>
       </button>
 
       <div className="oai-mktg-nav__links">

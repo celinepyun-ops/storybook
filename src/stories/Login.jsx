@@ -30,7 +30,7 @@ export const Login = ({ onLogin, onSignUpClick, onForgotPassword }) => {
 
         <h1 className="oai-auth__heading">Welcome</h1>
         <p className="oai-auth__subtitle">
-          Log in to Outreach AI to continue to your dashboard.
+          Log in to Gallop AI to continue to your dashboard.
         </p>
 
         <form className="oai-auth__form" onSubmit={handleSubmit}>

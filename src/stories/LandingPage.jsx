@@ -173,7 +173,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
         <p className="oai-landing__features-label">Features</p>
         <h2 className="oai-landing__features-title">Everything you need for brand outreach</h2>
         <p className="oai-landing__features-desc">
-          From discovery to deal close, Outreach AI streamlines your entire workflow.
+          From discovery to deal close, Gallop AI streamlines your entire workflow.
         </p>
       </div>
       <div className="oai-landing__features-grid">
@@ -192,7 +192,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
       <div className="oai-landing__cta-inner">
         <h2 className="oai-landing__cta-title">Ready to grow your brand partnerships?</h2>
         <p className="oai-landing__cta-desc">
-          Join 1,200+ agencies and freelancers using Outreach AI to discover and connect with Amazon brands.
+          Join 1,200+ agencies and freelancers using Gallop AI to discover and connect with Amazon brands.
         </p>
         <button className="oai-landing__cta-btn" onClick={onGetStarted}>
           Get Started — It's Free
@@ -204,9 +204,9 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <footer className="oai-landing__footer">
       <div className="oai-landing__footer-brand">
         <span className="oai-landing__footer-logo">{Icons.logo(20)}</span>
-        <span className="oai-landing__footer-name">Outreach AI</span>
+        <span className="oai-landing__footer-name">Gallop AI</span>
       </div>
-      <span className="oai-landing__footer-copy">&copy; 2026 Outreach AI. All rights reserved.</span>
+      <span className="oai-landing__footer-copy">&copy; 2026 Gallop AI. All rights reserved.</span>
     </footer>
   </div>
 );
