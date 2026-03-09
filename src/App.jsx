@@ -274,11 +274,12 @@ function App() {
   /* ── Render page content based on route ────────────────────── */
   const renderContent = () => {
     switch (page) {
+      case 'dashboard':
+        return <DashboardContent />;
       case 'search-brands':
         return <SearchBrandsContent />;
-      case 'dashboard':
       default:
-        return <DashboardContent />;
+        return <NotFound onBackClick={() => setPage('dashboard')} />;
     }
   };
 
