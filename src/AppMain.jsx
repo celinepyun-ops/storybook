@@ -19,10 +19,11 @@ import { NotFound } from './stories/NotFound';
 import { Login } from './stories/Login';
 import { SignUp } from './stories/SignUp';
 import { Settings } from './stories/Settings';
+import { LandingPage } from './stories/LandingPage';
+import { PricingPage } from './stories/PricingPage';
+import { ProductPage } from './stories/ProductPage';
 import { Icons } from './stories/icons';
 import './stories/searchpage.css';
-
-const MARKETING_URL = 'http://localhost:5173';
 const noop = () => {};
 
 /* ── Sidebar footer ──────────────────────────────────────────────── */
@@ -659,7 +660,7 @@ const PeopleContent = () => {
 /* ── App with simple path-based routing ──────────────────────────── */
 function AppMain() {
   const [page, setPage] = useState(() => {
-    const path = window.location.pathname.replace(/^\//, '') || 'login';
+    const path = window.location.pathname.replace(/^\//, '') || 'landing';
     return path;
   });
   const [darkMode, setDarkMode] = useState(false);
@@ -668,12 +669,12 @@ function AppMain() {
 
   const navigate = (p) => {
     setPage(p);
-    window.history.pushState({}, '', `/${p}`);
+    window.history.pushState({}, '', p === 'landing' ? '/' : `/${p}`);
   };
 
   useEffect(() => {
     const onPopState = () => {
-      const path = window.location.pathname.replace(/^\//, '') || 'login';
+      const path = window.location.pathname.replace(/^\//, '') || 'landing';
       setPage(path);
     };
     window.addEventListener('popstate', onPopState);
@@ -685,7 +686,36 @@ function AppMain() {
     document.documentElement.dataset.theme = val ? 'dark' : '';
   };
 
-  const goToMarketing = () => { window.location.href = MARKETING_URL; };
+  /* ── Marketing pages — full-screen, no app chrome ──────────────── */
+  if (page === 'landing') {
+    return (
+      <LandingPage
+        onNavigate={navigate}
+        onSignIn={() => navigate('login')}
+        onGetStarted={() => navigate('signup')}
+      />
+    );
+  }
+
+  if (page === 'product') {
+    return (
+      <ProductPage
+        onNavigate={navigate}
+        onSignIn={() => navigate('login')}
+        onGetStarted={() => navigate('signup')}
+      />
+    );
+  }
+
+  if (page === 'pricing') {
+    return (
+      <PricingPage
+        onNavigate={navigate}
+        onSignIn={() => navigate('login')}
+        onGetStarted={() => navigate('signup')}
+      />
+    );
+  }
 
   /* ── Auth pages ──────────────────────────────────────────────────── */
   if (page === 'login') {
@@ -768,7 +798,7 @@ function AppMain() {
       {settingsOpen && (
         <Settings
           onClose={() => setSettingsOpen(false)}
-          onLogout={() => { setSettingsOpen(false); goToMarketing(); }}
+          onLogout={() => { setSettingsOpen(false); navigate('landing'); }}
           onSave={noop}
         />
       )}
