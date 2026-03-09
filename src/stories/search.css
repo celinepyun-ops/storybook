@@ -8,7 +8,7 @@
   background: var(--color-bg-card);
   font-family: var(--font-family-sans);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  max-width: 480px;
+  max-width: 680px;
 }
 
 .oai-search:focus-within {
