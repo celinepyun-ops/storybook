@@ -1,19 +1,11 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button';
-import { Icons } from './icons';
 import './notfound.css';
 
 /** 404 Page Not Found */
 export const NotFound = ({ onBackClick }) => {
   return (
     <div className="oai-notfound">
-      <header className="oai-notfound__header">
-        <div className="oai-notfound__brand">
-          <span className="oai-notfound__logo">{Icons.logo(34)}</span>
-          <span className="oai-notfound__brand-name">Outreach AI</span>
-        </div>
-      </header>
-
       <main className="oai-notfound__body">
         <span className="oai-notfound__cross oai-notfound__cross--left">+</span>
 
