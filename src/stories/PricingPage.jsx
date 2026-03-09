@@ -118,9 +118,9 @@ export const PricingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <footer className="oai-pricing__footer">
       <div className="oai-pricing__footer-brand">
         <span className="oai-pricing__footer-logo">{Icons.logo(20)}</span>
-        <span className="oai-pricing__footer-name">Outreach AI</span>
+        <span className="oai-pricing__footer-name">Gallop AI</span>
       </div>
-      <span className="oai-pricing__footer-copy">&copy; 2026 Outreach AI. All rights reserved.</span>
+      <span className="oai-pricing__footer-copy">&copy; 2026 Gallop AI. All rights reserved.</span>
     </footer>
   </div>
 );

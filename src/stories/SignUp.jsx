@@ -33,7 +33,7 @@ export const SignUp = ({ onSignUp, onLoginClick }) => {
 
         <h1 className="oai-auth__heading">Create Account</h1>
         <p className="oai-auth__subtitle">
-          Sign up for Outreach AI to start your brand outreach.
+          Sign up for Gallop AI to start your brand outreach.
         </p>
 
         <form className="oai-auth__form" onSubmit={handleSubmit}>

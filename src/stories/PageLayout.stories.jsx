@@ -33,7 +33,7 @@ export const Default = {
         header={
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ color: 'var(--color-primary-600)', display: 'flex' }}>{Icons.logo(34)}</span>
-            <span style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 400, fontSize: '20px', color: 'var(--color-text-primary)' }}>Outreach AI</span>
+            <span style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 400, fontSize: '20px', color: 'var(--color-text-primary)' }}>Gallop AI</span>
           </div>
         }
       />
@@ -49,7 +49,7 @@ export const Default = {
       <div style={{ padding: '8px' }}>
         <h1 style={{ margin: '0 0 8px' }}>Dashboard</h1>
         <p style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-family-sans)' }}>
-          Welcome to Outreach AI. Select a section from the sidebar to get started.
+          Welcome to Gallop AI. Select a section from the sidebar to get started.
         </p>
       </div>
     ),
