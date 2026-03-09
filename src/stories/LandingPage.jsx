@@ -36,6 +36,59 @@ const features = [
   },
 ];
 
+/* Cross-hatch pattern SVG for the visual section */
+const CrossHatchPattern = () => (
+  <svg className="oai-landing__crosshatch" width="320" height="200" viewBox="0 0 320 200" fill="none" aria-hidden="true">
+    {Array.from({ length: 10 }, (_, row) =>
+      Array.from({ length: 16 }, (_, col) => (
+        <text
+          key={`${row}-${col}`}
+          x={col * 20 + 10}
+          y={row * 20 + 10}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="var(--color-primary-600)"
+          fontSize="10"
+          opacity="0.5"
+        >
+          +
+        </text>
+      ))
+    )}
+  </svg>
+);
+
+/* Network lines SVG — routed around the central horse logo */
+const NetworkLines = () => (
+  <svg className="oai-landing__network-lines" viewBox="0 0 1200 600" fill="none" aria-hidden="true">
+    {/* Left side lines — stop before center */}
+    <line x1="80" y1="80" x2="350" y2="200" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="80" y1="520" x2="350" y2="400" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="120" y1="300" x2="380" y2="250" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="120" y1="300" x2="380" y2="350" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="350" y1="200" x2="380" y2="250" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="350" y1="400" x2="380" y2="350" stroke="var(--color-neutral-200)" strokeWidth="1" />
+
+    {/* Right side lines — stop before center */}
+    <line x1="1120" y1="80" x2="850" y2="200" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="1120" y1="520" x2="850" y2="400" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="1080" y1="300" x2="820" y2="250" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="1080" y1="300" x2="820" y2="350" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="850" y1="200" x2="820" y2="250" stroke="var(--color-neutral-200)" strokeWidth="1" />
+    <line x1="850" y1="400" x2="820" y2="350" stroke="var(--color-neutral-200)" strokeWidth="1" />
+
+    {/* Corner crosses */}
+    <text x="80" y="80" textAnchor="middle" dominantBaseline="middle" fill="var(--color-neutral-400)" fontSize="20">+</text>
+    <text x="1120" y="80" textAnchor="middle" dominantBaseline="middle" fill="var(--color-neutral-400)" fontSize="20">+</text>
+
+    {/* Node dots on connection points */}
+    <rect x="347" y="197" width="6" height="6" fill="var(--color-neutral-300)" rx="1" />
+    <rect x="847" y="197" width="6" height="6" fill="var(--color-neutral-300)" rx="1" />
+    <rect x="347" y="397" width="6" height="6" fill="var(--color-neutral-300)" rx="1" />
+    <rect x="847" y="397" width="6" height="6" fill="var(--color-neutral-300)" rx="1" />
+  </svg>
+);
+
 export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
   <div className="oai-landing">
     <MarketingNavbar
@@ -47,24 +100,50 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
 
     {/* Hero */}
     <section className="oai-landing__hero">
-      <div className="oai-landing__badge">
-        {Icons.sparkle}
-        AI-Powered Outreach for Amazon Brands
+      <div className="oai-landing__news-badge">
+        <span className="oai-landing__news-tag">NEW</span>
+        Now live: AI-powered brand recommendations — no setup required.
       </div>
       <h1 className="oai-landing__title">
-        Find, Reach, and Close{' '}
-        <span className="oai-landing__title-accent">Amazon Brand</span> Deals Faster
+        The AI Platform{'\n'}for{' '}
+        <span className="oai-landing__title-accent">Amazon Brand</span> Outreach
       </h1>
-      <p className="oai-landing__subtitle">
-        Discover top-selling Amazon brands, craft personalized outreach, and manage your pipeline — all powered by AI.
-      </p>
       <div className="oai-landing__hero-actions">
         <button className="oai-landing__hero-btn oai-landing__hero-btn--primary" onClick={onGetStarted}>
-          Start Free Trial
+          GET STARTED
         </button>
-        <button className="oai-landing__hero-btn oai-landing__hero-btn--secondary" onClick={() => onNavigate?.('product')}>
-          See How It Works
-        </button>
+      </div>
+    </section>
+
+    {/* Visual section with horse logo, floating pills, network lines */}
+    <section className="oai-landing__visual">
+      <NetworkLines />
+
+      {/* Floating status pills */}
+      <div className="oai-landing__pill oai-landing__pill--left-top">
+        <span className="oai-landing__pill-icon oai-landing__pill-icon--red">✕</span>
+        BRAND NOT RESPONDING
+      </div>
+      <div className="oai-landing__pill oai-landing__pill--left-bottom">
+        <span className="oai-landing__pill-icon oai-landing__pill-icon--green">✓</span>
+        VERIFIED ACROSS NETWORK
+      </div>
+      <div className="oai-landing__pill oai-landing__pill--right">
+        <span className="oai-landing__pill-icon oai-landing__pill-icon--green">✓</span>
+        12 BRANDS DISCOVERED
+      </div>
+
+      {/* Central horse logo */}
+      <div className="oai-landing__visual-logo">
+        {Icons.logo(320)}
+      </div>
+
+      {/* Cross-hatch pattern bottom */}
+      <div className="oai-landing__crosshatch-wrap oai-landing__crosshatch-wrap--left">
+        <CrossHatchPattern />
+      </div>
+      <div className="oai-landing__crosshatch-wrap oai-landing__crosshatch-wrap--right">
+        <CrossHatchPattern />
       </div>
     </section>
 

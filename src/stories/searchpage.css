@@ -192,3 +192,896 @@
 .oai-credits-badge__count {
   font-weight: var(--font-weight-bold);
 }
+
+/* ==========================================================================
+   Search Form — redesigned card layout
+   ========================================================================== */
+.oai-search-card__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.oai-search-card__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.oai-search-card__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.oai-search-card__text-input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.oai-search-card__text-input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.oai-search-card__text-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.oai-search-card__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-6);
+  background: var(--color-primary-600);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  margin-top: auto;
+  align-self: end;
+  transition: background var(--transition-fast);
+}
+
+.oai-search-card__search-btn:hover {
+  background: var(--color-primary-700);
+}
+
+/* ==========================================================================
+   Search Results Table
+   ========================================================================== */
+.oai-results {
+  margin-top: var(--space-8);
+}
+
+.oai-results__title {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.oai-results__table-wrap {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+}
+
+.oai-results__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+}
+
+.oai-results__th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  border-bottom: 1px solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.oai-results__th--check {
+  width: 40px;
+  text-align: center;
+}
+
+.oai-results__th--image {
+  width: 56px;
+}
+
+.oai-results__th--title {
+  min-width: 280px;
+}
+
+.oai-results__th--reviews {
+  text-align: right;
+}
+
+.oai-results__row {
+  border-bottom: 1px solid var(--color-border-default);
+  transition: background var(--transition-fast);
+}
+
+.oai-results__row:last-child {
+  border-bottom: none;
+}
+
+.oai-results__row:hover {
+  background: var(--color-neutral-50);
+}
+
+.oai-results__row--selected {
+  background: var(--color-primary-50);
+}
+
+.oai-results__td {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-primary);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.oai-results__td--check {
+  text-align: center;
+  width: 40px;
+}
+
+.oai-results__td--image {
+  width: 56px;
+}
+
+.oai-results__td--title {
+  white-space: normal;
+  max-width: 360px;
+}
+
+.oai-results__td--reviews {
+  text-align: right;
+}
+
+.oai-results__image-placeholder {
+  width: 48px;
+  height: 48px;
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+}
+
+.oai-results__image-placeholder--sm {
+  width: 36px;
+  height: 36px;
+}
+
+.oai-results__product-title {
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+  margin-bottom: 2px;
+}
+
+.oai-results__product-asin {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.oai-results__rating {
+  color: var(--color-secondary-500);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ── Products in This List ───────────────────────────────────────── */
+.oai-results__list-section {
+  margin-top: var(--space-8);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  overflow: hidden;
+}
+
+.oai-results__list-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border-default);
+  margin: 0;
+}
+
+.oai-results__list-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--color-primary-600);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.oai-results__list-empty {
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+}
+
+.oai-results__list-empty-icon {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: center;
+}
+
+.oai-results__list-empty p {
+  margin: 0;
+}
+
+.oai-results__list-items {
+  padding: var(--space-2);
+}
+
+.oai-results__list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.oai-results__list-item:hover {
+  background: var(--color-neutral-50);
+}
+
+.oai-results__list-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.oai-results__list-item-name {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oai-results__list-item-brand {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.oai-results__list-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.oai-results__list-item-remove:hover {
+  color: var(--color-error);
+  background: var(--color-neutral-100);
+}
+
+/* ==========================================================================
+   Email Templates Page
+   ========================================================================== */
+.oai-templates__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.oai-templates__title {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-1);
+}
+
+.oai-templates__subtitle {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.oai-templates__new-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-primary-600);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+
+.oai-templates__new-btn:hover {
+  background: var(--color-primary-700);
+}
+
+.oai-templates__empty {
+  border: 1px dashed var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+}
+
+.oai-templates__empty-icon {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.oai-templates__empty-title {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.oai-templates__empty-desc {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-6);
+}
+
+.oai-templates__create-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary-600);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.oai-templates__create-btn:hover {
+  background: var(--color-primary-700);
+}
+
+/* ==========================================================================
+   Emails Page
+   ========================================================================== */
+
+/* Banner */
+.oai-emails__banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.oai-emails__banner-icon {
+  color: var(--color-text-muted);
+  display: flex;
+  flex-shrink: 0;
+}
+
+.oai-emails__banner-text {
+  flex: 1;
+}
+
+.oai-emails__banner-btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--transition-fast);
+}
+
+.oai-emails__banner-btn:hover {
+  opacity: 0.85;
+}
+
+/* Header */
+.oai-emails__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.oai-emails__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.oai-emails__header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.oai-emails__count {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.oai-emails__action-btn {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+}
+
+.oai-emails__action-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.oai-emails__action-btn--danger {
+  color: var(--color-error);
+}
+
+.oai-emails__action-btn--danger:hover {
+  color: var(--color-error);
+  opacity: 0.8;
+}
+
+/* Toolbar — tabs + search */
+.oai-emails__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  gap: var(--space-4);
+}
+
+.oai-emails__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.oai-emails__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  background: var(--color-bg-card);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  border-right: 1px solid var(--color-border-default);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.oai-emails__tab:last-child {
+  border-right: none;
+}
+
+.oai-emails__tab:hover {
+  background: var(--color-neutral-50);
+}
+
+.oai-emails__tab--active {
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  font-weight: var(--font-weight-medium);
+}
+
+.oai-emails__tab--active:hover {
+  background: var(--color-text-primary);
+}
+
+.oai-emails__tab-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.oai-emails__tab-count--active {
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+}
+
+.oai-emails__search-wrap {
+  flex-shrink: 0;
+}
+
+.oai-emails__search-wrap .oai-search {
+  max-width: 300px;
+}
+
+/* Content — email preview + contact sidebar */
+.oai-emails__content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-5);
+}
+
+/* Email preview */
+.oai-emails__preview {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.oai-emails__to-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border-default);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+}
+
+.oai-emails__to-label {
+  color: var(--color-text-muted);
+}
+
+.oai-emails__to-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.oai-emails__to-email {
+  color: var(--color-text-muted);
+}
+
+.oai-emails__nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.oai-emails__nav-btn {
+  background: none;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.oai-emails__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.oai-emails__nav-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.oai-emails__subject {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  padding: var(--space-4) var(--space-5) var(--space-2);
+}
+
+.oai-emails__body {
+  padding: var(--space-2) var(--space-5) var(--space-5);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+}
+
+.oai-emails__body-line {
+  margin: 0 0 var(--space-3);
+}
+
+.oai-emails__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.oai-emails__delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.oai-emails__delete-btn:hover {
+  color: var(--color-error);
+  background: var(--color-neutral-50);
+}
+
+.oai-emails__actions-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.oai-emails__asap-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  background: none;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.oai-emails__asap-btn:hover {
+  background: var(--color-neutral-50);
+}
+
+.oai-emails__approve-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-text-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.oai-emails__approve-btn:hover {
+  opacity: 0.85;
+}
+
+/* Contact sidebar */
+.oai-emails__contact {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  align-self: start;
+}
+
+.oai-emails__contact-header {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.oai-emails__contact-name {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.oai-emails__contact-title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.oai-emails__contact-company {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.oai-emails__contact-details {
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.oai-emails__contact-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.oai-emails__contact-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Key Signals */
+.oai-emails__signals {
+  font-family: var(--font-family-sans);
+}
+
+.oai-emails__signals-label {
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.oai-emails__signal {
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.oai-emails__signal:last-child {
+  border-bottom: none;
+}
+
+.oai-emails__signal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-3) 0;
+  background: none;
+  border: none;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.oai-emails__signal-chevron {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.oai-emails__signal-detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  padding-bottom: var(--space-3);
+}
+
+/* Empty state */
+.oai-emails__empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+}
+
+.oai-emails__empty-icon {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+  display: flex;
+  justify-content: center;
+}
+
+.oai-emails__empty-title {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.oai-emails__empty-desc {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Keyboard hint bar */
+.oai-emails__keyboard-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: var(--space-3);
+  margin-top: var(--space-4);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.oai-emails__approve-all {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.oai-emails__approve-all:hover {
+  color: var(--color-text-primary);
+}
