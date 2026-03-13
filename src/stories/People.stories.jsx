@@ -321,6 +321,7 @@ const PeoplePage = () => {
                   <div className="oai-people__row-check">
                     <input
                       type="checkbox"
+                      aria-label={`Select ${person.name}`}
                       checked={selectedPeople.includes(person.id)}
                       onChange={() => handleTogglePerson(person.id)}
                     />
