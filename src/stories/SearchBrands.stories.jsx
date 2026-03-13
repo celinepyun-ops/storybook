@@ -138,18 +138,18 @@ const SearchBrandsPage = () => {
         <div className="oai-search-card">
           <div className="oai-search-card__form-grid">
             <div className="oai-search-card__field oai-search-card__field--keyword">
-              <label className="oai-search-card__label">Keyword</label>
-              <input className="oai-search-card__text-input" type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="e.g. facial cream, sunscreen, vitamins" />
+              <label className="oai-search-card__label" htmlFor="search-keyword">Keyword</label>
+              <input id="search-keyword" className="oai-search-card__text-input" type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="e.g. facial cream, sunscreen, vitamins" />
             </div>
             <div className="oai-search-card__field oai-search-card__field--limit">
-              <label className="oai-search-card__label">Limit</label>
-              <input className="oai-search-card__text-input" type="number" value={limit} onChange={(e) => setLimit(e.target.value)} />
+              <label className="oai-search-card__label" htmlFor="search-limit">Limit</label>
+              <input id="search-limit" className="oai-search-card__text-input" type="number" value={limit} onChange={(e) => setLimit(e.target.value)} />
             </div>
           </div>
           <div className="oai-search-card__form-row">
             <div className="oai-search-card__field oai-search-card__field--rating">
-              <label className="oai-search-card__label">Min Rating (Optional)</label>
-              <input className="oai-search-card__text-input" type="text" value={minRating} onChange={(e) => setMinRating(e.target.value)} placeholder="e.g., 4.0" />
+              <label className="oai-search-card__label" htmlFor="search-min-rating">Min Rating (Optional)</label>
+              <input id="search-min-rating" className="oai-search-card__text-input" type="text" value={minRating} onChange={(e) => setMinRating(e.target.value)} placeholder="e.g., 4.0" />
             </div>
             <button className="oai-search-card__search-btn" onClick={() => setHasSearched(true)}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
@@ -167,7 +167,7 @@ const SearchBrandsPage = () => {
                 <thead>
                   <tr>
                     <th className="oai-results__th oai-results__th--check">
-                      <input type="checkbox" checked={selected.length === searchResults.length} onChange={toggleAll} />
+                      <input type="checkbox" aria-label="Select all products" checked={selected.length === searchResults.length} onChange={toggleAll} />
                     </th>
                     <th className="oai-results__th oai-results__th--image">Image</th>
                     <th className="oai-results__th oai-results__th--title">Title</th>
@@ -181,7 +181,7 @@ const SearchBrandsPage = () => {
                   {searchResults.map((product) => (
                     <tr key={product.asin} className={`oai-results__row ${selected.includes(product.asin) ? 'oai-results__row--selected' : ''}`}>
                       <td className="oai-results__td oai-results__td--check">
-                        <input type="checkbox" checked={selected.includes(product.asin)} onChange={() => toggleSelect(product.asin)} />
+                        <input type="checkbox" aria-label={`Select ${product.title}`} checked={selected.includes(product.asin)} onChange={() => toggleSelect(product.asin)} />
                       </td>
                       <td className="oai-results__td oai-results__td--image">
                         <div className="oai-results__image-placeholder" />
