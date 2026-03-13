@@ -108,7 +108,7 @@ export const Select = ({ label, placeholder, options = [], helperText, error, di
         role="combobox"
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-controls={listboxId}
+        aria-controls={open ? listboxId : undefined}
         aria-labelledby={label ? `${selectId}-label` : undefined}
         aria-invalid={error || undefined}
         disabled={disabled}
