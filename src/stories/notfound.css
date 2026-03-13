@@ -38,15 +38,15 @@
   color: transparent;
   background: repeating-linear-gradient(
     0deg,
-    var(--color-primary-400) 0px,
-    var(--color-primary-400) 1px,
+    var(--color-primary-500) 0px,
+    var(--color-primary-500) 1px,
     transparent 1px,
     transparent 6px
   ),
   repeating-linear-gradient(
     90deg,
-    var(--color-primary-400) 0px,
-    var(--color-primary-400) 1px,
+    var(--color-primary-500) 0px,
+    var(--color-primary-500) 1px,
     transparent 1px,
     transparent 6px
   );
