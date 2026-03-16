@@ -711,7 +711,8 @@
 
 .oai-results__table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
 }
@@ -724,6 +725,8 @@
   font-size: var(--font-size-xs);
   border-bottom: 1px solid var(--color-border-default);
   white-space: nowrap;
+  position: relative;
+  overflow: visible;
 }
 
 .oai-results__th--check {
@@ -765,6 +768,8 @@
   color: var(--color-text-primary);
   vertical-align: middle;
   white-space: nowrap;
+  position: relative;
+  overflow: visible;
 }
 
 .oai-results__td--check {
