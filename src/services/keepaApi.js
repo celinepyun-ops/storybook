@@ -213,7 +213,7 @@ export async function getBestSellers(categoryId, domain = 'US', options = {}) {
   return data.bestSellersList?.asinList || [];
 }
 
-// ─── Growth Analysis (Claude-powered layer) ────────────────────────
+// ─── Growth Analysis ────────────────────────────────────────────────
 
 /**
  * Estimate BSR-to-monthly-sales using known approximation curves.
