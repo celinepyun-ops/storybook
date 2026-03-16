@@ -34,7 +34,7 @@ export const Default = {
 export const AlignRight = {
   args: {
     trigger: <Button variant="outline" label="More" />,
-    align: 'right',
+    align: "left",
     items: [
       { label: 'Profile', icon: Icons.profile, onClick: fn() },
       { label: 'Settings', icon: Icons.settings, onClick: fn() },
