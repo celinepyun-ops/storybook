@@ -57,8 +57,8 @@ const SidebarFooter = ({ darkMode, onToggleDark, onProfileClick, onSettingsClick
     </li>
     <li>
       <button className="oai-sidebar__item" onClick={onProfileClick}>
-        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
-        <span className="oai-sidebar__label">Jane Doe</span>
+        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+        <span className="oai-sidebar__label">Mike Torres</span>
       </button>
     </li>
   </ul>
@@ -82,12 +82,12 @@ const tableColumns = [
 ];
 
 const tableData = [
-  { brand: 'EcoGlow Naturals', contact: 'Sarah Chen', status: 'Active', sent: 145, rate: '32%' },
-  { brand: 'TechVibe Audio', contact: 'Marcus Johnson', status: 'Pending', sent: 89, rate: '18%' },
-  { brand: 'PureHome Essentials', contact: 'Emily Davis', status: 'Active', sent: 234, rate: '28%' },
-  { brand: 'FitPro Gear', contact: 'Alex Rivera', status: 'Paused', sent: 56, rate: '22%' },
-  { brand: 'CloudNine Bedding', contact: 'Jordan Lee', status: 'Active', sent: 178, rate: '35%' },
-  { brand: 'ZenBrew Coffee', contact: 'Taylor Kim', status: 'Active', sent: 112, rate: '41%' },
+  { brand: 'EcoGlow Naturals', contact: 'Sarah Chen', status: 'Active', sent: 3, rate: '—' },
+  { brand: 'SunShield Pro', contact: 'Maria Santos', status: 'Active', sent: 2, rate: '—' },
+  { brand: 'AquaVeil', contact: 'Priya Sharma', status: 'Pending', sent: 1, rate: '—' },
+  { brand: 'PureRadiance', contact: 'Kevin Wright', status: 'Pending', sent: 0, rate: '—' },
+  { brand: 'GlowUp Skin', contact: 'Alex Rivera', status: 'Active', sent: 1, rate: '—' },
+  { brand: 'Derma Botanics', contact: 'Emma Liu', status: 'Paused', sent: 0, rate: '—' },
 ];
 
 /* ── Page: Dashboard ─────────────────────────────────────────────── */
@@ -98,7 +98,7 @@ const DashboardContent = () => {
       <Breadcrumbs items={[{ label: 'Home', href: '#' }, { label: 'Dashboard' }]} />
       <div style={{ marginTop: '16px', marginBottom: '24px' }}>
         <h1 style={{ margin: '0 0 4px', fontSize: '24px', fontWeight: 400, color: 'var(--color-text-primary)' }}>Dashboard</h1>
-        <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>Welcome back, Jane. Here's your outreach overview.</p>
+        <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>Welcome back, Mike. Here's your outreach overview.</p>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
         <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon={Icons.campaigns} />
@@ -380,22 +380,24 @@ const emailQueue = [
   {
     id: 1,
     to: { name: 'Sarah Chen', email: 'sarah.chen@ecoglow.com', title: 'Head of Partnerships, EcoGlow Naturals', company: 'EcoGlow Naturals', location: 'San Francisco, CA, United States' },
-    subject: 'Partnership opportunity for EcoGlow Naturals',
-    body: `Hey Sarah,\n\nI saw you are leading partnerships at EcoGlow Naturals and driving the brand's expansion on Amazon. Given how fast the clean beauty category is growing, I imagine scaling your seller network is a big priority right now.\n\nWe specialize in helping top-tier beauty brands like EcoGlow connect with high-performing Amazon sellers. We can help your products reach new audiences and increase sales velocity, eliminating the overhead of managing individual seller relationships.\n\nCurious if expanding your Amazon seller network is on your radar this quarter?\n\nBest,\n\nJane Doe\nGallop AI`,
+    subject: 'Manufacturing partnership for EcoGlow Naturals',
+    body: `Hey Sarah,\n\nI noticed EcoGlow Naturals' Vitamin C Brightening Moisturizer has seen 46% revenue growth this quarter on Amazon — that's incredible traction in the clean beauty category.\n\nI'm Mike Torres at Pacific Beauty Labs. We're a contract manufacturer specializing in sunscreen and skincare formulations, and we've helped brands at your growth stage scale production without compromising quality.\n\nGiven how fast EcoGlow is growing, I imagine keeping up with demand and maintaining your formulation standards is becoming a bigger challenge. We could help you:\n\n• Scale production 3-5x with FDA-compliant facilities\n• Reduce per-unit cost by 15-20% at your current volume\n• Launch new SKUs faster with our R&D team\n\nWould you be open to a 15-minute call this week to explore if there's a fit?\n\nBest,\n\nMike Torres\nBusiness Development Manager\nPacific Beauty Labs`,
     signals: [
-      { label: 'Head of Partnerships — EcoGlow Naturals', expandable: true },
-      { label: 'Recent Hire — Mar 2025', expandable: true, detail: 'She started the Head of Partnerships position in March 2025, so she is newly responsible for shaping the partnership strategy and may be actively building new vendor pipelines.' },
-      { label: 'Clean Beauty Category Growth', expandable: true, detail: 'EcoGlow Naturals is rapidly growing in clean beauty on Amazon; as Head of Partnerships she likely prioritizes expanding distribution channels.' },
+      { label: 'Head of Partnerships — Decision-Maker', expandable: true },
+      { label: 'Revenue Growth +46% (90-day)', expandable: true, detail: 'EcoGlow Naturals\' Vitamin C Moisturizer has seen 46% revenue growth over 90 days based on Amazon sales rank trend, indicating rapidly scaling demand that may exceed current manufacturing capacity.' },
+      { label: 'Recent Hire — Mar 2025', expandable: true, detail: 'Sarah started as Head of Partnerships in March 2025. She is building new vendor relationships and likely evaluating manufacturing partners.' },
+      { label: 'Supply Signal — Frequently Out of Stock', expandable: true, detail: 'Keepa data shows this product has had 3 out-of-stock events in the last 60 days, suggesting demand is outpacing current supply — strong indicator they need manufacturing help.' },
     ],
   },
   {
     id: 2,
-    to: { name: 'Marcus Johnson', email: 'marcus@techvibe.com', title: 'Brand Manager, TechVibe Audio', company: 'TechVibe Audio', location: 'Austin, TX, United States' },
-    subject: 'Amazon growth strategy for TechVibe Audio',
-    body: `Hey Marcus,\n\nI noticed TechVibe Audio has been gaining serious traction in the wireless earbuds category on Amazon. Your latest product launch looks impressive.\n\nWe help audio brands optimize their Amazon presence — from listing optimization to review management and advertising strategy. Our clients typically see a 40% increase in organic ranking within 90 days.\n\nWould you be open to a quick chat about how we could help TechVibe scale even faster?\n\nBest,\n\nJane Doe\nGallop AI`,
+    to: { name: 'Priya Sharma', email: 'priya@aquaveil.com', title: 'Head of Supply Chain, AquaVeil', company: 'AquaVeil', location: 'New York, NY, United States' },
+    subject: 'Scaling production for AquaVeil\'s growth',
+    body: `Hey Priya,\n\nI came across AquaVeil's SPF 30 Hydrating Sunscreen — 55% revenue growth and a 52% increase in review velocity is seriously impressive for a brand at your stage.\n\nI'm Mike Torres at Pacific Beauty Labs. We manufacture sunscreen and skincare for growing DTC brands, and we specialize in reef-safe mineral formulations exactly like yours.\n\nI noticed AquaVeil has had some inventory challenges recently. We could help stabilize your supply chain while scaling:\n\n• Mineral sunscreen expertise (zinc oxide, titanium dioxide)\n• MOQ flexibility for brands doing 250-1,000 units/month\n• 4-week lead times vs. the industry standard 8-12 weeks\n\nWorth a quick chat?\n\nBest,\n\nMike Torres\nBusiness Development Manager\nPacific Beauty Labs`,
     signals: [
-      { label: 'Brand Manager — TechVibe Audio', expandable: true },
-      { label: 'Product Launch — Feb 2025', expandable: true, detail: 'TechVibe recently launched new wireless earbuds, suggesting active investment in Amazon growth.' },
+      { label: 'Head of Supply Chain — Direct Authority', expandable: true },
+      { label: 'Revenue Growth +55% (90-day)', expandable: true, detail: 'AquaVeil\'s sunscreen has 55% revenue growth with rapidly accelerating review velocity (+52%), indicating viral growth that will stress current supply chain.' },
+      { label: 'Actively Hiring — Scaling Operations', expandable: true, detail: 'LinkedIn shows AquaVeil is hiring for operations roles, confirming they are scaling and likely need manufacturing support.' },
     ],
   },
 ];
@@ -405,16 +407,37 @@ const EmailsContent = () => {
   const [activeEmailTab, setActiveEmailTab] = useState('review');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedSignal, setExpandedSignal] = useState(1);
+  const [reviewQueue, setReviewQueue] = useState([...emailQueue]);
+  const [approvedCount, setApprovedCount] = useState(0);
+
+  const handleApprove = () => {
+    const remaining = reviewQueue.filter((_, i) => i !== currentIndex);
+    setApprovedCount((c) => c + 1);
+    setReviewQueue(remaining);
+    if (currentIndex >= remaining.length) setCurrentIndex(Math.max(0, remaining.length - 1));
+  };
+
+  const handleDelete = () => {
+    const remaining = reviewQueue.filter((_, i) => i !== currentIndex);
+    setReviewQueue(remaining);
+    if (currentIndex >= remaining.length) setCurrentIndex(Math.max(0, remaining.length - 1));
+  };
+
+  const handleApproveAll = () => {
+    setApprovedCount((c) => c + reviewQueue.length);
+    setReviewQueue([]);
+    setCurrentIndex(0);
+  };
 
   const emailTabs = [
-    { id: 'review', label: 'For Review', count: emailQueue.length },
-    { id: 'queue', label: 'Queue', count: 0 },
+    { id: 'review', label: 'For Review', count: reviewQueue.length },
+    { id: 'queue', label: 'Queue', count: approvedCount },
     { id: 'drafting', label: 'Drafting', count: 0 },
     { id: 'sent', label: 'Sent', count: 0 },
     { id: 'failed', label: 'Failed', count: 0 },
   ];
 
-  const currentEmail = emailQueue[currentIndex];
+  const currentEmail = reviewQueue[currentIndex];
 
   return (
     <div style={{ maxWidth: '1200px' }}>
@@ -431,7 +454,7 @@ const EmailsContent = () => {
           <h1 className="oai-emails__title">{Icons.campaigns} Emails</h1>
         </div>
         <div className="oai-emails__header-right">
-          <span className="oai-emails__count">0 / 35 today</span>
+          <span className="oai-emails__count">{approvedCount} / 35 today</span>
           <Badge label="Active" variant="success" size="small" />
           <button className="oai-emails__action-btn" onClick={noop}>❚❚ Pause</button>
           <button className="oai-emails__action-btn oai-emails__action-btn--danger" onClick={noop}>■ Stop All</button>
@@ -469,8 +492,8 @@ const EmailsContent = () => {
               <span className="oai-emails__to-email">&lt;{currentEmail.to.email}&gt;</span>
               <div className="oai-emails__nav">
                 <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0}>&lt;</button>
-                <span className="oai-emails__nav-count">{currentIndex + 1}/{emailQueue.length}</span>
-                <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.min(emailQueue.length - 1, currentIndex + 1))} disabled={currentIndex === emailQueue.length - 1}>&gt;</button>
+                <span className="oai-emails__nav-count">{currentIndex + 1}/{reviewQueue.length}</span>
+                <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.min(reviewQueue.length - 1, currentIndex + 1))} disabled={currentIndex === reviewQueue.length - 1}>&gt;</button>
               </div>
             </div>
 
@@ -486,12 +509,12 @@ const EmailsContent = () => {
 
             {/* Actions */}
             <div className="oai-emails__actions">
-              <button className="oai-emails__delete-btn" onClick={noop}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+              <button className="oai-emails__delete-btn" onClick={handleDelete} aria-label="Delete email">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
               </button>
               <div className="oai-emails__actions-right">
-                <button className="oai-emails__asap-btn" onClick={noop}>{Icons.sparkle} ASAP</button>
-                <button className="oai-emails__approve-btn" onClick={noop}>✓ Approve to Send</button>
+                <button className="oai-emails__asap-btn" onClick={handleApprove}>{Icons.sparkle} ASAP</button>
+                <button className="oai-emails__approve-btn" onClick={handleApprove}>✓ Approve to Send</button>
               </div>
             </div>
           </div>
@@ -538,7 +561,7 @@ const EmailsContent = () => {
       <div className="oai-emails__keyboard-hint">
         <span>⌘ + Enter to approve</span>
         <span>← → to navigate</span>
-        <button className="oai-emails__approve-all" onClick={noop}>✓ Approve all</button>
+        <button className="oai-emails__approve-all" onClick={handleApproveAll}>✓ Approve all</button>
       </div>
     </div>
   );
@@ -546,26 +569,23 @@ const EmailsContent = () => {
 
 /* ── People mock data ────────────────────────────────────────────── */
 const brandsInList = [
-  { brand: 'Arbonne', company: 'Arbonne International, LLC', domain: 'arbonne.com', country: 'United States', state: 'California', city: 'Irvine' },
-  { brand: 'The Ordinary', company: 'Deciem Beauty Group Inc.', domain: 'theordinary.com', country: 'Canada', state: 'Ontario', city: 'Toronto' },
-  { brand: 'Dr.Althea', company: 'Dr.Althea Co., Ltd.', domain: 'dralthea.com', country: 'South Korea', state: '—', city: 'Seoul' },
-  { brand: 'SimplyVital', company: 'SimplyVital Health, Inc.', domain: 'simplyvitalhealth.com', country: 'United States', state: 'Connecticut', city: 'New Haven' },
-  { brand: 'Vanicream', company: 'Vanicream, LLC', domain: 'vanicream.com', country: 'United States', state: 'Illinois', city: 'Chicago' },
-  { brand: 'OUPEICHARM', company: 'OUPEICHARM', domain: 'oupeicharm.com', country: 'China', state: '—', city: '—' },
+  { brand: 'EcoGlow Naturals', company: 'EcoGlow Inc.', domain: 'ecoglownaturals.com', state: 'CA', city: 'San Francisco', growth: '+46%' },
+  { brand: 'SunShield Pro', company: 'SunShield Beauty LLC', domain: 'sunshieldpro.com', state: 'FL', city: 'Miami', growth: '+38%' },
+  { brand: 'AquaVeil', company: 'AquaVeil Skincare Inc.', domain: 'aquaveil.com', state: 'NY', city: 'New York', growth: '+55%' },
 ];
 
 const peopleData = [
-  { name: 'Hannah Weaver', title: 'Senior Vendor Manager, Premium Beauty', company: 'Amazon', location: 'New York, New York', initials: 'HW', match: 'BULLSEYE', tags: ['Category Decision-Maker', 'Amazon Investing in Beauty'] },
-  { name: 'David Lee', title: 'Category Leader, Mass Beauty & Groomi...', company: 'Amazon', location: 'Seattle, Washington', initials: 'DL', match: 'BULLSEYE', tags: ['Mass Beauty Category Leader', 'Amazon Vendor Management Experience'] },
-  { name: 'Brynn Kemper', title: 'Senior Manager Business Development a...', company: 'Amazon', location: 'Seattle, Washington', initials: 'BK', match: 'BULLSEYE', tags: ['Senior Manager, Premium Beauty', 'Premium Beauty & Luxury Focus'] },
-  { name: 'Molly Ayers', title: 'TikTok Shop Category Manager - Beauty', company: 'TikTok', location: 'Seattle, Washington', initials: 'MA', match: 'BULLSEYE', tags: ['Beauty Category Owner', 'Experienced Buyer & Vendor Lead'] },
-  { name: 'Asia Jenkins', title: 'Category Manager, Beauty @ TikTok Shop', company: 'TikTok', location: 'New York, New York', initials: 'AJ', match: 'BULLSEYE', tags: ['Category Manager — Decision-Maker', 'Buying/Purchasing Background'] },
-  { name: 'Nikki Hardison', title: 'Senior Business Development Manager -...', company: 'Amazon', location: 'New York, New York', initials: 'NH', match: 'BULLSEYE', tags: ['Premium Beauty BD Lead', 'Recent LinkedIn Engagement'] },
-  { name: 'Daniela Kretschmar', title: 'Sr. Vendor Manager, Beauty, Skin Care', company: 'Amazon', location: 'Miami, Florida', initials: 'DK', match: 'BULLSEYE', tags: ['Senior Vendor Manager — Mass Beauty', 'Category & Assortment Owner'] },
+  { name: 'Sarah Chen', title: 'Head of Partnerships', company: 'EcoGlow Naturals', location: 'San Francisco, CA', initials: 'SC', match: 'BULLSEYE', tags: ['Decision-Maker', 'Recent Hire — Mar 2025'] },
+  { name: 'Jason Park', title: 'VP Operations', company: 'EcoGlow Naturals', location: 'San Francisco, CA', initials: 'JP', match: 'BULLSEYE', tags: ['Operations Leader', 'Supply Chain Authority'] },
+  { name: 'Maria Santos', title: 'Director of Product Development', company: 'SunShield Pro', location: 'Miami, FL', initials: 'MS', match: 'BULLSEYE', tags: ['Product Development Lead', 'Formulation Expert'] },
+  { name: 'Kevin Wright', title: 'CEO & Founder', company: 'SunShield Pro', location: 'Miami, FL', initials: 'KW', match: 'BULLSEYE', tags: ['Founder', 'Final Decision-Maker'] },
+  { name: 'Priya Sharma', title: 'Head of Supply Chain', company: 'AquaVeil', location: 'New York, NY', initials: 'PS', match: 'BULLSEYE', tags: ['Supply Chain Lead', 'Actively Hiring'] },
+  { name: 'Alex Rivera', title: 'Brand Manager', company: 'AquaVeil', location: 'New York, NY', initials: 'AR', match: 'BULLSEYE', tags: ['Brand Strategy', 'Amazon Growth Focus'] },
+  { name: 'Emma Liu', title: 'COO', company: 'AquaVeil', location: 'New York, NY', initials: 'EL', match: 'BULLSEYE', tags: ['C-Suite', 'Operations Authority'] },
 ];
 
 /* ── Page: People / Contacts ─────────────────────────────────────── */
-const PeopleContent = () => {
+const PeopleContent = ({ onNavigate }) => {
   const [selected, setSelected] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [jobTitles, setJobTitles] = useState(['ceo']);
@@ -637,9 +657,8 @@ const PeopleContent = () => {
                 <th>Brand Name</th>
                 <th>Company Name</th>
                 <th>Domain</th>
-                <th>Country</th>
-                <th>State</th>
-                <th>City</th>
+                <th>Location</th>
+                <th>Rev. Growth</th>
               </tr>
             </thead>
             <tbody>
@@ -648,9 +667,8 @@ const PeopleContent = () => {
                   <td className="oai-people__brands-td--bold">{b.brand}</td>
                   <td>{b.company}</td>
                   <td>{b.domain}</td>
-                  <td>{b.country}</td>
-                  <td>{b.state}</td>
-                  <td>{b.city}</td>
+                  <td>{b.city}, {b.state}</td>
+                  <td><span className="oai-results__trend oai-results__trend--up">{b.growth}</span></td>
                 </tr>
               ))}
             </tbody>
@@ -675,7 +693,7 @@ const PeopleContent = () => {
               </div>
               <button className="oai-people__find-btn" onClick={noop}>{Icons.contacts} Find More</button>
               <button className="oai-people__export-btn" onClick={noop}>Export ▾</button>
-              <button className="oai-people__outbound-btn" onClick={noop}>{Icons.campaigns} Outbound</button>
+              <button className="oai-people__outbound-btn" onClick={() => onNavigate?.('emails')}>{Icons.campaigns} Outbound</button>
             </div>
           </div>
 
@@ -748,7 +766,7 @@ const PeopleContent = () => {
                 {selected.length} {selected.length === 1 ? 'lead' : 'leads'} selected
               </span>
               <div className="oai-people__action-bar-btns">
-                <button className="oai-people__action-bar-btn oai-people__action-bar-btn--primary" onClick={noop}>
+                <button className="oai-people__action-bar-btn oai-people__action-bar-btn--primary" onClick={() => onNavigate?.('emails')}>
                   <span aria-hidden="true">{Icons.campaigns}</span> Add to Email Queue
                 </button>
                 <button className="oai-people__action-bar-btn" onClick={noop}>
@@ -852,12 +870,9 @@ function AppMain() {
       items: [
         { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: () => navigate('dashboard') },
         { id: 'search-brands', label: 'Search Brands', icon: Icons.search, onClick: () => navigate('search-brands') },
-        { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: () => navigate('brands') },
         { id: 'people', label: 'People', icon: Icons.contacts, onClick: () => navigate('people') },
         { id: 'emails', label: 'Emails', icon: Icons.campaigns, onClick: () => navigate('emails') },
         { id: 'templates', label: 'Templates', icon: Icons.templates, onClick: () => navigate('templates') },
-        { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: () => navigate('campaigns') },
-        { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: () => navigate('analytics') },
       ],
     },
   ];
@@ -870,7 +885,7 @@ function AppMain() {
     switch (page) {
       case 'dashboard': return <DashboardContent />;
       case 'search-brands': return <SearchBrandsContent onNavigate={navigate} />;
-      case 'people': return <PeopleContent />;
+      case 'people': return <PeopleContent onNavigate={navigate} />;
       case 'emails': return <EmailsContent />;
       case 'templates': return <TemplatesContent />;
       default: return <NotFound onBackClick={() => navigate('dashboard')} />;

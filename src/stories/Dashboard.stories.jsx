@@ -17,9 +17,10 @@ const sidebarItems = [
   {
     items: [
       { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
-      { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
-      { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
+      { id: 'search-brands', label: 'Search Brands', icon: Icons.search, onClick: fn() },
+      { id: 'people', label: 'People', icon: Icons.contacts, onClick: fn() },
+      { id: 'emails', label: 'Emails', icon: Icons.campaigns, onClick: fn() },
+      { id: 'templates', label: 'Templates', icon: Icons.templates, onClick: fn() },
     ],
   },
 ];
@@ -56,8 +57,8 @@ const SidebarFooter = ({ darkMode, onToggleDark }) => (
       </li>
       <li>
         <button className="oai-sidebar__item" onClick={fn()}>
-          <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
-          <span className="oai-sidebar__label">Jane Doe</span>
+          <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+          <span className="oai-sidebar__label">Mike Torres</span>
         </button>
       </li>
     </ul>
@@ -80,12 +81,12 @@ const tableColumns = [
 ];
 
 const tableData = [
-  { brand: 'EcoGlow Naturals', contact: 'Sarah Chen', status: 'Active', sent: 145, rate: '32%' },
-  { brand: 'TechVibe Audio', contact: 'Marcus Johnson', status: 'Pending', sent: 89, rate: '18%' },
-  { brand: 'PureHome Essentials', contact: 'Emily Davis', status: 'Active', sent: 234, rate: '28%' },
-  { brand: 'FitPro Gear', contact: 'Alex Rivera', status: 'Paused', sent: 56, rate: '22%' },
-  { brand: 'CloudNine Bedding', contact: 'Jordan Lee', status: 'Active', sent: 178, rate: '35%' },
-  { brand: 'ZenBrew Coffee', contact: 'Taylor Kim', status: 'Active', sent: 112, rate: '41%' },
+  { brand: 'EcoGlow Naturals', contact: 'Sarah Chen', status: 'Active', sent: 3, rate: '—' },
+  { brand: 'SunShield Pro', contact: 'Maria Santos', status: 'Active', sent: 2, rate: '—' },
+  { brand: 'AquaVeil', contact: 'Priya Sharma', status: 'Pending', sent: 1, rate: '—' },
+  { brand: 'PureRadiance', contact: 'Kevin Wright', status: 'Pending', sent: 0, rate: '—' },
+  { brand: 'GlowUp Skin', contact: 'Alex Rivera', status: 'Active', sent: 1, rate: '—' },
+  { brand: 'Derma Botanics', contact: 'Emma Liu', status: 'Paused', sent: 0, rate: '—' },
 ];
 
 export default {
@@ -123,7 +124,7 @@ const DashboardPage = () => {
             Dashboard
           </h1>
           <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>
-            Welcome back, Jane. Here's your outreach overview.
+            Welcome back, Mike. Here's your outreach overview.
           </p>
         </div>
 

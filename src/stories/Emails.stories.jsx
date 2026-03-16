@@ -15,11 +15,9 @@ const sidebarItems = [
     items: [
       { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
       { id: 'search-brands', label: 'Search Brands', icon: Icons.search, onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+      { id: 'people', label: 'People', icon: Icons.contacts, onClick: fn() },
       { id: 'emails', label: 'Emails', icon: Icons.campaigns, onClick: fn() },
       { id: 'templates', label: 'Templates', icon: Icons.templates, onClick: fn() },
-      { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
-      { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
     ],
   },
 ];
