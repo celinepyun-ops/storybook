@@ -25,40 +25,43 @@ const sidebarItems = [
 ];
 
 const SidebarFooter = ({ darkMode, onToggleDark }) => (
-  <ul className="oai-sidebar__list">
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.contacts}</span>
-        <span className="oai-sidebar__label">Support</span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.settings}</span>
-        <span className="oai-sidebar__label">Settings</span>
-      </button>
-    </li>
-    <li>
-      <button
-        className="oai-sidebar__item oai-sidebar__item--toggle"
-        role="switch"
-        aria-checked={darkMode}
-        onClick={() => onToggleDark(!darkMode)}
-      >
-        <span className="oai-sidebar__icon">{Icons.moon}</span>
-        <span className="oai-sidebar__label">Dark Mode</span>
-        <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
-          <span className="oai-sidebar__toggle-knob" />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
-        <span className="oai-sidebar__label">Mike Torres</span>
-      </button>
-    </li>
-  </ul>
+  <nav aria-label="Settings and account">
+    <ul className="oai-sidebar__list">
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.contacts}</span>
+          <span className="oai-sidebar__label">Support</span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.settings}</span>
+          <span className="oai-sidebar__label">Settings</span>
+        </button>
+      </li>
+      <li>
+        <button
+          className="oai-sidebar__item oai-sidebar__item--toggle"
+          role="switch"
+          aria-checked={darkMode}
+          aria-label="Dark Mode"
+          onClick={() => onToggleDark(!darkMode)}
+        >
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.moon}</span>
+          <span className="oai-sidebar__label">Dark Mode</span>
+          <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+            <span className="oai-sidebar__toggle-knob" />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+          <span className="oai-sidebar__label">Mike Torres</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 );
 
 const sidebarHeader = (
@@ -231,9 +234,16 @@ const SearchBrandsPage = () => {
   });
 
   const SortHeader = ({ label, field, className }) => (
-    <th className={`oai-results__th oai-results__th--sortable ${className || ''}`} onClick={() => handleSort(field)}>
+    <th
+      className={`oai-results__th oai-results__th--sortable ${className || ''}`}
+      onClick={() => handleSort(field)}
+      role="columnheader"
+      aria-sort={sortBy === field ? (sortDir === 'asc' ? 'ascending' : 'descending') : 'none'}
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSort(field); } }}
+    >
       {label}
-      {sortBy === field && <span className="oai-results__sort-icon">{sortDir === 'asc' ? ' ▲' : ' ▼'}</span>}
+      {sortBy === field && <span className="oai-results__sort-icon" aria-hidden="true">{sortDir === 'asc' ? ' ▲' : ' ▼'}</span>}
     </th>
   );
 
@@ -291,8 +301,9 @@ const SearchBrandsPage = () => {
             className="oai-search-card__advanced-toggle"
             onClick={() => setShowAdvanced(!showAdvanced)}
             type="button"
+            aria-expanded={showAdvanced}
           >
-            {showAdvanced ? '▾ Hide' : '▸ Show'} Advanced Filters
+            <span aria-hidden="true">{showAdvanced ? '▾' : '▸'}</span> {showAdvanced ? 'Hide' : 'Show'} Advanced Filters
           </button>
 
           {showAdvanced && (
@@ -320,7 +331,7 @@ const SearchBrandsPage = () => {
 
           <div className="oai-search-card__form-row">
             <div className="oai-search-card__feature-callout">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
               Powered by Keepa + AI — results ranked by growth potential
             </div>
             <button className="oai-search-card__search-btn" onClick={handleSearch} disabled={loading}>
@@ -331,7 +342,7 @@ const SearchBrandsPage = () => {
                 </>
               ) : (
                 <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
                   Search
                 </>
               )}
@@ -427,7 +438,7 @@ const SearchBrandsPage = () => {
                         <span className="oai-results__list-item-name">{product.brand}</span>
                         <span className="oai-results__list-item-brand">Score: {product.partnershipScore} · Rev. Growth: +{product.revenueGrowth}%</span>
                       </div>
-                      <button className="oai-results__list-item-remove" onClick={() => toggleSelect(product.asin)}>✕</button>
+                      <button className="oai-results__list-item-remove" onClick={() => toggleSelect(product.asin)} aria-label={`Remove ${product.brand}`}>✕</button>
                     </div>
                   ))}
                 </div>

@@ -25,40 +25,43 @@ const sidebarItems = [
 ];
 
 const SidebarFooter = ({ darkMode, onToggleDark }) => (
-  <ul className="oai-sidebar__list">
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.contacts}</span>
-        <span className="oai-sidebar__label">Support</span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.settings}</span>
-        <span className="oai-sidebar__label">Settings</span>
-      </button>
-    </li>
-    <li>
-      <button
-        className="oai-sidebar__item oai-sidebar__item--toggle"
-        role="switch"
-        aria-checked={darkMode}
-        onClick={() => onToggleDark(!darkMode)}
-      >
-        <span className="oai-sidebar__icon">{Icons.moon}</span>
-        <span className="oai-sidebar__label">Dark Mode</span>
-        <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
-          <span className="oai-sidebar__toggle-knob" />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
-        <span className="oai-sidebar__label">Jane Doe</span>
-      </button>
-    </li>
-  </ul>
+  <nav aria-label="Settings and account">
+    <ul className="oai-sidebar__list">
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.contacts}</span>
+          <span className="oai-sidebar__label">Support</span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.settings}</span>
+          <span className="oai-sidebar__label">Settings</span>
+        </button>
+      </li>
+      <li>
+        <button
+          className="oai-sidebar__item oai-sidebar__item--toggle"
+          role="switch"
+          aria-checked={darkMode}
+          aria-label="Dark Mode"
+          onClick={() => onToggleDark(!darkMode)}
+        >
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.moon}</span>
+          <span className="oai-sidebar__label">Dark Mode</span>
+          <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+            <span className="oai-sidebar__toggle-knob" />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
+          <span className="oai-sidebar__label">Jane Doe</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 );
 
 const sidebarHeader = (

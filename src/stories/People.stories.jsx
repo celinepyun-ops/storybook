@@ -26,40 +26,43 @@ const sidebarItems = [
 ];
 
 const SidebarFooter = ({ darkMode, onToggleDark }) => (
-  <ul className="oai-sidebar__list">
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.contacts}</span>
-        <span className="oai-sidebar__label">Support</span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.settings}</span>
-        <span className="oai-sidebar__label">Settings</span>
-      </button>
-    </li>
-    <li>
-      <button
-        className="oai-sidebar__item oai-sidebar__item--toggle"
-        role="switch"
-        aria-checked={darkMode}
-        onClick={() => onToggleDark(!darkMode)}
-      >
-        <span className="oai-sidebar__icon">{Icons.moon}</span>
-        <span className="oai-sidebar__label">Dark Mode</span>
-        <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
-          <span className="oai-sidebar__toggle-knob" />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
-        <span className="oai-sidebar__label">Mike Torres</span>
-      </button>
-    </li>
-  </ul>
+  <nav aria-label="Settings and account">
+    <ul className="oai-sidebar__list">
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.contacts}</span>
+          <span className="oai-sidebar__label">Support</span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.settings}</span>
+          <span className="oai-sidebar__label">Settings</span>
+        </button>
+      </li>
+      <li>
+        <button
+          className="oai-sidebar__item oai-sidebar__item--toggle"
+          role="switch"
+          aria-checked={darkMode}
+          aria-label="Dark Mode"
+          onClick={() => onToggleDark(!darkMode)}
+        >
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.moon}</span>
+          <span className="oai-sidebar__label">Dark Mode</span>
+          <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+            <span className="oai-sidebar__toggle-knob" />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+          <span className="oai-sidebar__label">Mike Torres</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 );
 
 const sidebarHeader = (
@@ -199,13 +202,14 @@ const PeoplePage = () => {
       <div style={{ maxWidth: '1200px' }}>
         {/* Find Decision Makers card */}
         <div className="oai-people__finder">
-          <h2 className="oai-people__finder-title">{Icons.contacts} Find Decision Makers</h2>
+          <h2 className="oai-people__finder-title"><span aria-hidden="true">{Icons.contacts}</span> Find Decision Makers</h2>
 
           <div className="oai-people__finder-input-row">
             <input
               className="oai-people__finder-input"
               type="text"
               placeholder="Type a job title and press Enter..."
+              aria-label="Job title filter"
               value={titleInput}
               onChange={(e) => setTitleInput(e.target.value)}
               onKeyDown={handleAddTag}
@@ -217,14 +221,14 @@ const PeoplePage = () => {
               {titleTags.map((tag, i) => (
                 <span key={i} className="oai-people__finder-tag">
                   {tag}
-                  <button className="oai-people__finder-tag-remove" onClick={() => handleRemoveTag(i)}>&times;</button>
+                  <button className="oai-people__finder-tag-remove" onClick={() => handleRemoveTag(i)} aria-label={`Remove ${tag}`}>&times;</button>
                 </span>
               ))}
             </div>
           )}
 
           <button className="oai-people__finder-search-btn" onClick={handleSearch}>
-            {Icons.search} Find Contacts for All {brands.length} Brands
+            <span aria-hidden="true">{Icons.search}</span> Find Contacts for All {brands.length} Brands
           </button>
         </div>
 
@@ -275,9 +279,9 @@ const PeoplePage = () => {
                 </div>
               </div>
               <div className="oai-people__header-actions">
-                <button className="oai-people__find-btn" onClick={fn()}>{Icons.search} Find More</button>
-                <button className="oai-people__export-btn" onClick={fn()}>Export</button>
-                <button className="oai-people__outbound-btn" onClick={fn()}>{Icons.campaigns} Outbound</button>
+                <button className="oai-people__find-btn" onClick={fn()}><span aria-hidden="true">{Icons.search}</span> Find More</button>
+                <button className="oai-people__export-btn" onClick={fn()}>Export Contacts</button>
+                <button className="oai-people__outbound-btn" onClick={fn()}><span aria-hidden="true">{Icons.campaigns}</span> Outbound</button>
               </div>
             </div>
 
@@ -287,12 +291,12 @@ const PeoplePage = () => {
                 <div className="oai-people__search-input">
                   <Search placeholder="Search..." onChange={fn()} />
                 </div>
-                <button className="oai-people__filter-btn" onClick={fn()}>Company &#9662;</button>
-                <button className="oai-people__filter-btn" onClick={fn()}>Location &#9662;</button>
-                <button className="oai-people__filter-btn" onClick={fn()}>Title &#9662;</button>
+                <button className="oai-people__filter-btn" onClick={fn()} aria-haspopup="true">Company <span aria-hidden="true">&#9662;</span></button>
+                <button className="oai-people__filter-btn" onClick={fn()} aria-haspopup="true">Location <span aria-hidden="true">&#9662;</span></button>
+                <button className="oai-people__filter-btn" onClick={fn()} aria-haspopup="true">Title <span aria-hidden="true">&#9662;</span></button>
               </div>
               <div className="oai-people__filters-right">
-                <button className="oai-people__filter-btn" onClick={fn()}>Sort: Intent &#9662;</button>
+                <button className="oai-people__filter-btn" onClick={fn()} aria-haspopup="true">Sort: Intent <span aria-hidden="true">&#9662;</span></button>
                 <label className="oai-people__select-all">
                   <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
                   Select all
@@ -336,10 +340,10 @@ const PeoplePage = () => {
                     ))}
                   </div>
                   <div className="oai-people__row-actions">
-                    <button className="oai-people__icon-btn" title="LinkedIn" onClick={fn()}><LinkedInIcon /></button>
-                    <button className="oai-people__icon-btn" title="Email" onClick={fn()}><EmailIcon /></button>
-                    <button className="oai-people__icon-btn" title="View" onClick={fn()}><ViewIcon /></button>
-                    <button className="oai-people__icon-btn" title="Save" onClick={fn()}><SaveIcon /></button>
+                    <button className="oai-people__icon-btn" aria-label="LinkedIn" title="LinkedIn" onClick={fn()}><LinkedInIcon /></button>
+                    <button className="oai-people__icon-btn" aria-label="Email" title="Email" onClick={fn()}><EmailIcon /></button>
+                    <button className="oai-people__icon-btn" aria-label="View profile" title="View" onClick={fn()}><ViewIcon /></button>
+                    <button className="oai-people__icon-btn" aria-label="Save contact" title="Save" onClick={fn()}><SaveIcon /></button>
                   </div>
                 </div>
               ))}

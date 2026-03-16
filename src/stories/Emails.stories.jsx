@@ -25,40 +25,43 @@ const sidebarItems = [
 ];
 
 const SidebarFooter = ({ darkMode, onToggleDark }) => (
-  <ul className="oai-sidebar__list">
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.contacts}</span>
-        <span className="oai-sidebar__label">Support</span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon">{Icons.settings}</span>
-        <span className="oai-sidebar__label">Settings</span>
-      </button>
-    </li>
-    <li>
-      <button
-        className="oai-sidebar__item oai-sidebar__item--toggle"
-        role="switch"
-        aria-checked={darkMode}
-        onClick={() => onToggleDark(!darkMode)}
-      >
-        <span className="oai-sidebar__icon">{Icons.moon}</span>
-        <span className="oai-sidebar__label">Dark Mode</span>
-        <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
-          <span className="oai-sidebar__toggle-knob" />
-        </span>
-      </button>
-    </li>
-    <li>
-      <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
-        <span className="oai-sidebar__label">Mike Torres</span>
-      </button>
-    </li>
-  </ul>
+  <nav aria-label="Settings and account">
+    <ul className="oai-sidebar__list">
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.contacts}</span>
+          <span className="oai-sidebar__label">Support</span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.settings}</span>
+          <span className="oai-sidebar__label">Settings</span>
+        </button>
+      </li>
+      <li>
+        <button
+          className="oai-sidebar__item oai-sidebar__item--toggle"
+          role="switch"
+          aria-checked={darkMode}
+          aria-label="Dark Mode"
+          onClick={() => onToggleDark(!darkMode)}
+        >
+          <span className="oai-sidebar__icon" aria-hidden="true">{Icons.moon}</span>
+          <span className="oai-sidebar__label">Dark Mode</span>
+          <span className={`oai-sidebar__toggle ${darkMode ? 'oai-sidebar__toggle--checked' : ''}`}>
+            <span className="oai-sidebar__toggle-knob" />
+          </span>
+        </button>
+      </li>
+      <li>
+        <button className="oai-sidebar__item" onClick={fn()}>
+          <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+          <span className="oai-sidebar__label">Mike Torres</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 );
 
 const sidebarHeader = (
@@ -159,10 +162,12 @@ const EmailsPage = () => {
 
         {/* Tabs + Search */}
         <div className="oai-emails__toolbar">
-          <div className="oai-emails__tabs">
+          <div className="oai-emails__tabs" role="tablist" aria-label="Email status">
             {emailTabs.map((tab) => (
               <button
                 key={tab.id}
+                role="tab"
+                aria-selected={activeEmailTab === tab.id}
                 className={`oai-emails__tab ${activeEmailTab === tab.id ? 'oai-emails__tab--active' : ''}`}
                 onClick={() => setActiveEmailTab(tab.id)}
               >
@@ -187,9 +192,9 @@ const EmailsPage = () => {
                 <span className="oai-emails__to-name">{currentEmail.to.name}</span>
                 <span className="oai-emails__to-email">&lt;{currentEmail.to.email}&gt;</span>
                 <div className="oai-emails__nav">
-                  <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0}>&lt;</button>
+                  <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0} aria-label="Previous email">&lt;</button>
                   <span className="oai-emails__nav-count">{currentIndex + 1}/{emailQueue.length}</span>
-                  <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.min(emailQueue.length - 1, currentIndex + 1))} disabled={currentIndex === emailQueue.length - 1}>&gt;</button>
+                  <button className="oai-emails__nav-btn" onClick={() => setCurrentIndex(Math.min(emailQueue.length - 1, currentIndex + 1))} disabled={currentIndex === emailQueue.length - 1} aria-label="Next email">&gt;</button>
                 </div>
               </div>
 
@@ -205,8 +210,8 @@ const EmailsPage = () => {
 
               {/* Actions */}
               <div className="oai-emails__actions">
-                <button className="oai-emails__delete-btn" onClick={fn()}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
+                <button className="oai-emails__delete-btn" onClick={fn()} aria-label="Delete email">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
                 </button>
                 <div className="oai-emails__actions-right">
                   <button className="oai-emails__asap-btn" onClick={fn()}>{Icons.sparkle} ASAP</button>
@@ -226,16 +231,16 @@ const EmailsPage = () => {
                 </div>
               </div>
               <div className="oai-emails__contact-details">
-                <div className="oai-emails__contact-row">{Icons.campaigns} {currentEmail.to.email}</div>
-                <div className="oai-emails__contact-row">{'\uD83D\uDCCD'} {currentEmail.to.location}</div>
+                <div className="oai-emails__contact-row"><span aria-hidden="true">{Icons.campaigns}</span> {currentEmail.to.email}</div>
+                <div className="oai-emails__contact-row"><span aria-hidden="true">{'\uD83D\uDCCD'}</span> {currentEmail.to.location}</div>
               </div>
               <div className="oai-emails__signals">
                 <div className="oai-emails__signals-label">KEY SIGNALS</div>
                 {currentEmail.signals.map((signal, i) => (
                   <div key={i} className="oai-emails__signal">
-                    <button className="oai-emails__signal-header" onClick={() => setExpandedSignal(expandedSignal === i ? -1 : i)}>
+                    <button className="oai-emails__signal-header" onClick={() => setExpandedSignal(expandedSignal === i ? -1 : i)} aria-expanded={expandedSignal === i && !!signal.detail}>
                       <span>{signal.label}</span>
-                      <span className="oai-emails__signal-chevron">{expandedSignal === i ? '\u2227' : '\u2228'}</span>
+                      <span className="oai-emails__signal-chevron" aria-hidden="true">{expandedSignal === i ? '\u2227' : '\u2228'}</span>
                     </button>
                     {expandedSignal === i && signal.detail && (
                       <div className="oai-emails__signal-detail">{signal.detail}</div>
@@ -248,7 +253,7 @@ const EmailsPage = () => {
         ) : (
           <div className="oai-emails__empty">
             <div className="oai-emails__empty-icon">{Icons.campaigns}</div>
-            <h3 className="oai-emails__empty-title">No emails {activeEmailTab === 'drafting' ? 'drafting' : activeEmailTab === 'sent' ? 'sent' : activeEmailTab === 'failed' ? 'failed' : 'in queue'}</h3>
+            <h2 className="oai-emails__empty-title">No emails {activeEmailTab === 'drafting' ? 'drafting' : activeEmailTab === 'sent' ? 'sent' : activeEmailTab === 'failed' ? 'failed' : 'in queue'}</h2>
             <p className="oai-emails__empty-desc">Emails {activeEmailTab === 'drafting' ? 'being drafted' : activeEmailTab === 'sent' ? 'that have been sent' : activeEmailTab === 'failed' ? 'that failed to send' : 'queued for sending'} will appear here</p>
           </div>
         )}
