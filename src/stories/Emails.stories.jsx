@@ -54,8 +54,8 @@ const SidebarFooter = ({ darkMode, onToggleDark }) => (
     </li>
     <li>
       <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
-        <span className="oai-sidebar__label">Jane Doe</span>
+        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+        <span className="oai-sidebar__label">Mike Torres</span>
       </button>
     </li>
   </ul>
@@ -73,22 +73,24 @@ const emailQueue = [
   {
     id: 1,
     to: { name: 'Sarah Chen', email: 'sarah.chen@ecoglow.com', title: 'Head of Partnerships, EcoGlow Naturals', company: 'EcoGlow Naturals', location: 'San Francisco, CA, United States' },
-    subject: 'Partnership opportunity for EcoGlow Naturals',
-    body: `Hey Sarah,\n\nI saw you are leading partnerships at EcoGlow Naturals and driving the brand's expansion on Amazon. Given how fast the clean beauty category is growing, I imagine scaling your seller network is a big priority right now.\n\nWe specialize in helping top-tier beauty brands like EcoGlow connect with high-performing Amazon sellers. We can help your products reach new audiences and increase sales velocity, eliminating the overhead of managing individual seller relationships.\n\nCurious if expanding your Amazon seller network is on your radar this quarter?\n\nBest,\n\nJane Doe\nGallop AI`,
+    subject: 'Manufacturing partnership for EcoGlow Naturals',
+    body: `Hey Sarah,\n\nI noticed EcoGlow Naturals' Vitamin C Brightening Moisturizer has seen 46% revenue growth this quarter on Amazon — that's incredible traction in the clean beauty category.\n\nI'm Mike Torres at Pacific Beauty Labs. We're a contract manufacturer specializing in sunscreen and skincare formulations, and we've helped brands at your growth stage scale production without compromising quality.\n\nGiven how fast EcoGlow is growing, I imagine keeping up with demand and maintaining your formulation standards is becoming a bigger challenge. We could help you:\n\n• Scale production 3-5x with FDA-compliant facilities\n• Reduce per-unit cost by 15-20% at your current volume\n• Launch new SKUs faster with our R&D team\n\nWould you be open to a 15-minute call this week to explore if there's a fit?\n\nBest,\n\nMike Torres\nBusiness Development Manager\nPacific Beauty Labs`,
     signals: [
-      { label: 'Head of Partnerships \u2014 EcoGlow Naturals', expandable: true },
-      { label: 'Recent Hire \u2014 Mar 2025', expandable: true, detail: 'She started the Head of Partnerships position in March 2025, so she is newly responsible for shaping the partnership strategy and may be actively building new vendor pipelines.' },
-      { label: 'Clean Beauty Category Growth', expandable: true, detail: 'EcoGlow Naturals is rapidly growing in clean beauty on Amazon; as Head of Partnerships she likely prioritizes expanding distribution channels.' },
+      { label: 'Head of Partnerships — Decision-Maker', expandable: true },
+      { label: 'Revenue Growth +46% (90-day)', expandable: true, detail: 'EcoGlow Naturals\' Vitamin C Moisturizer has seen 46% revenue growth over 90 days based on Amazon sales rank trend, indicating rapidly scaling demand that may exceed current manufacturing capacity.' },
+      { label: 'Recent Hire — Mar 2025', expandable: true, detail: 'Sarah started as Head of Partnerships in March 2025. She is building new vendor relationships and likely evaluating manufacturing partners.' },
+      { label: 'Supply Signal — Frequently Out of Stock', expandable: true, detail: 'Keepa data shows this product has had 3 out-of-stock events in the last 60 days, suggesting demand is outpacing current supply — strong indicator they need manufacturing help.' },
     ],
   },
   {
     id: 2,
-    to: { name: 'Marcus Johnson', email: 'marcus@techvibe.com', title: 'Brand Manager, TechVibe Audio', company: 'TechVibe Audio', location: 'Austin, TX, United States' },
-    subject: 'Amazon growth strategy for TechVibe Audio',
-    body: `Hey Marcus,\n\nI noticed TechVibe Audio has been gaining serious traction in the wireless earbuds category on Amazon. Your latest product launch looks impressive.\n\nWe help audio brands optimize their Amazon presence \u2014 from listing optimization to review management and advertising strategy. Our clients typically see a 40% increase in organic ranking within 90 days.\n\nWould you be open to a quick chat about how we could help TechVibe scale even faster?\n\nBest,\n\nJane Doe\nGallop AI`,
+    to: { name: 'Priya Sharma', email: 'priya@aquaveil.com', title: 'Head of Supply Chain, AquaVeil', company: 'AquaVeil', location: 'New York, NY, United States' },
+    subject: 'Scaling production for AquaVeil\'s growth',
+    body: `Hey Priya,\n\nI came across AquaVeil's SPF 30 Hydrating Sunscreen — 55% revenue growth and a 52% increase in review velocity is seriously impressive for a brand at your stage.\n\nI'm Mike Torres at Pacific Beauty Labs. We manufacture sunscreen and skincare for growing DTC brands, and we specialize in reef-safe mineral formulations exactly like yours.\n\nI noticed AquaVeil has had some inventory challenges recently. We could help stabilize your supply chain while scaling:\n\n• Mineral sunscreen expertise (zinc oxide, titanium dioxide)\n• MOQ flexibility for brands doing 250-1,000 units/month\n• 4-week lead times vs. the industry standard 8-12 weeks\n\nWorth a quick chat?\n\nBest,\n\nMike Torres\nBusiness Development Manager\nPacific Beauty Labs`,
     signals: [
-      { label: 'Brand Manager \u2014 TechVibe Audio', expandable: true },
-      { label: 'Product Launch \u2014 Feb 2025', expandable: true, detail: 'TechVibe recently launched new wireless earbuds, suggesting active investment in Amazon growth.' },
+      { label: 'Head of Supply Chain — Direct Authority', expandable: true },
+      { label: 'Revenue Growth +55% (90-day)', expandable: true, detail: 'AquaVeil\'s sunscreen has 55% revenue growth with rapidly accelerating review velocity (+52%), indicating viral growth that will stress current supply chain.' },
+      { label: 'Actively Hiring — Scaling Operations', expandable: true, detail: 'LinkedIn shows AquaVeil is hiring for operations roles, confirming they are scaling and likely need manufacturing support.' },
     ],
   },
 ];

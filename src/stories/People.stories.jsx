@@ -55,8 +55,8 @@ const SidebarFooter = ({ darkMode, onToggleDark }) => (
     </li>
     <li>
       <button className="oai-sidebar__item" onClick={fn()}>
-        <span className="oai-sidebar__icon"><Avatar initials="JD" size="small" /></span>
-        <span className="oai-sidebar__label">Jane Doe</span>
+        <span className="oai-sidebar__icon"><Avatar initials="MT" size="small" /></span>
+        <span className="oai-sidebar__label">Mike Torres</span>
       </button>
     </li>
   </ul>
@@ -80,22 +80,19 @@ const defaultTags = [
 ];
 
 const brands = [
-  { name: 'Arbonne', company: 'Arbonne International LLC', domain: 'arbonne.com', country: 'United States', state: 'California', city: 'Irvine' },
-  { name: 'The Ordinary', company: 'Deciem Beauty Group Inc.', domain: 'theordinary.com', country: 'Canada', state: 'Ontario', city: 'Toronto' },
-  { name: 'Dr.Althea', company: 'Dr.Althea Co. Ltd.', domain: 'dralthea.com', country: 'South Korea', state: '\u2014', city: 'Seoul' },
-  { name: 'SimplyVital', company: 'SimplyVital Health Inc.', domain: 'simplyvitalhealth.com', country: 'United States', state: 'Connecticut', city: 'New Haven' },
-  { name: 'Vanicream', company: 'Vanicream LLC', domain: 'vanicream.com', country: 'United States', state: 'Illinois', city: 'Chicago' },
-  { name: 'OUPEICHARM', company: 'OUPEICHARM', domain: 'oupeicharm.com', country: 'China', state: '\u2014', city: '\u2014' },
+  { name: 'EcoGlow Naturals', company: 'EcoGlow Naturals Inc.', domain: 'ecoglownaturals.com', country: 'United States', state: 'California', city: 'San Francisco', growth: '+46%' },
+  { name: 'SunShield Pro', company: 'SunShield Pro LLC', domain: 'sunshieldpro.com', country: 'United States', state: 'Florida', city: 'Miami', growth: '+38%' },
+  { name: 'AquaVeil', company: 'AquaVeil Skincare Inc.', domain: 'aquaveil.com', country: 'United States', state: 'New York', city: 'New York', growth: '+55%' },
 ];
 
 const people = [
-  { id: 1, name: 'Hannah Weaver', title: 'Senior Vendor Manager Premium Beauty', company: 'Amazon', location: 'New York', initials: 'HW', tags: ['Category Decision-Maker', 'Amazon Investing in Beauty'] },
-  { id: 2, name: 'David Lee', title: 'Category Leader Mass Beauty & Groomi...', company: 'Amazon', location: 'Seattle', initials: 'DL', tags: ['Mass Beauty Category Leader', 'Amazon Vendor Management Experience'] },
-  { id: 3, name: 'Brynn Kemper', title: 'Senior Manager Business Development a...', company: 'Amazon', location: 'Seattle', initials: 'BK', tags: ['Senior Manager Premium Beauty', 'Premium Beauty & Luxury Focus'] },
-  { id: 4, name: 'Molly Ayers', title: 'TikTok Shop Category Manager - Beauty', company: 'TikTok', location: 'Seattle', initials: 'MA', tags: ['Beauty Category Owner', 'Experienced Buyer & Vendor Lead'] },
-  { id: 5, name: 'Asia Jenkins', title: 'Category Manager Beauty @ TikTok Shop', company: 'TikTok', location: 'New York', initials: 'AJ', tags: ['Category Manager \u2014 Decision-Maker', 'Buying/Purchasing Background'] },
-  { id: 6, name: 'Nikki Hardison', title: 'Senior Business Development Manager -...', company: 'Amazon', location: 'New York', initials: 'NH', tags: ['Premium Beauty BD Lead', 'Recent LinkedIn Engagement'] },
-  { id: 7, name: 'Daniela Kretschmar', title: 'Sr. Vendor Manager Beauty Skin Care', company: 'Amazon', location: 'Miami', initials: 'DK', tags: ['Senior Vendor Manager \u2014 Mass Beauty', 'Category & Assortment Owner'] },
+  { id: 1, name: 'Sarah Chen', title: 'Head of Partnerships', company: 'EcoGlow Naturals', location: 'San Francisco', initials: 'SC', tags: ['Partnership Decision-Maker', 'Recent Hire — Building Vendor Pipeline'], growth: '+46%' },
+  { id: 2, name: 'Jason Park', title: 'VP of Operations', company: 'EcoGlow Naturals', location: 'San Francisco', initials: 'JP', tags: ['Operations & Supply Chain Lead', 'Manufacturing Sourcing Authority'], growth: '+46%' },
+  { id: 3, name: 'Maria Santos', title: 'Director of Product Development', company: 'SunShield Pro', location: 'Miami', initials: 'MS', tags: ['Product & Formulation Lead', 'Sunscreen Category Expert'], growth: '+38%' },
+  { id: 4, name: 'Kevin Wright', title: 'Co-Founder & CEO', company: 'SunShield Pro', location: 'Miami', initials: 'KW', tags: ['Founder — Final Decision-Maker', 'Scaling Brand (Raised Series A)'], growth: '+38%' },
+  { id: 5, name: 'Priya Sharma', title: 'Head of Supply Chain', company: 'AquaVeil', location: 'New York', initials: 'PS', tags: ['Supply Chain Lead', 'Actively Hiring — Scaling Operations'], growth: '+55%' },
+  { id: 6, name: 'Alex Rivera', title: 'Brand Manager', company: 'AquaVeil', location: 'New York', initials: 'AR', tags: ['Brand & Amazon Strategy', 'Former L\'Oréal — DTC Experience'], growth: '+55%' },
+  { id: 7, name: 'Emma Liu', title: 'COO', company: 'AquaVeil', location: 'New York', initials: 'EL', tags: ['Operations Decision-Maker', 'Frequently Out of Stock Signal'], growth: '+55%' },
 ];
 
 /* ── Inline icon helpers ───────────────────────────────────────────── */
@@ -243,9 +240,8 @@ const PeoplePage = () => {
                   <th>Brand Name</th>
                   <th>Company Name</th>
                   <th>Domain</th>
-                  <th>Country</th>
-                  <th>State</th>
-                  <th>City</th>
+                  <th>Location</th>
+                  <th>Rev. Growth</th>
                 </tr>
               </thead>
               <tbody>
@@ -254,9 +250,8 @@ const PeoplePage = () => {
                     <td className="oai-people__brands-td--bold">{b.name}</td>
                     <td>{b.company}</td>
                     <td>{b.domain}</td>
-                    <td>{b.country}</td>
-                    <td>{b.state}</td>
-                    <td>{b.city}</td>
+                    <td>{b.city}, {b.state}</td>
+                    <td><span className="oai-results__trend oai-results__trend--up">{b.growth}</span></td>
                   </tr>
                 ))}
               </tbody>
