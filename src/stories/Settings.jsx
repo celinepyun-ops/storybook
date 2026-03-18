@@ -6,7 +6,8 @@ import './settings.css';
 
 const navItems = [
   { id: 'account', label: 'Account', icon: Icons.profile },
-  { id: 'subscription', label: 'Subscription', icon: Icons.pricing },
+  { id: 'tokens', label: 'Token Balance', icon: Icons.pricing },
+  { id: 'subscription', label: 'Subscription', icon: Icons.settings },
   { id: 'preferences', label: 'Preferences', icon: Icons.settings },
 ];
 
@@ -78,6 +79,108 @@ const AccountTab = ({ user, onSave }) => {
             onClick={() => onSave?.({ firstName, lastName })}
           />
         </div>
+      </div>
+    </div>
+  );
+};
+
+/* ── Token Balance Tab ───────────────────────────────────────────── */
+const tokenHistory = [
+  { date: 'Mar 15, 2026', action: 'Email reveal — Sarah Chen', used: -2, balance: 48 },
+  { date: 'Mar 14, 2026', action: 'LinkedIn reveal — Marcus Johnson', used: -3, balance: 50 },
+  { date: 'Mar 13, 2026', action: 'Email reveal — Priya Patel', used: -2, balance: 53 },
+  { date: 'Mar 12, 2026', action: 'Email reveal — David Kim', used: -2, balance: 55 },
+  { date: 'Mar 10, 2026', action: 'Purchased Growth Pack', used: 500, balance: 57 },
+];
+
+const TokensTab = ({ onBuyTokens }) => {
+  const balance = 48;
+  const totalPurchased = 100;
+  const usedPercent = ((totalPurchased - balance) / totalPurchased) * 100;
+
+  return (
+    <div>
+      <h2 className="oai-settings__section-title">Token Balance</h2>
+      <p className="oai-settings__section-desc">Track your token usage and purchase more tokens.</p>
+
+      {/* Balance Card */}
+      <div className="oai-settings__token-card">
+        <div className="oai-settings__token-balance-row">
+          <div className="oai-settings__token-balance-info">
+            <span className="oai-settings__token-balance-label">Current Balance</span>
+            <span className="oai-settings__token-balance-value">{balance} tokens remaining</span>
+          </div>
+          <button
+            className="oai-settings__token-buy-btn"
+            type="button"
+            onClick={onBuyTokens}
+          >
+            Buy More Tokens
+          </button>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="oai-settings__token-progress-wrapper">
+          <div className="oai-settings__token-progress-bar">
+            <div
+              className="oai-settings__token-progress-fill"
+              style={{ width: `${usedPercent}%` }}
+              role="progressbar"
+              aria-valuenow={usedPercent}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-label={`${Math.round(usedPercent)}% of tokens used`}
+            />
+          </div>
+          <div className="oai-settings__token-progress-labels">
+            <span>{totalPurchased - balance} used</span>
+            <span>{totalPurchased} purchased</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Usage Breakdown */}
+      <div className="oai-settings__token-usage">
+        <h3 className="oai-settings__token-usage-title">This Month</h3>
+        <div className="oai-settings__token-usage-stats">
+          <div className="oai-settings__token-stat">
+            <span className="oai-settings__token-stat-value">12</span>
+            <span className="oai-settings__token-stat-label">Email reveals</span>
+          </div>
+          <div className="oai-settings__token-stat">
+            <span className="oai-settings__token-stat-value">4</span>
+            <span className="oai-settings__token-stat-label">LinkedIn reveals</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="oai-settings__divider" />
+
+      {/* Token History */}
+      <h3 className="oai-settings__token-history-title">Recent Activity</h3>
+      <div className="oai-settings__token-table-wrapper">
+        <table className="oai-settings__token-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Action</th>
+              <th>Tokens</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tokenHistory.map((row, i) => (
+              <tr key={i}>
+                <td>{row.date}</td>
+                <td>{row.action}</td>
+                <td className={row.used > 0 ? 'oai-settings__token-positive' : 'oai-settings__token-negative'}>
+                  {row.used > 0 ? `+${row.used}` : row.used}
+                </td>
+                <td>{row.balance}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
@@ -199,11 +302,13 @@ const PreferencesTab = () => {
 };
 
 /* ── Settings Modal ───────────────────────────────────────────────── */
-export const Settings = ({ onClose, onLogout, onSave, initialTab = 'account' }) => {
+export const Settings = ({ onClose, onLogout, onSave, onBuyTokens, initialTab = 'account' }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'tokens':
+        return <TokensTab onBuyTokens={onBuyTokens} />;
       case 'subscription':
         return <SubscriptionTab />;
       case 'preferences':
@@ -264,6 +369,8 @@ Settings.propTypes = {
   onLogout: PropTypes.func,
   /** Callback when profile is saved */
   onSave: PropTypes.func,
+  /** Callback when user wants to buy more tokens */
+  onBuyTokens: PropTypes.func,
   /** Which tab to show initially */
-  initialTab: PropTypes.oneOf(['account', 'subscription', 'preferences']),
+  initialTab: PropTypes.oneOf(['account', 'tokens', 'subscription', 'preferences']),
 };

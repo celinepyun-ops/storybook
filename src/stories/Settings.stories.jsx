@@ -13,6 +13,16 @@ export const Account = {
     initialTab: 'account',
     onLogout: fn(),
     onSave: fn(),
+    onBuyTokens: fn(),
+  },
+};
+
+export const TokenBalance = {
+  args: {
+    initialTab: 'tokens',
+    onLogout: fn(),
+    onSave: fn(),
+    onBuyTokens: fn(),
   },
 };
 
@@ -21,6 +31,7 @@ export const Subscription = {
     initialTab: 'subscription',
     onLogout: fn(),
     onSave: fn(),
+    onBuyTokens: fn(),
   },
 };
 
@@ -29,5 +40,6 @@ export const Preferences = {
     initialTab: 'preferences',
     onLogout: fn(),
     onSave: fn(),
+    onBuyTokens: fn(),
   },
 };

@@ -11,54 +11,62 @@ const Check = () => (
   </span>
 );
 
-const plans = [
+const TokenIcon = () => (
+  <svg className="oai-pricing__token-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 6v12M8 10l4-4 4 4M8 14l4 4 4-4" />
+  </svg>
+);
+
+const packages = [
   {
-    name: 'Starter',
-    desc: 'For individuals getting started with product outreach.',
-    price: 'Free',
-    period: '',
+    name: 'Starter Pack',
+    tokens: '100',
+    price: '$29',
+    bestFor: 'Trying out the platform',
     btnLabel: 'Get Started',
-    btnStyle: 'outline',
-    features: [
-      'Up to 50 product searches / month',
-      'Basic product discovery filters',
-      'Email template library',
-      '1 campaign at a time',
-      'Community support',
+    includes: [
+      'Product search (unlimited)',
+      'Contact availability check (free)',
+      '100 contact reveals',
     ],
   },
   {
-    name: 'Standard',
-    desc: 'For growing agencies that need more power and automation.',
-    price: '$49',
-    period: '/ month',
-    btnLabel: 'Start Free Trial',
-    btnStyle: 'primary',
+    name: 'Growth Pack',
+    tokens: '500',
+    price: '$99',
+    bestFor: 'Active prospecting',
+    btnLabel: 'Get Started',
     featured: true,
-    features: [
-      'Unlimited product searches',
-      'AI-powered recommendations',
-      'Advanced filters & analytics',
-      'Up to 10 active campaigns',
-      'Email tracking & response rates',
-      'Priority email support',
+    saveBadge: 'Save 30%',
+    includes: [
+      'Everything in Starter',
+      '500 contact reveals',
+      'Priority support',
     ],
   },
+];
+
+const commonFeatures = [
+  'Unlimited product search',
+  'AI seller analysis',
+  'List management',
+  'Email queue',
+  'Dark mode',
+];
+
+const faqs = [
   {
-    name: 'Enterprise',
-    desc: 'For large teams needing custom integrations and support.',
-    price: '$149',
-    period: '/ month',
-    btnLabel: 'Contact Sales',
-    btnStyle: 'outline',
-    features: [
-      'Everything in Standard',
-      'Unlimited campaigns',
-      'Team collaboration & roles',
-      'Custom API integrations',
-      'Dedicated account manager',
-      'SSO & advanced security',
-    ],
+    question: 'What are tokens?',
+    answer: 'Tokens are credits used to reveal contact information such as email addresses and LinkedIn profiles. Each reveal costs a set number of tokens depending on the type of contact data.',
+  },
+  {
+    question: 'Do tokens expire?',
+    answer: 'No, tokens never expire. Once purchased, they remain in your account until you use them. Buy at your own pace and reveal contacts when you need them.',
+  },
+  {
+    question: 'Can I buy more tokens anytime?',
+    answer: 'Yes! You can purchase additional token packages at any time from the Pricing page or directly from your Settings. There are no limits on how many packages you can buy.',
   },
 ];
 
@@ -74,36 +82,48 @@ export const PricingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     {/* Header */}
     <div className="oai-pricing__header">
       <p className="oai-pricing__label">Pricing</p>
-      <h1 className="oai-pricing__title">Simple, transparent pricing</h1>
+      <h1 className="oai-pricing__title">Simple Token Pricing</h1>
       <p className="oai-pricing__subtitle">
-        Start free and scale as you grow. No hidden fees, cancel anytime.
+        Pay only for what you use. Buy tokens to reveal contact information — no subscriptions, no hidden fees.
       </p>
     </div>
 
-    {/* Cards */}
+    {/* Token Package Cards */}
     <div className="oai-pricing__grid">
-      {plans.map((plan) => (
+      {packages.map((pkg) => (
         <div
-          className={`oai-pricing__card ${plan.featured ? 'oai-pricing__card--featured' : ''}`}
-          key={plan.name}
+          className={`oai-pricing__card ${pkg.featured ? 'oai-pricing__card--featured' : ''}`}
+          key={pkg.name}
         >
-          <h2 className="oai-pricing__plan-name">{plan.name}</h2>
-          <p className="oai-pricing__plan-desc">{plan.desc}</p>
+          {pkg.saveBadge && (
+            <span className="oai-pricing__save-badge">{pkg.saveBadge}</span>
+          )}
 
-          <div className="oai-pricing__price-row">
-            <span className="oai-pricing__price">{plan.price}</span>
-            {plan.period && <span className="oai-pricing__period">{plan.period}</span>}
+          <h2 className="oai-pricing__plan-name">{pkg.name}</h2>
+
+          <div className="oai-pricing__token-row">
+            <TokenIcon />
+            <span className="oai-pricing__token-count">{pkg.tokens} tokens</span>
           </div>
 
+          <div className="oai-pricing__price-row">
+            <span className="oai-pricing__price">{pkg.price}</span>
+          </div>
+
+          <p className="oai-pricing__best-for">
+            Best for: <strong>{pkg.bestFor}</strong>
+          </p>
+
           <button
-            className={`oai-pricing__card-btn oai-pricing__card-btn--${plan.btnStyle}`}
+            className={`oai-pricing__card-btn oai-pricing__card-btn--${pkg.featured ? 'primary' : 'outline'}`}
             onClick={onGetStarted}
           >
-            {plan.btnLabel}
+            {pkg.btnLabel}
           </button>
 
+          <div className="oai-pricing__includes-label">Includes:</div>
           <ul className="oai-pricing__features">
-            {plan.features.map((f) => (
+            {pkg.includes.map((f) => (
               <li className="oai-pricing__feature" key={f}>
                 <Check />
                 {f}
@@ -112,6 +132,32 @@ export const PricingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
           </ul>
         </div>
       ))}
+    </div>
+
+    {/* Common Features */}
+    <div className="oai-pricing__common">
+      <h3 className="oai-pricing__common-title">All plans include</h3>
+      <div className="oai-pricing__common-list">
+        {commonFeatures.map((f) => (
+          <span className="oai-pricing__common-item" key={f}>
+            <Check />
+            {f}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {/* FAQ */}
+    <div className="oai-pricing__faq">
+      <h2 className="oai-pricing__faq-title">Frequently Asked Questions</h2>
+      <div className="oai-pricing__faq-list">
+        {faqs.map((faq) => (
+          <div className="oai-pricing__faq-item" key={faq.question}>
+            <h3 className="oai-pricing__faq-question">{faq.question}</h3>
+            <p className="oai-pricing__faq-answer">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
     </div>
 
     {/* Footer */}

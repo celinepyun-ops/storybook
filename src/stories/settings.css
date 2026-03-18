@@ -529,3 +529,185 @@
   color: var(--color-text-secondary);
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   Token Balance Tab
+   ========================================================================== */
+
+/* ── Balance Card ────────────────────────────────────────────────── */
+.oai-settings__token-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.oai-settings__token-balance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.oai-settings__token-balance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oai-settings__token-balance-label {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.oai-settings__token-balance-value {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+}
+
+.oai-settings__token-buy-btn {
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: #FFFFFF;
+  background: var(--color-primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.oai-settings__token-buy-btn:hover {
+  background: var(--color-primary-700);
+}
+
+/* ── Progress Bar ────────────────────────────────────────────────── */
+.oai-settings__token-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.oai-settings__token-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-neutral-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .oai-settings__token-progress-bar {
+  background: var(--color-neutral-700);
+}
+
+.oai-settings__token-progress-fill {
+  height: 100%;
+  background: var(--color-primary-600);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+.oai-settings__token-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Usage Breakdown ─────────────────────────────────────────────── */
+.oai-settings__token-usage {
+  margin-bottom: var(--space-2);
+}
+
+.oai-settings__token-usage-title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin: 0 0 var(--space-3);
+}
+
+.oai-settings__token-usage-stats {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.oai-settings__token-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oai-settings__token-stat-value {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+}
+
+.oai-settings__token-stat-label {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Token History Table ─────────────────────────────────────────── */
+.oai-settings__token-history-title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin: 0 0 var(--space-3);
+}
+
+.oai-settings__token-table-wrapper {
+  overflow-x: auto;
+}
+
+.oai-settings__token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+}
+
+.oai-settings__token-table th {
+  text-align: left;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.oai-settings__token-table td {
+  padding: var(--space-3);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.oai-settings__token-table tr:last-child td {
+  border-bottom: none;
+}
+
+.oai-settings__token-positive {
+  color: var(--color-success-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.oai-settings__token-negative {
+  color: var(--color-error-text);
+  font-weight: var(--font-weight-medium);
+}
