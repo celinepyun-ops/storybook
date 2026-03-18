@@ -14,22 +14,22 @@ const Check = () => (
 const sections = [
   {
     icon: Icons.search,
-    title: 'Discover Amazon Brands',
-    desc: 'Search across millions of Amazon listings to find brands by category, rating, revenue, and growth trajectory. Our database updates daily.',
+    title: 'Discover Amazon Products',
+    desc: 'Search across millions of Amazon listings to find products by category, rating, revenue, and growth trajectory. Our database updates daily.',
     items: [
       'Search by keyword, category, or ASIN',
       'Filter by revenue, rating, and review count',
       'Daily data updates from Amazon',
     ],
     visualIcon: <><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></>,
-    visualLabel: 'Brand Discovery',
+    visualLabel: 'Product Discovery',
   },
   {
     icon: Icons.sparkle,
     title: 'AI-Powered Insights',
-    desc: 'Let our AI analyze brand profiles and recommend the ones most likely to convert. Save hours of manual research with intelligent scoring.',
+    desc: 'Let our AI analyze product profiles and recommend the ones most likely to convert. Save hours of manual research with intelligent scoring.',
     items: [
-      'AI brand scoring and ranking',
+      'AI product scoring and ranking',
       'Contact information enrichment',
       'Competitive landscape analysis',
     ],
@@ -76,9 +76,9 @@ export const ProductPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     {/* Hero */}
     <section className="oai-product__hero">
       <p className="oai-product__label">Product</p>
-      <h1 className="oai-product__title">The complete platform for Amazon brand outreach</h1>
+      <h1 className="oai-product__title">The complete platform for Amazon product outreach</h1>
       <p className="oai-product__subtitle">
-        From brand discovery to deal close, every tool you need in one place.
+        From product discovery to deal close, every tool you need in one place.
       </p>
     </section>
 
@@ -117,9 +117,9 @@ export const ProductPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     {/* CTA */}
     <section className="oai-product__cta">
       <div className="oai-product__cta-inner">
-        <h2 className="oai-product__cta-title">Start reaching brands today</h2>
+        <h2 className="oai-product__cta-title">Start reaching products today</h2>
         <p className="oai-product__cta-desc">
-          Sign up for free and discover why 1,200+ agencies trust Gallop AI for their brand partnerships.
+          Sign up for free and discover why 1,200+ agencies trust Gallop AI for their product partnerships.
         </p>
         <button className="oai-product__cta-btn" onClick={onGetStarted}>
           Get Started — It's Free

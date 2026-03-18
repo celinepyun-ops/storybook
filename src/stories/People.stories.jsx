@@ -262,7 +262,7 @@ const PeoplePage = () => {
       }
       navbar={
         <Navbar>
-          <Search placeholder="Search brands..." onChange={fn()} />
+          <Search placeholder="Search products..." onChange={fn()} />
         </Navbar>
       }
     >
@@ -326,20 +326,20 @@ const PeoplePage = () => {
           )}
 
           <button className="oai-people__finder-search-btn" onClick={handleSearch}>
-            <span aria-hidden="true">{Icons.search}</span> Find Contacts for All {brands.length} Brands
+            <span aria-hidden="true">{Icons.search}</span> Find Contacts for All {brands.length} Products
           </button>
         </div>
 
-        {/* Brands in This List table */}
+        {/* Products in This List table */}
         <div className="oai-people__brands">
           <h3 className="oai-people__brands-title">
-            Brands in This List <span className="oai-people__brands-count">{brands.length}</span>
+            Products in This List <span className="oai-people__brands-count">{brands.length}</span>
           </h3>
           <div className="oai-people__brands-table-wrap">
             <table className="oai-people__brands-table">
               <thead>
                 <tr>
-                  <th>Brand Name</th>
+                  <th>Product Name</th>
                   <th>Company Name</th>
                   <th>Domain</th>
                   <th>Location</th>

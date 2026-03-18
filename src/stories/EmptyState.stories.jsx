@@ -11,7 +11,7 @@ export const Default = {
   args: {
     icon: '📭',
     title: 'No campaigns yet',
-    description: 'Create your first outreach campaign to start connecting with Amazon brands.',
+    description: 'Create your first outreach campaign to start connecting with Amazon products.',
   },
 };
 

@@ -75,7 +75,7 @@ const sidebarHeader = (
 
 /* ── Dashboard data ──────────────────────────────────────────────── */
 const tableColumns = [
-  { key: 'brand', label: 'Brand' },
+  { key: 'brand', label: 'Product' },
   { key: 'contact', label: 'Contact' },
   { key: 'status', label: 'Status', render: (val) => <Badge label={val} variant={val === 'Active' ? 'success' : val === 'Pending' ? 'warning' : val === 'Paused' ? 'error' : 'info'} size="small" /> },
   { key: 'sent', label: 'Sent' },
@@ -105,10 +105,10 @@ const DashboardContent = () => {
         <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon={Icons.campaigns} />
         <StatsCard title="Response Rate" value="28.4%" change="+3.2% from last month" trend="up" icon={Icons.analytics} />
         <StatsCard title="Active Campaigns" value="8" change="No change" trend="neutral" icon={Icons.dashboard} />
-        <StatsCard title="Brands Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
+        <StatsCard title="Products Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
       </div>
       <div style={{ marginBottom: '16px' }}>
-        <Tabs tabs={[{ id: 'all', label: 'All Brands' }, { id: 'active', label: 'Active' }, { id: 'pending', label: 'Pending' }, { id: 'archived', label: 'Archived' }]} activeTab={activeTab} onTabChange={setActiveTab} />
+        <Tabs tabs={[{ id: 'all', label: 'All Products' }, { id: 'active', label: 'Active' }, { id: 'pending', label: 'Pending' }, { id: 'archived', label: 'Archived' }]} activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
       <Table columns={tableColumns} data={tableData} sortable striped />
     </div>
@@ -215,7 +215,7 @@ const appCategories = {
 const categoryOptions = Object.keys(appCategories).map((n) => ({ value: n, label: n }));
 const getSubcategoryOptions = (cat) => (appCategories[cat] || []).map((s) => ({ value: s, label: s }));
 
-/* ── Mock leads per brand ──────────────────────────────────────── */
+/* ── Mock leads per product ─────────────────────────────────────── */
 const mockLeads = {
   'EcoGlow Naturals': [
     { id: 'l1', name: 'Sarah Chen', role: 'Founder & CEO', email: 'sarah@ecoglownaturals.com', linkedin: 'linkedin.com/in/sarahchen', confidence: 'high' },
@@ -267,7 +267,7 @@ const LeadDrawer = ({ brand, product, onClose, onAddToContacts }) => {
       <div className="oai-lead-drawer__overlay" onClick={onClose} />
       <aside className="oai-lead-drawer" role="dialog" aria-label={`Leads for ${brand}`}>
         <div className="oai-lead-drawer__header">
-          <h2 className="oai-lead-drawer__title">Brand Leads</h2>
+          <h2 className="oai-lead-drawer__title">Product Leads</h2>
           <button className="oai-lead-drawer__close" onClick={onClose} aria-label="Close panel">✕</button>
         </div>
         <div className="oai-lead-drawer__body">
@@ -289,7 +289,7 @@ const LeadDrawer = ({ brand, product, onClose, onAddToContacts }) => {
             )}
           </div>
           {leads.length === 0 ? (
-            <div className="oai-lead-drawer__empty">No leads found for this brand yet.</div>
+            <div className="oai-lead-drawer__empty">No leads found for this product yet.</div>
           ) : (
             leads.map((lead) => (
               <div key={lead.id} className={`oai-lead-drawer__contact ${selectedLeads.includes(lead.id) ? 'oai-lead-drawer__contact--selected' : ''}`}>
@@ -321,7 +321,7 @@ const LeadDrawer = ({ brand, product, onClose, onAddToContacts }) => {
   );
 };
 
-/* ── AI Brand Badge ──────────────────────────────────────────────── */
+/* ── AI Brand Badge (stays as "Brand" — this is AI seller analysis) ── */
 const AIBrandBadge = ({ isBrand }) => (
   <span className={`oai-results__ai-badge oai-results__ai-badge--${isBrand ? 'brand' : 'reseller'}`}>
     {isBrand ? 'Brand \u2713' : 'Reseller'}
@@ -489,7 +489,7 @@ const SearchContent = ({ onNavigate }) => {
                       <input type="checkbox" aria-label="Select all products" checked={selected.length === sortedResults.length && sortedResults.length > 0} onChange={toggleAll} />
                     </th>
                     <th className="oai-results__th oai-results__th--title">Product</th>
-                    <th className="oai-results__th">Brand <InfoTooltip wide><strong>AI Brand Enrichment</strong><br/>AI analyzes the seller to determine if they are the actual brand owner or a third-party reseller.</InfoTooltip></th>
+                    <th className="oai-results__th">Brand <InfoTooltip wide><strong>AI Seller Analysis</strong><br/>AI analyzes the seller to determine if they are the actual brand owner or a third-party reseller.</InfoTooltip></th>
                     <SortHeader label="Price" field="price" />
                     <SortHeader label={<>Score <InfoTooltip><strong>Partnership Score (0–100)</strong><br/>Weighted from: revenue growth, sales rank fit, price stability, and review velocity. Higher = better manufacturing partner fit.</InfoTooltip></>} field="partnershipScore" />
                     <SortHeader label="Sales Rank" field="salesRank" />
@@ -522,7 +522,7 @@ const SearchContent = ({ onNavigate }) => {
                       <td className="oai-results__td"><span className="oai-results__rating">{product.rating}</span></td>
                       <td className="oai-results__td">{product.reviews.toLocaleString()}</td>
                       <td className="oai-results__td">
-                        <button className="oai-results__action-btn" onClick={() => setDrawerProduct(product)} title="View brand leads">View Lead →</button>
+                        <button className="oai-results__action-btn" onClick={() => setDrawerProduct(product)} title="View product leads">View Lead →</button>
                       </td>
                     </tr>
                   ))}
@@ -876,7 +876,7 @@ const PeopleContent = ({ onNavigate }) => {
 
       <div style={{ marginTop: '16px', marginBottom: '24px' }}>
         <h1 style={{ margin: '0 0 4px', fontSize: '24px', fontWeight: 400, color: 'var(--color-text-primary)' }}>People</h1>
-        <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>Find the right contact person at the brands you've selected.</p>
+        <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>Find the right contact person at the products you've selected.</p>
       </div>
 
       {/* Find Decision Makers card */}
@@ -948,21 +948,21 @@ const PeopleContent = ({ onNavigate }) => {
           ))}
         </div>
         <button className="oai-people__finder-search-btn" onClick={() => setHasSearched(true)}>
-          Find Contacts for All {brandsInList.length} Brands
+          Find Contacts for All {brandsInList.length} Products
         </button>
       </div>
 
-      {/* Brands in This List table */}
+      {/* Products in This List table */}
       <div className="oai-people__brands">
         <h2 className="oai-people__brands-title">
-          Brands in This List
+          Products in This List
           <span className="oai-people__brands-count">{brandsInList.length}</span>
         </h2>
         <div className="oai-people__brands-table-wrap">
           <table className="oai-people__brands-table">
             <thead>
               <tr>
-                <th>Brand Name</th>
+                <th>Product Name</th>
                 <th>Company Name</th>
                 <th>Domain</th>
                 <th>Location</th>
@@ -1218,7 +1218,7 @@ function AppMain() {
       }
       navbar={
         <Navbar>
-          <Search placeholder="Search brands..." onChange={noop} />
+          <Search placeholder="Search products..." onChange={noop} />
         </Navbar>
       }
     >

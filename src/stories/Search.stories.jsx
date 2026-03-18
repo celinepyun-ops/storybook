@@ -9,7 +9,7 @@ export default {
 
 export const Empty = {
   args: {
-    placeholder: 'Search brands...',
+    placeholder: 'Search products...',
     onChange: fn(),
   },
 };

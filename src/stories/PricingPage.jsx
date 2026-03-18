@@ -14,14 +14,14 @@ const Check = () => (
 const plans = [
   {
     name: 'Starter',
-    desc: 'For individuals getting started with brand outreach.',
+    desc: 'For individuals getting started with product outreach.',
     price: 'Free',
     period: '',
     btnLabel: 'Get Started',
     btnStyle: 'outline',
     features: [
-      'Up to 50 brand searches / month',
-      'Basic brand discovery filters',
+      'Up to 50 product searches / month',
+      'Basic product discovery filters',
       'Email template library',
       '1 campaign at a time',
       'Community support',
@@ -36,7 +36,7 @@ const plans = [
     btnStyle: 'primary',
     featured: true,
     features: [
-      'Unlimited brand searches',
+      'Unlimited product searches',
       'AI-powered recommendations',
       'Advanced filters & analytics',
       'Up to 10 active campaigns',

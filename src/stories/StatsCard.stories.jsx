@@ -39,7 +39,7 @@ export const Neutral = {
 
 export const NoChange = {
   args: {
-    title: 'Brands Contacted',
+    title: 'Products Contacted',
     value: '456',
     icon: '🏪',
   },

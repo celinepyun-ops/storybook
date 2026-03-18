@@ -8,7 +8,7 @@ const sampleItems = [
     items: [
       { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
       { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
-      { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+      { id: 'brands', label: 'Products', icon: Icons.brands, onClick: fn() },
       { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: fn() },
     ],
   },
@@ -81,7 +81,7 @@ export const WithSections = {
         items: [
           { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: fn() },
           { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: fn() },
-          { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: fn() },
+          { id: 'brands', label: 'Products', icon: Icons.brands, onClick: fn() },
         ],
       },
       {

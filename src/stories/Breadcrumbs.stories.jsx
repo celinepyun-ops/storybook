@@ -11,7 +11,7 @@ export const Default = {
     items: [
       { label: 'Home', href: '#' },
       { label: 'Campaigns', href: '#' },
-      { label: 'Brand Outreach Q1' },
+      { label: 'Product Outreach Q1' },
     ],
   },
 };

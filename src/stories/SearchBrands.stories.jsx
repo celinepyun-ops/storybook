@@ -220,7 +220,7 @@ const LeadDrawer = ({ brand, product, onClose, onAddToContacts }) => {
       <div className="oai-lead-drawer__overlay" onClick={onClose} />
       <aside className="oai-lead-drawer" role="dialog" aria-label={`Leads for ${brand}`}>
         <div className="oai-lead-drawer__header">
-          <h2 className="oai-lead-drawer__title">Brand Leads</h2>
+          <h2 className="oai-lead-drawer__title">Product Leads</h2>
           <button className="oai-lead-drawer__close" onClick={onClose} aria-label="Close panel">✕</button>
         </div>
 
@@ -248,7 +248,7 @@ const LeadDrawer = ({ brand, product, onClose, onAddToContacts }) => {
 
           {leads.length === 0 ? (
             <div className="oai-lead-drawer__empty">
-              No leads found for this brand yet.
+              No leads found for this product yet.
             </div>
           ) : (
             leads.map((lead) => (
@@ -637,7 +637,7 @@ const SearchPage = () => {
                         <input type="checkbox" aria-label="Select all products" checked={selected.length === sortedResults.length && sortedResults.length > 0} onChange={toggleAll} />
                       </th>
                       <th className="oai-results__th oai-results__th--title">Product</th>
-                      <th className="oai-results__th">Brand <InfoTooltip wide><strong>AI Brand Enrichment</strong><br/>AI analyzes the seller to determine if they are the actual brand owner or a third-party reseller. &quot;Brand &#x2713;&quot; = verified brand seller.</InfoTooltip></th>
+                      <th className="oai-results__th">Brand <InfoTooltip wide><strong>AI Seller Analysis</strong><br/>AI analyzes the seller to determine if they are the actual brand owner or a third-party reseller. &quot;Brand &#x2713;&quot; = verified brand seller.</InfoTooltip></th>
                       <SortHeader label="Price" field="price" />
                       <SortHeader label={<>Score <InfoTooltip><strong>Partnership Score (0–100)</strong><br/>Weighted from: revenue growth, sales rank fit, price stability, and review velocity. Higher = better manufacturing partner fit.</InfoTooltip></>} field="partnershipScore" />
                       <SortHeader label="Sales Rank" field="salesRank" />
@@ -676,7 +676,7 @@ const SearchPage = () => {
                         </td>
                         <td className="oai-results__td">{product.reviews.toLocaleString()}</td>
                         <td className="oai-results__td">
-                          <button className="oai-results__action-btn" onClick={() => setDrawerProduct(product)} title="View brand leads">
+                          <button className="oai-results__action-btn" onClick={() => setDrawerProduct(product)} title="View product leads">
                             View Lead →
                           </button>
                         </td>

@@ -73,7 +73,7 @@ const sidebarHeader = (
 );
 
 const tableColumns = [
-  { key: 'brand', label: 'Brand' },
+  { key: 'brand', label: 'Product' },
   { key: 'contact', label: 'Contact' },
   { key: 'status', label: 'Status', render: (val) => <Badge label={val} variant={val === 'Active' ? 'success' : val === 'Pending' ? 'warning' : val === 'Paused' ? 'error' : 'info'} size="small" /> },
   { key: 'sent', label: 'Sent' },
@@ -112,7 +112,7 @@ const DashboardPage = () => {
       }
       navbar={
         <Navbar>
-          <Search placeholder="Search brands..." onChange={fn()} />
+          <Search placeholder="Search products..." onChange={fn()} />
         </Navbar>
       }
     >
@@ -132,13 +132,13 @@ const DashboardPage = () => {
           <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon={Icons.campaigns} />
           <StatsCard title="Response Rate" value="28.4%" change="+3.2% from last month" trend="up" icon={Icons.analytics} />
           <StatsCard title="Active Campaigns" value="8" change="No change" trend="neutral" icon={Icons.dashboard} />
-          <StatsCard title="Brands Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
+          <StatsCard title="Products Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
         </div>
 
         <div style={{ marginBottom: '16px' }}>
           <Tabs
             tabs={[
-              { id: 'all', label: 'All Brands' },
+              { id: 'all', label: 'All Products' },
               { id: 'active', label: 'Active' },
               { id: 'pending', label: 'Pending' },
               { id: 'archived', label: 'Archived' },

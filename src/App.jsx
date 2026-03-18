@@ -88,7 +88,7 @@ const sidebarHeader = (
    Dashboard data
    ══════════════════════════════════════════════════════════════════ */
 const tableColumns = [
-  { key: 'brand', label: 'Brand' },
+  { key: 'brand', label: 'Product' },
   { key: 'contact', label: 'Contact' },
   { key: 'status', label: 'Status', render: (val) => <Badge label={val} variant={val === 'Active' ? 'success' : val === 'Pending' ? 'warning' : val === 'Paused' ? 'error' : 'info'} size="small" /> },
   { key: 'sent', label: 'Sent' },
@@ -127,13 +127,13 @@ const DashboardContent = () => {
         <StatsCard title="Total Outreach" value="1,234" change="+12.5% from last month" trend="up" icon={Icons.campaigns} />
         <StatsCard title="Response Rate" value="28.4%" change="+3.2% from last month" trend="up" icon={Icons.analytics} />
         <StatsCard title="Active Campaigns" value="8" change="No change" trend="neutral" icon={Icons.dashboard} />
-        <StatsCard title="Brands Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
+        <StatsCard title="Products Contacted" value="456" change="-2.1% from last month" trend="down" icon={Icons.brands} />
       </div>
 
       <div style={{ marginBottom: '16px' }}>
         <Tabs
           tabs={[
-            { id: 'all', label: 'All Brands' },
+            { id: 'all', label: 'All Products' },
             { id: 'active', label: 'Active' },
             { id: 'pending', label: 'Pending' },
             { id: 'archived', label: 'Archived' },
@@ -186,7 +186,7 @@ const SearchContent = () => (
             <Badge label="PRD Feature" variant="info" size="small" />
           </div>
           <div className="oai-search-card__feature-desc">
-            Let AI analyze 50 brands and recommend the top 20 most likely to need your services (uses your company profile)
+            Let AI analyze 50 products and recommend the top 20 most likely to need your services (uses your company profile)
           </div>
         </div>
         <label className="oai-search-card__feature-toggle">
@@ -322,7 +322,7 @@ function App() {
       items: [
         { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: () => setPage('dashboard') },
         { id: 'search', label: 'Search', icon: Icons.search, onClick: () => setPage('search') },
-        { id: 'brands', label: 'Brands', icon: Icons.brands, onClick: () => setPage('brands') },
+        { id: 'brands', label: 'Products', icon: Icons.brands, onClick: () => setPage('brands') },
         { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: () => setPage('campaigns') },
         { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: () => setPage('analytics') },
       ],
@@ -367,7 +367,7 @@ function App() {
       }
       navbar={
         <Navbar>
-          <Search placeholder="Search brands..." onChange={noop} />
+          <Search placeholder="Search products..." onChange={noop} />
         </Navbar>
       }
     >

@@ -2,7 +2,7 @@ import { Table } from './Table';
 import { Badge } from './Badge';
 
 const sampleColumns = [
-  { key: 'brand', label: 'Brand' },
+  { key: 'brand', label: 'Product' },
   { key: 'contact', label: 'Contact' },
   { key: 'status', label: 'Status', render: (val) => <Badge label={val} variant={val === 'Active' ? 'success' : val === 'Pending' ? 'warning' : 'info'} size="small" /> },
   { key: 'sent', label: 'Emails Sent' },
@@ -66,6 +66,6 @@ export const Empty = {
   args: {
     columns: sampleColumns,
     data: [],
-    emptyMessage: 'No brands found',
+    emptyMessage: 'No products found',
   },
 };

@@ -18,7 +18,7 @@ export const Default = {
 
 export const WithSearch = {
   args: {
-    children: <Search placeholder="Search brands..." onChange={fn()} />,
+    children: <Search placeholder="Search products..." onChange={fn()} />,
     actions: (
       <>
         <Dropdown

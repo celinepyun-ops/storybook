@@ -133,7 +133,7 @@ const EmailsPage = () => {
       }
       navbar={
         <Navbar>
-          <Search placeholder="Search brands..." onChange={fn()} />
+          <Search placeholder="Search products..." onChange={fn()} />
         </Navbar>
       }
     >

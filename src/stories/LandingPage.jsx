@@ -6,13 +6,13 @@ import './landing.css';
 const features = [
   {
     icon: Icons.search,
-    title: 'Brand Discovery',
-    desc: 'Search and discover top-selling Amazon brands across every category. Filter by ratings, revenue, and growth.',
+    title: 'Product Discovery',
+    desc: 'Search and discover top-selling Amazon products across every category. Filter by ratings, revenue, and growth.',
   },
   {
     icon: Icons.sparkle,
     title: 'AI Recommendations',
-    desc: 'Let AI analyze brands and recommend the ones most likely to need your services, saving hours of research.',
+    desc: 'Let AI analyze products and recommend the ones most likely to need your services, saving hours of research.',
   },
   {
     icon: Icons.campaigns,
@@ -27,7 +27,7 @@ const features = [
   {
     icon: Icons.contacts,
     title: 'Contact Management',
-    desc: 'Organize brand contacts, track outreach history, and manage your pipeline from discovery to deal.',
+    desc: 'Organize product contacts, track outreach history, and manage your pipeline from discovery to deal.',
   },
   {
     icon: Icons.templates,
@@ -102,11 +102,11 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <section className="oai-landing__hero">
       <div className="oai-landing__news-badge">
         <span className="oai-landing__news-tag">NEW</span>
-        Now live: AI-powered brand recommendations — no setup required.
+        Now live: AI-powered product recommendations — no setup required.
       </div>
       <h1 className="oai-landing__title">
         The AI Platform{'\n'}for{' '}
-        <span className="oai-landing__title-accent">Amazon Brand</span> Outreach
+        <span className="oai-landing__title-accent">Amazon Product</span> Outreach
       </h1>
       <div className="oai-landing__hero-actions">
         <button className="oai-landing__hero-btn oai-landing__hero-btn--primary" onClick={onGetStarted}>
@@ -122,7 +122,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
       {/* Floating status pills */}
       <div className="oai-landing__pill oai-landing__pill--left-top">
         <span className="oai-landing__pill-icon oai-landing__pill-icon--red">✕</span>
-        BRAND NOT RESPONDING
+        PRODUCT NOT RESPONDING
       </div>
       <div className="oai-landing__pill oai-landing__pill--left-bottom">
         <span className="oai-landing__pill-icon oai-landing__pill-icon--green">✓</span>
@@ -130,7 +130,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
       </div>
       <div className="oai-landing__pill oai-landing__pill--right">
         <span className="oai-landing__pill-icon oai-landing__pill-icon--green">✓</span>
-        12 BRANDS DISCOVERED
+        12 PRODUCTS DISCOVERED
       </div>
 
       {/* Central horse logo */}
@@ -151,7 +151,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <section className="oai-landing__stats">
       <div className="oai-landing__stat">
         <span className="oai-landing__stat-value">50K+</span>
-        <span className="oai-landing__stat-label">Brands Discovered</span>
+        <span className="oai-landing__stat-label">Products Discovered</span>
       </div>
       <div className="oai-landing__stat">
         <span className="oai-landing__stat-value">32%</span>
@@ -171,7 +171,7 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     <section className="oai-landing__features">
       <div className="oai-landing__features-header">
         <p className="oai-landing__features-label">Features</p>
-        <h2 className="oai-landing__features-title">Everything you need for brand outreach</h2>
+        <h2 className="oai-landing__features-title">Everything you need for product outreach</h2>
         <p className="oai-landing__features-desc">
           From discovery to deal close, Gallop AI streamlines your entire workflow.
         </p>
@@ -190,9 +190,9 @@ export const LandingPage = ({ onNavigate, onSignIn, onGetStarted }) => (
     {/* CTA */}
     <section className="oai-landing__cta">
       <div className="oai-landing__cta-inner">
-        <h2 className="oai-landing__cta-title">Ready to grow your brand partnerships?</h2>
+        <h2 className="oai-landing__cta-title">Ready to grow your product partnerships?</h2>
         <p className="oai-landing__cta-desc">
-          Join 1,200+ agencies and freelancers using Gallop AI to discover and connect with Amazon brands.
+          Join 1,200+ agencies and freelancers using Gallop AI to discover and connect with Amazon products.
         </p>
         <button className="oai-landing__cta-btn" onClick={onGetStarted}>
           Get Started — It's Free

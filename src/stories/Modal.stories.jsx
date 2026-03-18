@@ -27,10 +27,10 @@ export const Default = {
 export const Small = {
   args: {
     isOpen: true,
-    title: 'Delete Brand',
+    title: 'Delete Product',
     size: 'sm',
     onClose: fn(),
-    children: 'This will permanently delete the brand from your list.',
+    children: 'This will permanently delete the product from your list.',
     footer: (
       <>
         <Button variant="outline" label="Cancel" />
@@ -48,8 +48,8 @@ export const Large = {
     onClose: fn(),
     children: (
       <div>
-        <p>Campaign: <strong>Amazon Q1 Brand Outreach</strong></p>
-        <p>This campaign targets 500 brands across health, beauty, and home categories. Outreach began on January 15, 2026, and is scheduled to conclude on March 31, 2026.</p>
+        <p>Campaign: <strong>Amazon Q1 Product Outreach</strong></p>
+        <p>This campaign targets 500 products across health, beauty, and home categories. Outreach began on January 15, 2026, and is scheduled to conclude on March 31, 2026.</p>
         <p>Current response rate is 24.3% with 145 positive replies received so far.</p>
       </div>
     ),
