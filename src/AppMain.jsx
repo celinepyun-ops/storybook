@@ -335,8 +335,17 @@ const AIBrandBadge = ({ isBrand }) => (
   </span>
 );
 
+/* ── Search Tab Config ──────────────────────────────────────────── */
+const SEARCH_TABS = [
+  { id: 'product', label: 'Product', icon: '📦', description: 'Find Growing Products', subtitle: 'Discover fast-growing Amazon products ready for manufacturing partnerships.', placeholder: 'Try "vitamin C serum under $25 with high growth"' },
+  { id: 'brand', label: 'Brand', icon: '🏷️', description: 'Discover Brands', subtitle: 'Find and analyze Amazon brands by aggregated product performance.', placeholder: 'Try "skincare brands with 20%+ growth in US"' },
+  { id: 'people', label: 'People', icon: '👤', description: 'Find Decision Makers', subtitle: 'Search contacts and decision makers at target brands.', placeholder: 'Try "founder of EcoGlow Naturals" or "VP supply chain cosmetics"' },
+  { id: 'company', label: 'Company', icon: '🏢', description: 'Search Companies', subtitle: 'Find manufacturers and brand companies for partnership opportunities.', placeholder: 'Try "cosmetics manufacturer in California with 50+ employees"' },
+];
+
 /* ── Page: Search ───────────────────────────────────────────────── */
 const SearchContent = ({ onNavigate }) => {
+  const [activeTab, setActiveTab] = useState('product');
   const [keyword, setKeyword] = useState('sunscreen');
   const [country, setCountry] = useState('US');
   const [category, setCategory] = useState('Cosmetics & Beauty');
@@ -356,6 +365,7 @@ const SearchContent = ({ onNavigate }) => {
   const [sortBy, setSortBy] = useState('partnershipScore');
   const [sortDir, setSortDir] = useState('desc');
   const [drawerProduct, setDrawerProduct] = useState(null);
+  const currentTab = SEARCH_TABS.find((t) => t.id === activeTab);
 
   const handleSearch = useCallback(() => {
     setLoading(true);
@@ -394,16 +404,51 @@ const SearchContent = ({ onNavigate }) => {
   return (
     <div style={{ maxWidth: '1200px' }}>
       <div className="oai-search-page__header">
-        <h1 className="oai-search-page__title">Find Growing Products</h1>
-        <p className="oai-search-page__subtitle">Discover fast-growing Amazon products ready for manufacturing partnerships.</p>
+        <h1 className="oai-search-page__title">{currentTab.description}</h1>
+        <p className="oai-search-page__subtitle">{currentTab.subtitle}</p>
+      </div>
+
+      {/* ── Search Category Tabs ──────────────────────────────── */}
+      <div className="oai-search-tabs">
+        {SEARCH_TABS.map((tab) => (
+          <button
+            key={tab.id}
+            className={`oai-search-tabs__tab ${activeTab === tab.id ? 'oai-search-tabs__tab--active' : ''}`}
+            onClick={() => { setActiveTab(tab.id); setResults([]); setHasSearched(false); }}
+          >
+            <span className="oai-search-tabs__icon">{tab.icon}</span>
+            <span className="oai-search-tabs__label">{tab.label}</span>
+          </button>
+        ))}
       </div>
 
       <div className="oai-search-card">
-        <div className="oai-search-card__form-grid oai-search-card__form-grid--4col">
-          <div className="oai-search-card__field oai-search-card__field--keyword">
-            <label className="oai-search-card__label" htmlFor="search-keyword">Keyword</label>
-            <input id="search-keyword" className="oai-search-card__text-input" type="text" value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="e.g. sunscreen, facial cream, serum" />
+        {/* ── NLP Search Input ──────────────────────────────────── */}
+        <div className="oai-search-card__nlp-row">
+          <div className="oai-search-card__nlp-input-wrap">
+            <svg className="oai-search-card__nlp-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            <input
+              className="oai-search-card__nlp-input"
+              type="text"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder={currentTab.placeholder}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleSearch(); }}
+            />
+            {keyword && (
+              <button className="oai-search-card__nlp-clear" onClick={() => setKeyword('')} aria-label="Clear search">✕</button>
+            )}
           </div>
+          <span className="oai-search-card__nlp-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>
+            AI-powered natural language search
+          </span>
+        </div>
+
+        {/* ── Structured Filters (Product & Brand tabs) ─────────── */}
+        {(activeTab === 'product' || activeTab === 'brand') && (
+        <>
+        <div className="oai-search-card__form-grid oai-search-card__form-grid--3col" style={{ marginTop: 'var(--space-4)' }}>
           <div className="oai-search-card__field">
             <Select label="Country" options={countryOptions} value={country} onChange={(e) => setCountry(e.target.value)} id="search-country" />
           </div>
@@ -462,11 +507,49 @@ const SearchContent = ({ onNavigate }) => {
             </div>
           </div>
         )}
+        </>
+        )}
+
+        {/* ── People tab filters ───────────────────────────────── */}
+        {activeTab === 'people' && (
+          <div className="oai-search-card__form-grid oai-search-card__form-grid--3col" style={{ marginTop: 'var(--space-4)' }}>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="people-role">Role</label>
+              <Select id="people-role" placeholder="All roles" options={[{ value: '', label: 'All Roles' }, { value: 'founder', label: 'Founder / CEO' }, { value: 'supply-chain', label: 'Supply Chain' }, { value: 'product', label: 'Product Manager' }, { value: 'sales', label: 'Sales / BD' }]} onChange={noop} />
+            </div>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="people-company">Company</label>
+              <input id="people-company" className="oai-search-card__text-input" type="text" placeholder="e.g. EcoGlow Naturals" />
+            </div>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="people-source">Source</label>
+              <Select id="people-source" options={[{ value: '', label: 'All Sources' }, { value: 'apollo', label: 'Apollo' }, { value: 'linkedin', label: 'LinkedIn' }, { value: 'manual', label: 'Manual' }]} onChange={noop} />
+            </div>
+          </div>
+        )}
+
+        {/* ── Company tab filters ──────────────────────────────── */}
+        {activeTab === 'company' && (
+          <div className="oai-search-card__form-grid oai-search-card__form-grid--3col" style={{ marginTop: 'var(--space-4)' }}>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="company-industry">Industry</label>
+              <Select id="company-industry" placeholder="All industries" options={[{ value: '', label: 'All Industries' }, { value: 'cosmetics', label: 'Cosmetics & Beauty' }, { value: 'supplements', label: 'Health & Supplements' }, { value: 'electronics', label: 'Electronics' }, { value: 'home', label: 'Home & Garden' }]} onChange={noop} />
+            </div>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="company-size">Company Size</label>
+              <Select id="company-size" options={[{ value: '', label: 'Any Size' }, { value: '1-10', label: '1–10' }, { value: '11-50', label: '11–50' }, { value: '51-200', label: '51–200' }, { value: '200+', label: '200+' }]} onChange={noop} />
+            </div>
+            <div className="oai-search-card__field">
+              <label className="oai-search-card__label" htmlFor="company-location">Location</label>
+              <input id="company-location" className="oai-search-card__text-input" type="text" placeholder="e.g. California, USA" />
+            </div>
+          </div>
+        )}
 
         <div className="oai-search-card__form-row">
           <div className="oai-search-card__feature-callout">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
-            Powered by Keepa + AI — results ranked by growth potential
+            {activeTab === 'product' || activeTab === 'brand' ? 'Powered by Keepa + AI — results ranked by growth potential' : activeTab === 'people' ? 'Powered by Apollo + AI — enriched contact data' : 'Powered by Ocean.io + AI — company intelligence'}
           </div>
           <button className="oai-search-card__search-btn" onClick={handleSearch} disabled={loading}>
             {loading ? <><span className="oai-search-card__spinner" /> Analyzing...</> : <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg> Search</>}

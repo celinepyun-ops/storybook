@@ -1,6 +1,138 @@
 /* ==========================================================================
-   Search Page — Page-level styles for the brand search interface
+   Search Page — Page-level styles for the search interface
    ========================================================================== */
+
+/* ── Search Category Tabs ─────────────────────────────────────────────── */
+.oai-search-tabs {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-default);
+  padding-bottom: 0;
+}
+
+.oai-search-tabs__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.oai-search-tabs__tab:hover {
+  color: var(--color-text-primary);
+}
+
+.oai-search-tabs__tab--active {
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-600);
+}
+
+.oai-search-tabs__icon {
+  font-size: var(--font-size-base);
+}
+
+.oai-search-tabs__label {
+  white-space: nowrap;
+}
+
+/* ── NLP Search Input ─────────────────────────────────────────────────── */
+.oai-search-card__nlp-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.oai-search-card__nlp-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.oai-search-card__nlp-input-wrap:focus-within {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-500-rgb, 97, 77, 180), 0.12);
+}
+
+.oai-search-card__nlp-icon {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.oai-search-card__nlp-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  min-width: 0;
+}
+
+.oai-search-card__nlp-input::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.oai-search-card__nlp-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: var(--color-bg-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1;
+  transition: background var(--transition-fast);
+}
+
+.oai-search-card__nlp-clear:hover {
+  background: var(--color-border-default);
+  color: var(--color-text-primary);
+}
+
+.oai-search-card__nlp-hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── 3-column grid for filters ────────────────────────────────────────── */
+.oai-search-card__form-grid--3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .oai-search-tabs {
+    overflow-x: auto;
+  }
+  .oai-search-card__form-grid--3col {
+    grid-template-columns: 1fr;
+  }
+}
 
 .oai-search-page__header {
   margin-bottom: var(--space-6);
