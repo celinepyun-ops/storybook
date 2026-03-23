@@ -394,8 +394,8 @@ const SearchContent = ({ onNavigate }) => {
   return (
     <div style={{ maxWidth: '1200px' }}>
       <div className="oai-search-page__header">
-        <h1 className="oai-search-page__title">Search Products</h1>
-        <p className="oai-search-page__subtitle">Discover growing Amazon products and identify real brands ready for manufacturing partnerships.</p>
+        <h1 className="oai-search-page__title">Find Growing Products</h1>
+        <p className="oai-search-page__subtitle">Discover fast-growing Amazon products ready for manufacturing partnerships.</p>
       </div>
 
       <div className="oai-search-card">
@@ -1224,9 +1224,8 @@ function AppMain() {
         />
       }
       navbar={
-        <Navbar>
-          <Search placeholder="Search products..." onChange={noop} />
-        </Navbar>
+        <Navbar />
+
       }
     >
       {renderContent()}

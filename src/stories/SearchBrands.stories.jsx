@@ -487,15 +487,13 @@ const SearchPage = () => {
         />
       }
       navbar={
-        <Navbar>
-          <Search placeholder="Search products..." onChange={fn()} />
-        </Navbar>
+        <Navbar />
       }
     >
       <div style={{ maxWidth: '1200px' }}>
         <div className="oai-search-page__header">
-          <h1 className="oai-search-page__title">Search Products</h1>
-          <p className="oai-search-page__subtitle">Discover growing Amazon products and identify real brands ready for manufacturing partnerships.</p>
+          <h1 className="oai-search-page__title">Find Growing Products</h1>
+          <p className="oai-search-page__subtitle">Discover fast-growing Amazon products ready for manufacturing partnerships.</p>
         </div>
 
         {/* ── Search Card ──────────────────────────────────────── */}
