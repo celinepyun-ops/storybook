@@ -2607,8 +2607,7 @@
 .oai-lead-drawer__overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 100, 0, 0.06);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 200;
   animation: oai-fadeIn 0.2s ease;
 }
@@ -2867,7 +2866,7 @@
 }
 
 [data-theme="dark"] .oai-lead-drawer__overlay {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .oai-lead-drawer__contact--selected {
