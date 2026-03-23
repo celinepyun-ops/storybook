@@ -2895,6 +2895,67 @@
    SearchPage — Advanced Filters & Brands View
    ========================================================================== */
 
+/* ── Filter Chips ──────────────────────────────────────────────────────── */
+.oai-search-card__filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.oai-search-card__filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-50);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-700);
+}
+
+.oai-search-card__filter-chip-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--color-primary-400);
+  border-radius: 50%;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.oai-search-card__filter-chip-x:hover {
+  color: var(--color-primary-700);
+  background: var(--color-primary-100);
+}
+
+.oai-search-card__filter-chip-clear {
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.oai-search-card__filter-chip-clear:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
 /* ── Filter Toggle ─────────────────────────────────────────────────────── */
 .oai-search-card__filter-toggle-row {
   margin-bottom: var(--space-4);

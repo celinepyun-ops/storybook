@@ -230,6 +230,7 @@ function App() {
       items: [
         { id: 'dashboard', label: 'Dashboard', icon: Icons.dashboard, onClick: () => setPage('dashboard') },
         { id: 'search', label: 'Search', icon: Icons.search, onClick: () => setPage('search') },
+        { id: 'people', label: 'People', icon: Icons.contacts, onClick: () => setPage('people') },
         { id: 'lists', label: 'Lists', icon: Icons.brands, onClick: () => setPage('lists') },
         { id: 'campaigns', label: 'Campaigns', icon: Icons.campaigns, onClick: () => setPage('campaigns') },
         { id: 'analytics', label: 'Analytics', icon: Icons.analytics, onClick: () => setPage('analytics') },

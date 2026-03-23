@@ -53,7 +53,7 @@ export const groupProductsByBrand = (products) => {
   const map = {};
   for (const p of products) {
     if (!map[p.brand]) {
-      map[p.brand] = { brandName: p.brand, productCount: 0, avgSalesRank: 0, totalRevenue: 0, products: [] };
+      map[p.brand] = { brandName: p.brand, productCount: 0, avgSalesRank: 0, totalRevenue: 0, avgGrowth: 0, products: [] };
     }
     map[p.brand].products.push(p);
     map[p.brand].productCount += 1;
@@ -61,6 +61,9 @@ export const groupProductsByBrand = (products) => {
   }
   for (const g of Object.values(map)) {
     g.avgSalesRank = Math.round(g.products.reduce((s, p) => s + p.salesRank, 0) / g.productCount);
+    g.avgGrowth = +(g.products.reduce((s, p) => s + p.growthValue, 0) / g.productCount).toFixed(1);
+    // Heuristic: wholesale if avg rank > 10K (smaller brands likely wholesale-ready)
+    g.channel = g.avgSalesRank > 10000 ? 'Wholesale' : 'Retail';
   }
   return Object.values(map).sort((a, b) => b.totalRevenue - a.totalRevenue);
 };
@@ -125,7 +128,7 @@ const DEFAULT_FILTERS = {
 export const SearchPage = ({ products = MOCK_PRODUCTS }) => {
   const [keyword, setKeyword] = useState('');
   const [activeTab, setActiveTab] = useState('all');
-  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(true);
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [expandedBrand, setExpandedBrand] = useState(null);
 
@@ -192,6 +195,7 @@ export const SearchPage = ({ products = MOCK_PRODUCTS }) => {
             >
               <div className="oai-search-brands__info">
                 <span className="oai-search-brands__name">{group.brandName}</span>
+                <Badge label={group.channel} variant={group.channel === 'Wholesale' ? 'success' : 'warning'} size="small" />
                 <Badge label={`${group.productCount} product${group.productCount > 1 ? 's' : ''}`} variant="info" size="small" />
               </div>
               <div className="oai-search-brands__stats">
@@ -200,6 +204,9 @@ export const SearchPage = ({ products = MOCK_PRODUCTS }) => {
                 </span>
                 <span className="oai-search-brands__stat">
                   Revenue: <strong>{formatRevenue(group.totalRevenue)}</strong>
+                </span>
+                <span className="oai-search-brands__stat">
+                  Growth: <strong style={{ color: group.avgGrowth >= 30 ? 'var(--color-success-600)' : undefined }}>+{group.avgGrowth}%</strong>
                 </span>
                 <svg
                   className={`oai-search-brands__chevron ${expandedBrand === group.brandName ? 'oai-search-brands__chevron--open' : ''}`}
@@ -276,6 +283,43 @@ export const SearchPage = ({ products = MOCK_PRODUCTS }) => {
           <Button variant="primary" size="large" label="Search" onClick={() => {}} />
         </div>
 
+        {/* Active filter chips */}
+        {activeFilterCount > 0 && (
+          <div className="oai-search-card__filter-chips">
+            {filters.salesRankMin && (
+              <span className="oai-search-card__filter-chip">
+                Rank ≥ {Number(filters.salesRankMin).toLocaleString()}
+                <button className="oai-search-card__filter-chip-x" onClick={() => updateFilter('salesRankMin', '')} aria-label="Remove">&times;</button>
+              </span>
+            )}
+            {filters.salesRankMax && (
+              <span className="oai-search-card__filter-chip">
+                Rank ≤ {Number(filters.salesRankMax).toLocaleString()}
+                <button className="oai-search-card__filter-chip-x" onClick={() => updateFilter('salesRankMax', '')} aria-label="Remove">&times;</button>
+              </span>
+            )}
+            {filters.revenueMin && (
+              <span className="oai-search-card__filter-chip">
+                Revenue ≥ ${Number(filters.revenueMin).toLocaleString()}
+                <button className="oai-search-card__filter-chip-x" onClick={() => updateFilter('revenueMin', '')} aria-label="Remove">&times;</button>
+              </span>
+            )}
+            {filters.revenueMax && (
+              <span className="oai-search-card__filter-chip">
+                Revenue ≤ ${Number(filters.revenueMax).toLocaleString()}
+                <button className="oai-search-card__filter-chip-x" onClick={() => updateFilter('revenueMax', '')} aria-label="Remove">&times;</button>
+              </span>
+            )}
+            {filters.growthMin && (
+              <span className="oai-search-card__filter-chip">
+                Growth ≥ {filters.growthMin}%
+                <button className="oai-search-card__filter-chip-x" onClick={() => updateFilter('growthMin', '')} aria-label="Remove">&times;</button>
+              </span>
+            )}
+            <button className="oai-search-card__filter-chip-clear" onClick={resetFilters}>Clear all</button>
+          </div>
+        )}
+
         {/* Filter toggle */}
         <div className="oai-search-card__filter-toggle-row">
           <button
@@ -286,7 +330,7 @@ export const SearchPage = ({ products = MOCK_PRODUCTS }) => {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="4" y1="6" x2="20" y2="6" /><line x1="8" y1="12" x2="20" y2="12" /><line x1="12" y1="18" x2="20" y2="18" />
             </svg>
-            Advanced Filters
+            {filtersOpen ? 'Hide' : 'Show'} Advanced Filters
             {activeFilterCount > 0 && (
               <Badge label={String(activeFilterCount)} variant="info" size="small" />
             )}
