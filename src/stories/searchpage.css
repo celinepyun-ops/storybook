@@ -2629,7 +2629,7 @@
   bottom: 0;
   width: 440px;
   max-width: 90vw;
-  background: var(--color-bg-card);
+  background: #FFFFFF;
   border-left: 1px solid var(--color-border-default);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
   z-index: 201;
@@ -2645,6 +2645,7 @@
   justify-content: space-between;
   padding: var(--space-5) var(--space-6);
   border-bottom: 1px solid var(--color-border-default);
+  background: #FFFFFF;
   flex-shrink: 0;
 }
 
@@ -2680,6 +2681,7 @@
   flex: 1;
   overflow-y: auto;
   padding: var(--space-5) var(--space-6);
+  background: #FFFFFF;
 }
 
 /* Brand summary at top of drawer */
@@ -2810,6 +2812,7 @@
   flex-shrink: 0;
   padding: var(--space-4) var(--space-6);
   border-top: 1px solid var(--color-border-default);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -2862,7 +2865,14 @@
 
 /* Dark mode */
 [data-theme="dark"] .oai-lead-drawer {
+  background: var(--color-neutral-800);
   box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .oai-lead-drawer__header,
+[data-theme="dark"] .oai-lead-drawer__body,
+[data-theme="dark"] .oai-lead-drawer__footer {
+  background: var(--color-neutral-800);
 }
 
 [data-theme="dark"] .oai-lead-drawer__overlay {
