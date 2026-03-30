@@ -128,5 +128,3 @@ AI-ranked composite score based on:
 - Token/credit system
 - Email provider integration (Gmail, Outlook)
 - Template editor
-
-
