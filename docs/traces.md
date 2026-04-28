@@ -1,5 +1,65 @@
 # Traces — Key Product Decisions
 
+## 2026-04-28
+
+### Master User Story Map (Problem → Solution → Feature)
+
+Full reference: `docs/master-problem-feature-sheet.csv`
+
+#### SEARCH — Ryan needs to find growing Amazon products and the right people behind them
+
+1. **Brand-level data hidden in Amazon** → Product table with brand grouping + growth metrics (Sales Rank, Monthly Revenue, Revenue Growth %)
+2. **Keepa queries are technical** → Natural language AI search (open text input → structured filters)
+3. **Exact revenue/growth is unknowable** → Partnership Score (0–100) synthesizing Sales Rank trend, Review Velocity, Price Stability, Brand Stage
+4. **Don't know who to contact at the brand** → People tab linked to selected products (Apollo-style filtered by brand)
+5. **Wrong decision-maker = wasted tokens** → Free preview of email/LinkedIn availability before reveal
+6. **Accidental token burn** → Reveal Email confirmation modal with prominent Cancel (anti-dark-pattern)
+7. **One-by-one search is slow** → Bulk select on People tab with bottom action bar (Add to List, Send Email)
+8. **No lifetime record of revealed contacts** → Saved People page with token usage history + Assigned/Unassigned tabs
+
+#### LISTS — Ryan organizes leads into product-specific lists
+
+1. **Sunscreen vs Neck Cream are different conversations** → Multi-list system with named lists
+2. **Can't isolate replied vs no-reply across 25 contacts** → Salesforce-style chevron pipeline bar + sidebar filter
+3. **Card layout requires too many clicks** → Sortable CRM table (Name, Company, Title, Stage, Priority, List, Date)
+4. **Flat table doesn't show bottlenecks** → Table/Kanban view toggle (5 columns: New → Contacted → Replied → Negotiating → Closed Won)
+5. **Updating stages or exporting CSV one-by-one kills productivity** → Checkbox selection + fixed bottom action bar (Download CSV, Change Stage, Change Priority, Move to List)
+6. **Need full context per contact** → Contact detail drawer (profile + company + notes + actions)
+7. **Same person across multiple lists has different statuses** → Per-list stage tracking (Sarah Chen = Replied in Sunscreen, New in Neck Cream)
+
+#### PIPELINE — Ryan tracks where every contact sits in his outreach funnel
+
+1. **Can't visualize where deals are stuck** → Kanban pipeline board (Email Sent → Replied → In Negotiation → Closed)
+2. **Manager asks "how's it going" and Ryan guesses** → Pipeline subtitle metrics + per-campaign filter
+3. **Card click should give full lead story** → Pipeline contact drawer with company details (industry, size, location, revenue, notes)
+4. **No surface for which replies need attention now** → Reply notification banner at top of Pipeline (clickable → Inbox)
+
+#### EMAIL — Ryan finished listing leads, now sending cold emails and follow-ups
+
+1. **No visibility into tokens / sends / daily cap** → Bulk send mode with token + daily-limit meter
+2. **Stuck in manual follow-up process** → Sequencing filters (Step 1, 2, 3 — if no reply, send this template)
+3. **Can't see what happened across all emails** → Inbox sorted by sentiment priority with stage markers
+4. **Hard to view weekly/monthly progress** → Summary tab with per-campaign breakdown bars
+5. **Personalized emails take too long** → AI Lead Overview + AI-drafted emails (using product list context, contact role, brand growth signals)
+6. **Follow-up drafting is slow, details blur across products** → Auto-drafted follow-ups referencing previous conversation (Open Sequence step 2 → pre-drafted)
+7. **No way to mark replies as positive/negative** → AI Sentiment classification (Positive / Promising / Declined) + reasoning
+8. **Different segments need different messaging** → Campaigns per list (Q2 Sunscreen Launch, Spring Manufacturing Outreach, Q2 Neck Cream Intro, etc.) with own template, cadence, tracking
+9. **Sending all at once triggers spam filters** → Auto-pacing (4–8 min apart, business hours only)
+10. **Want one final review before bulk send** → Confirmation modal with campaign breakdown + token usage + estimated finish time
+
+#### TOKENS — Ryan wants visibility and clear control over spending
+
+1. **Never tells how many tokens left** → Token Balance in navbar + Token History page
+2. **Surprise charges from unclear paid actions** → Pre-deduction modal with explicit cost (Cancel ≥ Confirm visibility)
+3. **Worried about re-charging for same contact** → Idempotent reveal — repeat access is free
+
+#### TASKS / BACKLOG (planned)
+
+1. **End-to-end workflow lives in head** → Tasks page Kanban (Research → Listed → People Found → Outreach Sent → Replied → Closed)
+2. **Search/Lists/Email actions don't connect** → Auto-task creation from upstream actions
+
+---
+
 ## 2026-04-24
 
 ### Email Page — Two Core Problems
