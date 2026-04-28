@@ -66,10 +66,13 @@ const priorityConfig = {
 /* ══════════════════════════════════════════════════════════════════
    SavedListsPage Component — Salesforce-style CRM Table
    ══════════════════════════════════════════════════════════════════ */
-export const SavedListsPage = ({ savedLists: propLists, onAddNewList }) => {
+export const SavedListsPage = ({ savedLists: propLists, onAddNewList, activeCampaign, setActiveCampaign }) => {
   const [contacts] = useState(MOCK_CONTACTS);
   const [viewMode, setViewMode] = useState('table'); // 'table' | 'kanban'
-  const [selectedList, setSelectedList] = useState('All');
+  // Sync selectedList with activeCampaign from parent if provided
+  const [selectedListLocal, setSelectedListLocal] = useState('All');
+  const selectedList = activeCampaign !== undefined ? activeCampaign : selectedListLocal;
+  const setSelectedList = setActiveCampaign || setSelectedListLocal;
   const [listDropdownOpen, setListDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState('name');

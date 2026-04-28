@@ -81,6 +81,75 @@ const sidebarHeader = (
   </div>
 );
 
+/* ── Campaign config (shared across Email/Pipeline/Lists) ─────────── */
+const CAMPAIGNS = [
+  { id: 'All', label: 'All Campaigns', status: 'all' },
+  { id: 'Sunscreen', label: 'Sunscreen', status: 'active', cadence: '7d follow-up', dailyCap: 10 },
+  { id: 'Neck Cream', label: 'Neck Cream', status: 'active', cadence: '7d follow-up', dailyCap: 10 },
+  { id: 'Vitamin C Serum', label: 'Vitamin C Serum', status: 'draft', cadence: '14d follow-up', dailyCap: 5 },
+];
+
+/* CampaignSwitcher — persistent dropdown shown at top of pages */
+const CampaignSwitcher = ({ active, onChange }) => {
+  const [open, setOpen] = useState(false);
+  const current = CAMPAIGNS.find((c) => c.id === active) || CAMPAIGNS[0];
+
+  return (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          display: 'flex', alignItems: 'center', gap: 'var(--space-2)',
+          padding: 'var(--space-2) var(--space-3)',
+          border: '1px solid var(--color-border-default)',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--color-bg-card)',
+          fontFamily: 'var(--font-family-sans)', fontSize: 'var(--font-size-sm)',
+          fontWeight: 'var(--font-weight-medium)', color: 'var(--color-text-primary)',
+          cursor: 'pointer',
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-600)" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+        <span>Viewing:</span>
+        <strong style={{ color: 'var(--color-primary-700)' }}>{current.label}</strong>
+        {current.status === 'active' && <Badge label="Active" variant="success" size="small" />}
+        {current.status === 'draft' && <Badge label="Draft" variant="default" size="small" />}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg>
+      </button>
+      {open && (
+        <div style={{
+          position: 'absolute', top: 'calc(100% + 4px)', left: 0,
+          minWidth: '260px', background: 'var(--color-bg-card)',
+          border: '1px solid var(--color-border-default)', borderRadius: 'var(--radius-md)',
+          boxShadow: 'var(--shadow-lg)', zIndex: 100, overflow: 'hidden',
+        }}>
+          {CAMPAIGNS.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => { onChange(c.id); setOpen(false); }}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%',
+                padding: 'var(--space-2) var(--space-3)', border: 'none',
+                background: c.id === active ? 'var(--color-primary-50)' : 'transparent',
+                textAlign: 'left', cursor: 'pointer', fontFamily: 'var(--font-family-sans)',
+                fontSize: 'var(--font-size-sm)', color: 'var(--color-text-primary)',
+                borderBottom: '1px solid var(--color-border-default)',
+              }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                {c.id === active && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-600)" strokeWidth="2.5"><polyline points="4 12 9 17 20 6" /></svg>}
+                <span style={{ marginLeft: c.id === active ? 0 : 18, fontWeight: c.id === active ? 'var(--font-weight-semibold)' : 'normal' }}>{c.label}</span>
+              </span>
+              {c.status === 'active' && <Badge label="Active" variant="success" size="small" />}
+              {c.status === 'draft' && <Badge label="Draft" variant="default" size="small" />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 /* ── Pipeline data ────────────────────────────────────────────────── */
 const PIPELINE_CONTACTS = [
   { id: 'pc1', name: 'Sarah Chen', title: 'VP of Business Development', company: 'CeraVe', email: 'sarah.chen@cerave.com', list: 'Sunscreen', stage: 'replied', priority: 'High', lastActivity: 'Replied 3 hours ago', initials: 'SC', color: '#6B8E23', companyInfo: { industry: 'Skincare / Sun Care', size: '1,000+', location: 'New York, NY', revenue: '$2.5B (L\'Oreal)', website: 'cerave.com' }, notes: 'Interested in manufacturing partnership. Wants to schedule a call Thursday 2pm PT.' },
@@ -101,12 +170,11 @@ const PIPELINE_STAGES_MAIN = [
 ];
 
 /* ── Page: Pipeline — Kanban Board ───────────────────────────────── */
-const DashboardContent = ({ onNavigate }) => {
+const DashboardContent = ({ onNavigate, activeCampaign, setActiveCampaign }) => {
   const [bannerDismissed, setBannerDismissed] = useState(false);
   const [pipelineDrawer, setPipelineDrawer] = useState(null);
-  const [listFilter, setListFilter] = useState('All');
 
-  const filteredContacts = listFilter === 'All' ? PIPELINE_CONTACTS : PIPELINE_CONTACTS.filter((c) => c.list === listFilter);
+  const filteredContacts = activeCampaign === 'All' ? PIPELINE_CONTACTS : PIPELINE_CONTACTS.filter((c) => c.list === activeCampaign);
 
   return (
     <div style={{ maxWidth: '1200px' }}>
@@ -146,24 +214,7 @@ const DashboardContent = ({ onNavigate }) => {
           <h1 style={{ margin: '0 0 4px', fontSize: '24px', fontWeight: 400, color: 'var(--color-text-primary)', fontFamily: 'var(--font-family-sans)' }}>Pipeline</h1>
           <p style={{ margin: 0, fontFamily: 'var(--font-family-sans)', fontSize: '14px', color: 'var(--color-text-secondary)' }}>{filteredContacts.length} contacts &middot; {filteredContacts.filter((c) => c.stage === 'replied').length} replied &middot; {filteredContacts.filter((c) => c.stage === 'negotiating').length} in negotiation</p>
         </div>
-        {/* List filter pills */}
-        <div style={{ display: 'flex', gap: 'var(--space-1)', alignItems: 'center' }}>
-          {['All', 'Sunscreen', 'Neck Cream', 'Vitamin C Serum'].map((l) => (
-            <button
-              key={l}
-              onClick={() => setListFilter(l)}
-              style={{
-                padding: 'var(--space-1) var(--space-3)', border: '1px solid var(--color-border-default)',
-                borderRadius: 'var(--radius-full)', background: listFilter === l ? 'var(--color-primary-600)' : 'var(--color-bg-card)',
-                color: listFilter === l ? 'white' : 'var(--color-text-secondary)',
-                fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-medium)',
-                fontFamily: 'var(--font-family-sans)', cursor: 'pointer', transition: 'all 0.15s',
-              }}
-            >
-              {l}
-            </button>
-          ))}
-        </div>
+        <CampaignSwitcher active={activeCampaign} onChange={setActiveCampaign} />
       </div>
 
       {/* ── Kanban Board ─────────────────────────────────── */}
@@ -912,7 +963,7 @@ const INBOX_REPLIES = [
   },
 ];
 
-const EmailsContent = () => {
+const EmailsContent = ({ activeCampaign, setActiveCampaign }) => {
   const [activeEmailTab, setActiveEmailTab] = useState('summary');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedSignal, setExpandedSignal] = useState(1);
@@ -957,7 +1008,6 @@ const EmailsContent = () => {
   const currentEmail = reviewQueue[currentIndex];
 
   const EMAIL_LISTS = ['All', 'Sunscreen', 'Neck Cream', 'Vitamin C Serum'];
-  const [emailListFilter, setEmailListFilter] = useState('All');
   const [emailSidebarVisible, setEmailSidebarVisible] = useState(true);
 
   return (
@@ -975,8 +1025,8 @@ const EmailsContent = () => {
           {EMAIL_LISTS.map((listName) => (
             <button
               key={listName}
-              className={`oai-sp-progress__context-item ${emailListFilter === listName ? 'oai-sp-progress__context-item--active' : ''}`}
-              onClick={() => setEmailListFilter(listName)}
+              className={`oai-sp-progress__context-item ${activeCampaign === listName ? 'oai-sp-progress__context-item--active' : ''}`}
+              onClick={() => setActiveCampaign(listName)}
             >
               <span className="oai-sp-progress__context-name">{listName}</span>
             </button>
@@ -1041,7 +1091,10 @@ const EmailsContent = () => {
               <p className="oai-sp-main__subtitle" style={{ margin: 0 }}>{approvedCount} / 35 sent today &middot; {unreadCount} new {unreadCount === 1 ? 'reply' : 'replies'}</p>
             </div>
           </div>
-          <Button variant="primary" size="small" label="Connect Email" onClick={noop} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+            <CampaignSwitcher active={activeCampaign} onChange={setActiveCampaign} />
+            <Button variant="primary" size="small" label="Connect Email" onClick={noop} />
+          </div>
         </div>
 
         {/* Tabs + Search in one row */}
@@ -1462,6 +1515,8 @@ function AppMain() {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  // Campaign filter — persisted across Email / Pipeline / Lists pages
+  const [activeCampaign, setActiveCampaign] = useState('All');
 
   // Shared saved lists state
   const [savedLists, setSavedLists] = useState([
@@ -1601,12 +1656,12 @@ function AppMain() {
 
   const renderContent = () => {
     switch (page) {
-      case 'pipeline': return <DashboardContent onNavigate={navigate} />;
+      case 'pipeline': return <DashboardContent onNavigate={navigate} activeCampaign={activeCampaign} setActiveCampaign={setActiveCampaign} />;
       case 'search': return <SearchPage savedLists={savedLists} onAddNewList={addNewList} onAddProductsToList={addProductsToList} />;
-      case 'lists': return <SavedListsPage savedLists={savedLists} onAddNewList={addNewList} />;
+      case 'lists': return <SavedListsPage savedLists={savedLists} onAddNewList={addNewList} activeCampaign={activeCampaign} setActiveCampaign={setActiveCampaign} />;
       case 'tasks': return <TasksPage />;
       case 'people': return <PeopleContent onNavigate={navigate} />;
-      case 'emails': return <EmailsContent />;
+      case 'emails': return <EmailsContent activeCampaign={activeCampaign} setActiveCampaign={setActiveCampaign} />;
       case 'templates': return <TemplatesContent />;
       default: return <NotFound onBackClick={() => navigate('pipeline')} />;
     }
