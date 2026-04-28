@@ -774,7 +774,7 @@ export const SearchPage = ({ products = MOCK_PRODUCTS, savedLists = [], onAddNew
             <div className="oai-sp-search__actions">
               <button className="oai-sp-search__action-btn oai-sp-search__action-btn--ai" onClick={() => setAiMode(true)}>
                 {Icons.sparkle}
-                <span>AI-powered</span>
+                <span>Advanced search</span>
               </button>
 <button className="oai-sp-search__action-btn">
                 {FilterIcons.sort}
@@ -790,8 +790,8 @@ export const SearchPage = ({ products = MOCK_PRODUCTS, savedLists = [], onAddNew
           <div className="oai-sp-ai-search">
             <div className="oai-sp-ai-search__header">
               <span className="oai-sp-ai-search__sparkle">{Icons.sparkle}</span>
-              <span className="oai-sp-ai-search__title">AI Search</span>
-              <button className="oai-sp-ai-search__close" onClick={() => setAiMode(false)} aria-label="Close AI search">
+              <span className="oai-sp-ai-search__title">Advanced search</span>
+              <button className="oai-sp-ai-search__close" onClick={() => setAiMode(false)} aria-label="Close advanced search">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
               </button>
             </div>

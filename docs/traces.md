@@ -9,7 +9,7 @@ Full reference: `docs/master-problem-feature-sheet.csv`
 #### SEARCH — Ryan needs to find growing Amazon products and the right people behind them
 
 1. **Brand-level data hidden in Amazon** → Product table with brand grouping + growth metrics (Sales Rank, Monthly Revenue, Revenue Growth %)
-2. **Keepa queries are technical** → Natural language AI search (open text input → structured filters)
+2. **Keepa queries are technical** → Natural language advanced search (open text input → structured filters)
 3. **Exact revenue/growth is unknowable** → Partnership Score (0–100) synthesizing Sales Rank trend, Review Velocity, Price Stability, Brand Stage
 4. **Don't know who to contact at the brand** → People tab linked to selected products (Apollo-style filtered by brand)
 5. **Wrong decision-maker = wasted tokens** → Free preview of email/LinkedIn availability before reveal
@@ -42,7 +42,7 @@ Full reference: `docs/master-problem-feature-sheet.csv`
 4. **Hard to view weekly/monthly progress** → Summary tab with per-campaign breakdown bars
 5. **Personalized emails take too long** → AI Lead Overview + AI-drafted emails (using product list context, contact role, brand growth signals)
 6. **Follow-up drafting is slow, details blur across products** → Auto-drafted follow-ups referencing previous conversation (Open Sequence step 2 → pre-drafted)
-7. **No way to mark replies as positive/negative** → AI Sentiment classification (Positive / Promising / Declined) + reasoning
+7. **No way to mark replies as positive/negative** → Sentiment classification (Positive / Promising / Declined) + reasoning
 8. **Different segments need different messaging** → Campaigns per list (Q2 Sunscreen Launch, Spring Manufacturing Outreach, Q2 Neck Cream Intro, etc.) with own template, cadence, tracking
 9. **Sending all at once triggers spam filters** → Auto-pacing (4–8 min apart, business hours only)
 10. **Want one final review before bulk send** → Confirmation modal with campaign breakdown + token usage + estimated finish time

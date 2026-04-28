@@ -1406,11 +1406,11 @@ const EmailsContent = ({ activeCampaign, setActiveCampaign }) => {
                 </div>
               </div>
 
-              {/* AI Sentiment Insight */}
+              {/* Sentiment Insight */}
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-2)', padding: 'var(--space-3)', background: 'var(--color-primary-50)', border: '1px solid var(--color-primary-200)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-3)', fontFamily: 'var(--font-family-sans)' }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-primary-600)" style={{ flexShrink: 0, marginTop: '1px' }}><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z" /></svg>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-primary-700)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AI Sentiment</div>
+                  <div style={{ fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-primary-700)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Sentiment</div>
                   <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-primary)', lineHeight: 1.5 }}>{selectedReply.sentimentReason}</div>
                 </div>
               </div>
