@@ -734,7 +734,7 @@ const SearchPage = () => {
 };
 
 export default {
-  title: 'Pages/Search',
+  title: 'Pages/Search Brands',
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },
 };
