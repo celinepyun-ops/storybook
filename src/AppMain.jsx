@@ -1088,6 +1088,14 @@ const EmailsContent = ({ activeCampaign, setActiveCampaign }) => {
   const currentEmail = reviewQueue[currentIndex];
 
   const EMAIL_LISTS = ['All', 'Sunscreen', 'Neck Cream', 'Vitamin C Serum'];
+  const EMAIL_CAMPAIGNS = [
+    { id: 'q2-sunscreen', name: 'Q2 Sunscreen Launch', list: 'Sunscreen', status: 'active', stats: '5 sent · 2 replied' },
+    { id: 'spring-mfg', name: 'Spring Manufacturing Outreach', list: 'Sunscreen', status: 'active', stats: '3 sent · 1 replied' },
+    { id: 'q2-neckcream', name: 'Q2 Neck Cream Intro', list: 'Neck Cream', status: 'active', stats: '2 sent · 1 reply' },
+    { id: 'vitamin-spring', name: 'Vitamin C Spring 2026', list: 'Vitamin C Serum', status: 'draft', stats: 'Not started' },
+  ];
+  const [sidebarFolded, setSidebarFolded] = useState({ lists: false, campaigns: false, today: false });
+  const toggleFold = (key) => setSidebarFolded((prev) => ({ ...prev, [key]: !prev[key] }));
   const [emailSidebarVisible, setEmailSidebarVisible] = useState(true);
 
   return (
@@ -1099,54 +1107,81 @@ const EmailsContent = ({ activeCampaign, setActiveCampaign }) => {
           <span className="oai-sp-filters__title">Emails</span>
         </div>
 
-        {/* Lists */}
-        <div className="oai-sp-progress__context" style={{ borderBottom: 'none', paddingTop: 'var(--space-2)' }}>
-          <div style={{ fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', padding: 'var(--space-1) var(--space-3)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Lists</div>
-          {EMAIL_LISTS.map((listName) => (
-            <button
-              key={listName}
-              className={`oai-sp-progress__context-item ${activeCampaign === listName ? 'oai-sp-progress__context-item--active' : ''}`}
-              onClick={() => setActiveCampaign(listName)}
-            >
-              <span className="oai-sp-progress__context-name">{listName}</span>
-            </button>
-          ))}
+        {/* Lists — collapsible */}
+        <div style={{ borderBottom: '1px solid var(--color-border-default)' }}>
+          <button onClick={() => toggleFold('lists')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: 'var(--space-3) var(--space-3) var(--space-2)', background: 'none', border: 'none', cursor: 'pointer', fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-family-sans)' }}>
+            <span>Lists</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: sidebarFolded.lists ? 'rotate(-90deg)' : 'rotate(0)', transition: 'transform 0.15s' }}><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          {!sidebarFolded.lists && (
+            <div style={{ paddingBottom: 'var(--space-2)' }}>
+              {EMAIL_LISTS.map((listName) => (
+                <button
+                  key={listName}
+                  className={`oai-sp-progress__context-item ${activeCampaign === listName ? 'oai-sp-progress__context-item--active' : ''}`}
+                  onClick={() => setActiveCampaign(listName)}
+                >
+                  <span className="oai-sp-progress__context-name">{listName}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Campaigns */}
-        <div style={{ padding: 'var(--space-4)', borderTop: '1px solid var(--color-border-default)' }}>
-          <div style={{ fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Campaigns</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) var(--space-2)', borderRadius: 'var(--radius-sm)' }}>
-              <span>Sunscreen Outreach</span>
-              <Badge label="Active" variant="success" size="small" />
+        {/* Campaigns — collapsible */}
+        <div style={{ borderBottom: '1px solid var(--color-border-default)' }}>
+          <button onClick={() => toggleFold('campaigns')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: 'var(--space-3) var(--space-3) var(--space-2)', background: 'none', border: 'none', cursor: 'pointer', fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-family-sans)' }}>
+            <span>Campaigns</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: sidebarFolded.campaigns ? 'rotate(-90deg)' : 'rotate(0)', transition: 'transform 0.15s' }}><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          {!sidebarFolded.campaigns && (
+            <div style={{ padding: '0 var(--space-3) var(--space-3)', display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              {EMAIL_CAMPAIGNS.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => setActiveCampaign(c.list)}
+                  style={{
+                    display: 'flex', flexDirection: 'column', gap: '2px',
+                    padding: 'var(--space-2)', border: '1px solid var(--color-border-default)',
+                    borderRadius: 'var(--radius-md)', background: activeCampaign === c.list ? 'var(--color-primary-50)' : 'var(--color-bg-card)',
+                    cursor: 'pointer', textAlign: 'left', fontFamily: 'var(--font-family-sans)',
+                    transition: 'background 0.15s, border-color 0.15s',
+                    borderColor: activeCampaign === c.list ? 'var(--color-primary-500)' : 'var(--color-border-default)',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'var(--space-1)' }}>
+                    <span style={{ fontSize: 'var(--font-size-sm)', fontWeight: 'var(--font-weight-medium)', color: 'var(--color-text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.name}</span>
+                    <Badge label={c.status === 'active' ? 'Active' : 'Draft'} variant={c.status === 'active' ? 'success' : 'default'} size="small" />
+                  </div>
+                  <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-text-muted)' }}>{c.list} &middot; {c.stats}</div>
+                </button>
+              ))}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) var(--space-2)', borderRadius: 'var(--radius-sm)' }}>
-              <span>Neck Cream Intro</span>
-              <Badge label="Active" variant="success" size="small" />
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) var(--space-2)', borderRadius: 'var(--radius-sm)', color: 'var(--color-text-muted)' }}>
-              <span>Vitamin C Follow-up</span>
-              <Badge label="Draft" variant="default" size="small" />
-            </div>
-          </div>
+          )}
         </div>
 
-        {/* Quick Stats */}
-        <div style={{ padding: 'var(--space-4)', borderTop: '1px solid var(--color-border-default)' }}>
-          <div style={{ fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Today</div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0' }}>
-            <span>Sent</span>
-            <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{approvedCount} / 35</span>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0' }}>
-            <span>Replies</span>
-            <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{unreadCount}</span>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0' }}>
-            <span>In Queue</span>
-            <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{reviewQueue.length}</span>
-          </div>
+        {/* Today — collapsible */}
+        <div>
+          <button onClick={() => toggleFold('today')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: 'var(--space-3) var(--space-3) var(--space-2)', background: 'none', border: 'none', cursor: 'pointer', fontSize: 'var(--font-size-xs)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-family-sans)' }}>
+            <span>Today</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: sidebarFolded.today ? 'rotate(-90deg)' : 'rotate(0)', transition: 'transform 0.15s' }}><polyline points="6 9 12 15 18 9" /></svg>
+          </button>
+          {!sidebarFolded.today && (
+            <div style={{ padding: '0 var(--space-3) var(--space-3)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0', fontFamily: 'var(--font-family-sans)' }}>
+                <span>Sent</span>
+                <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{approvedCount} / 35</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0', fontFamily: 'var(--font-family-sans)' }}>
+                <span>Replies</span>
+                <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{unreadCount}</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', padding: 'var(--space-1) 0', fontFamily: 'var(--font-family-sans)' }}>
+                <span>In Queue</span>
+                <span style={{ fontWeight: 'var(--font-weight-semibold)' }}>{reviewQueue.length}</span>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
       )}
